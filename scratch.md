@@ -1,8 +1,9 @@
 npx sequelize model:generate --name Image --attributes userId:integer,imageUrl:string,favoritedCount:integer
 
+npx sequelize model:generate --name Favorite --attributes userId:integer,imageId:integer
+
 npx sequelize model:generate --name Profile --attributes userId:integer,profilePic:string,location:string,description:text
 
-npx sequelize model:generate --name Favorite --attributes userId:integer,imageId:integer
 
 npx sequelize model:generate --name Review --attributes userId:integer,artistId:integer,reviewText:text,rating:integer
 
