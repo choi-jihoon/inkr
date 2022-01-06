@@ -10,3 +10,8 @@ npx sequelize model:generate --name Review --attributes userId:integer,artistId:
 npx sequelize model:generate --name Role --attributes name:string
 
 npx sequelize model:generate --name UserRole --attributes userId:integer,roleId:integer
+
+
+
+
+npx sequelize seed:generate --name image-seeds
