@@ -22,6 +22,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         defaultValue: 0,
       },
+      tags: {
+        type: Sequelize.ARRAY(Sequelize.TEXT),
+        defaultValue: []
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

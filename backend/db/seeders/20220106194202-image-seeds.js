@@ -6,11 +6,13 @@ module.exports = {
     return queryInterface.bulkInsert('Images', [
       {
         userId: 4,
-        imageUrl: '/images/tat-01.jpg'
+        imageUrl: '/images/tat-01.jpg',
+        tags: ['mushroom']
       },
       {
         userId: 4,
-        imageUrl: '/images/tat-02.jpg'
+        imageUrl: '/images/tat-02.jpg',
+        tags: ['animal', 'octopus']
       },
       {
         userId: 4,
@@ -18,15 +20,18 @@ module.exports = {
       },
       {
         userId: 4,
-        imageUrl: '/images/tat-04.jpg'
+        imageUrl: '/images/tat-04.jpg',
+        tags: ['animal', 'snake']
       },
       {
         userId: 4,
-        imageUrl: '/images/tat-05.jpg'
+        imageUrl: '/images/tat-05.jpg',
+        tags: ['animal', 'snake']
       },
       {
         userId: 4,
-        imageUrl: '/images/art-01.jpg'
+        imageUrl: '/images/art-01.jpg',
+        tags: ['concept']
       },
       {
         userId: 4,
@@ -34,11 +39,13 @@ module.exports = {
       },
       {
         userId: 4,
-        imageUrl: '/images/art-03.jpg'
+        imageUrl: '/images/art-03.jpg',
+        tags: ['concept']
       },
       {
         userId: 4,
-        imageUrl: '/images/art-04.jpg'
+        imageUrl: '/images/art-04.jpg',
+        tags: ['concept']
       },
     ], {});
   },

@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.INTEGER,
       defaultValue: 0,
+    },
+    tags: {
+      type: DataTypes.ARRAY(DataTypes.TEXT),
+      defaultValue: []
     }
   }, {});
   Image.associate = function(models) {
