@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from 'react-router-dom';
 import { postImage } from "../../store/images";
 
 function ImageForm({showModal}) {
   const dispatch = useDispatch();
-  const history = useHistory();
   const [imageUrl, setImageUrl] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
   const sessionUser = useSelector(state => state.session.user);
@@ -17,13 +15,10 @@ function ImageForm({showModal}) {
         userId: sessionUser.id,
         imageUrl
     }
-
-    const newImage = await dispatch(postImage(payload));
-    if (newImage) {
-        showModal(false)
-        history.push('/');
-    }
+    dispatch(postImage(payload));
+    showModal(false)
   };
+
 
   useEffect(() => {
     const errors = [];

@@ -1,32 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { getImages, getAllImages } from '../../store/images';
+import { getImages } from '../../store/images';
 import ImageFormModal from '../PostImageModal';
+import ImageDetail from "../ImageDetail";
 
 import './UserHomePage.css';
 
 function UserHomePage({ user }) {
     const dispatch = useDispatch();
-    const imagesArr = useSelector(getAllImages);
+
+    const imagesObject = useSelector((state) => state.images);
+    const images = Object.values(imagesObject);
 
     useEffect(() => {
-        dispatch(getImages());
+        setTimeout(() => {
+            dispatch(getImages());
+        }, 100)
     }, [dispatch]);
 
-    if (!imagesArr) {
-        return null;
-    }
 
     return (
         <div>
             <h1>User Home Page</h1>
             <ImageFormModal />
             <div>
-                {imagesArr.map((image) => {
-                    return (
-                        <img className='grid-image' key={image.id} src={image.imageUrl} alt='hello'></img>
-                    )
-                })}
+                {images.map((image) => (
+                    <ImageDetail key={image.id} image={image} />
+                ))}
             </div>
         </div>
     )
