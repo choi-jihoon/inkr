@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { getImages, getAllImages } from '../../store/images';
+import ImageFormModal from '../PostImageModal';
 
 import './UserHomePage.css';
 
@@ -19,11 +20,14 @@ function UserHomePage({ user }) {
     return (
         <div>
             <h1>User Home Page</h1>
-            {imagesArr.map((image) => {
-                return (
+            <ImageFormModal />
+            <div>
+                {imagesArr.map((image) => {
+                    return (
                         <img className='grid-image' key={image.id} src={image.imageUrl} alt='hello'></img>
-                )
-            })}
+                    )
+                })}
+            </div>
         </div>
     )
 }

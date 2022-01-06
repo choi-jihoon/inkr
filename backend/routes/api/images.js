@@ -23,7 +23,7 @@ router.post(
     '/',
     asyncHandler(async function (req, res) {
         const newImage = await Image.create(req.body);
-        res.json({ newImage })
+        res.json({ newImage });
     })
 )
 
