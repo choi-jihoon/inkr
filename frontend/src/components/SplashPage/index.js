@@ -1,13 +1,29 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import React from "react";
+import SignupFormModal from "../SignupFormModal";
+import Footer from "../Footer";
 
 import './SplashPage.css';
 
 function SplashPage() {
     return (
-        <div>
-            <h1>SplashPage</h1>
-        </div>
+        <>
+            <div className="body-text">
+                <h1>Find your inspiration.</h1>
+
+                <h3>Join the Inkr community, home to tattoo artists and enthusiasts.</h3>
+
+                <h4>"Tattoos have a power and magic all their own. They decorate the body but they also enhance the soul." - Michele Delio</h4>
+
+                <SignupFormModal />
+            </div>
+
+            <ul className="cb-slideshow">
+                <li><span>Image 01</span></li>
+                <li><span>Image 02</span></li>
+                <li><span>Image 03</span></li>
+            </ul>
+            <Footer />
+        </>
     )
 }
 

@@ -1,0 +1,36 @@
+footer {
+    z-index: 5;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    height: 5rem;
+    flex-direction: column;
+}
+
+.foot-stuff {
+    display: flex;
+    padding: 10px 24px;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    border-bottom: 1px grey solid;
+}
+
+.foot-stuff li {
+    color: white;
+    font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+    font-size: small;
+}
+
+.copyright {
+    color: white;
+    font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+    padding: 10px 0px;
+    font-size: small;
+}

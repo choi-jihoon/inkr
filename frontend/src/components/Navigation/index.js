@@ -41,7 +41,7 @@ function Navigation({ isLoaded }) {
         </div>
 
         <div className='navbar-element' id='center-container'>
-          hey what's up
+          maybe a search bar here
         </div>
 
         <div className='navbar-element' id='right-container'>
