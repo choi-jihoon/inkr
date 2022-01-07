@@ -28,6 +28,9 @@ function App() {
           <Route path='/my-portfolio'>
             <MyPortfolio />
           </Route>
+          <Route>
+            Page Not Found.
+          </Route>
         </Switch>
       )}
     </>

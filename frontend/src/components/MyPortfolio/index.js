@@ -1,14 +1,21 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { getArtistImages } from '../../store/artist';
 import EditPostModal from '../EditPostModal';
 
 import './MyPortfolio.css';
 
 const MyPortfolio = () => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+
     const sessionUser = useSelector(state => state.session.user);
 
-    const dispatch = useDispatch();
+    if (!sessionUser) {
+        history.push('/');
+    }
+
 
     const artistImagesObject = useSelector((state) => state.artist);
     const artistImages = Object.values(artistImagesObject);
