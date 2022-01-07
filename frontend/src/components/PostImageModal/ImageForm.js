@@ -5,6 +5,7 @@ import { postImage } from "../../store/images";
 function ImageForm({showModal}) {
   const dispatch = useDispatch();
   const [imageUrl, setImageUrl] = useState('');
+  const [tags, setTags] = useState([])
   const [validationErrors, setValidationErrors] = useState([]);
   const sessionUser = useSelector(state => state.session.user);
 
@@ -13,7 +14,8 @@ function ImageForm({showModal}) {
 
     const payload = {
         userId: sessionUser.id,
-        imageUrl
+        imageUrl,
+        tags
     }
     dispatch(postImage(payload));
     showModal(false)
@@ -41,6 +43,15 @@ function ImageForm({showModal}) {
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
           required
+        />
+      </label>
+      <label>
+        Tags
+        <input
+          type="text"
+          value={tags}
+          onChange={(e) => setTags((e.target.value).split(','))}
+          placeholder="Separate tags by commas, no spaces. e.g. 'color,animal'"
         />
       </label>
       <button
