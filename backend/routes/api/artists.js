@@ -8,24 +8,20 @@ const { Image, User, Favorite } = require('../../db/models');
 
 const router = express.Router();
 
-router.get('/', asyncHandler(async function (_req, res) {
+router.get('/:id(\\d+)/images', asyncHandler(async function (req, res) {
     const images = await Image.findAll({
+        where: {
+            userId: req.params.id
+        },
         include: [
             { model: User },
             { model: Favorite }
         ]
     })
-
     res.json({ images });
 }))
 
-router.post(
-    '/',
-    asyncHandler(async function (req, res) {
-        const image = await Image.create(req.body);
-        res.json(image);
-    })
-)
+
 
 
 

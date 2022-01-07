@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
 import { getImages } from '../../store/images';
 import ImageFormModal from '../PostImageModal';
 import ImageDetail from "../ImageDetail";
@@ -11,6 +12,8 @@ function UserHomePage({ user }) {
 
     const imagesObject = useSelector((state) => state.images);
     const images = Object.values(imagesObject);
+    console.log('IMAGES', images)
+    console.log('IMAGEOBJECT', imagesObject)
 
     useEffect(() => {
         setTimeout(() => {
@@ -24,7 +27,7 @@ function UserHomePage({ user }) {
             <h1>User Home Page</h1>
             <ImageFormModal />
             <div>
-                {images.map((image) => (
+                {images?.map((image) => (
                     <ImageDetail key={image.id} image={image} />
                 ))}
             </div>

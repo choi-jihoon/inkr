@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import MainView from "./components/MainView";
+import ArtistPortfolio from "./components/ArtistPortfolio";
 
 function App() {
   const dispatch = useDispatch();
@@ -16,7 +17,14 @@ function App() {
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
-        <MainView />
+        <Switch>
+          <Route exact path='/'>
+            <MainView />
+          </Route>
+          <Route path='/artists/:artistId'>
+            <ArtistPortfolio />
+          </Route>
+        </Switch>
       )}
     </>
   );

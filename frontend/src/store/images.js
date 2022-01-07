@@ -34,9 +34,9 @@ export const postImage = (data) => async (dispatch) => {
     });
 
     if (response.ok) {
-        const newImage = await response.json();
-        dispatch(create(newImage));
-        return newImage;
+        const image = await response.json();
+        dispatch(create(image));
+        return image;
     } else {
         const errors = await response.json();
         console.log(errors.errors);
@@ -59,6 +59,7 @@ const imageReducer = (state = initialState, action) => {
         }
 
         case CREATE: {
+            console.log(action.image)
             const newState = {
                 ...state,
                 [action.image.id]: action.image
