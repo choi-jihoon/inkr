@@ -12,8 +12,6 @@ function UserHomePage({ user }) {
 
     const imagesObject = useSelector((state) => state.images);
     const images = Object.values(imagesObject);
-    console.log('IMAGES', images)
-    console.log('IMAGEOBJECT', imagesObject)
 
     useEffect(() => {
         setTimeout(() => {
