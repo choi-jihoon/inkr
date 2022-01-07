@@ -48,7 +48,10 @@ export const postImage = (data) => async (dispatch) => {
 
 
 
-const initialState = {};
+const initialState = {
+    images: {},
+    order: []
+};
 
 const imageReducer = (state = initialState, action) => {
     switch (action.type) {

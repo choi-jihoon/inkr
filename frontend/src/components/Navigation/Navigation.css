@@ -1,0 +1,41 @@
+
+header {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    background-color: rgba(0,0,0, 0.4);
+    position: relative;
+}
+
+.nav-bar {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    width: 95%;
+    padding: 24px 0;
+}
+
+.inkr-dots,
+.inkr-logo {
+    height: 21.62px;
+    padding: 0 2px;
+}
+
+.navbar-element {
+    display: flex;
+}
+
+
+#right-container {
+    display: flex;
+    justify-content: space-around;
+    height: 20px;
+    align-items: center;
+}
+
+
+.session-links {
+    display: flex;
+    align-items: center;
+}

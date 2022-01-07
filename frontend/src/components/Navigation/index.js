@@ -6,7 +6,7 @@ import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import './Navigation.css';
 
-function Navigation({ isLoaded }){
+function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
 
   let sessionLinks;
@@ -20,19 +20,37 @@ function Navigation({ isLoaded }){
   } else {
     sessionLinks = (
       <>
-        <LoginFormModal />
-        <SignupFormModal />
+        <li id='login'>
+          <LoginFormModal />
+        </li>
+        <li id='signup'>
+          <SignupFormModal />
+        </li>
       </>
     );
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
+    <header>
+      <nav className='nav-bar'>
+        <div className='navbar-element' id='left-container'>
+          <NavLink exact to="/">
+            <img className='inkr-dots' src='/images/black-and-white.png' alt='inkr dots'></img>
+            <img className='inkr-logo' src='/images/logotype.svg' alt='inkr logo'></img>
+          </NavLink>
+        </div>
+
+        <div className='navbar-element' id='center-container'>
+          hey what's up
+        </div>
+
+        <div className='navbar-element' id='right-container'>
+          <ul className='session-links'>
+            {isLoaded && sessionLinks}
+          </ul>
+        </div>
+      </nav>
+    </header>
   );
 }
 

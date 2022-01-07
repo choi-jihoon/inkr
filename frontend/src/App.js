@@ -7,6 +7,8 @@ import MainView from "./components/MainView";
 import ArtistPortfolio from "./components/ArtistPortfolio";
 import MyPortfolio from "./components/MyPortfolio";
 
+import './index.css'
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
