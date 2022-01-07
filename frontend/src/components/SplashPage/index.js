@@ -14,7 +14,6 @@ function SplashPage() {
 
                 <h4>"Tattoos have a power and magic all their own. They decorate the body but they also enhance the soul." - Michele Delio</h4>
 
-                <SignupFormModal />
             </div>
 
             <ul className="cb-slideshow">

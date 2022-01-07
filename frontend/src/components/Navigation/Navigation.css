@@ -21,6 +21,7 @@ header {
 .inkr-logo {
     height: 21.62px;
     padding: 0 2px;
+    cursor: pointer;
 }
 
 .navbar-element {

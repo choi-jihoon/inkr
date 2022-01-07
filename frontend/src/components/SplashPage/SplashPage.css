@@ -10,33 +10,22 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     top: 33%;
-
     margin: 0 25% 25%;
-    /* margin-left: 25%; */
     position: absolute;
     text-align: center;
     z-index: 500;
     color: #fff;
-
-
-    /* display: block; */
     opacity: 1;
-
-
-    /* animation: titleAnimation 3s linear infinite 0s; */
 }
-.body-text h1 {
-    /* z-index: 1000; */
 
+.body-text h1 {
     z-index: 500;
     opacity: 1;
     font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
     font-size: 56px;
     padding: 0;
     margin: 24.12px 0px 5px;
-    /* line-height: 56px; */
     font-weight: 600;
 }
 
@@ -75,7 +64,7 @@ body {
 
 
 
-
+/* %%%%%%%%%%%%%%%%%%%%% Slideshow animation %%%%%%%%%%%%%%%%%%%%% */
 
 .cb-slideshow {
     position: fixed;
