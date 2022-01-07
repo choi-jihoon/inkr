@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 const LOAD = 'images/LOAD';
 
+
 export const getAllArtistImages = (state) => Object.values(state.images);
 
 const load = (images) => ({

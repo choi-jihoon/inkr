@@ -5,6 +5,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import MainView from "./components/MainView";
 import ArtistPortfolio from "./components/ArtistPortfolio";
+import MyPortfolio from "./components/MyPortfolio";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path='/artists/:artistId'>
             <ArtistPortfolio />
+          </Route>
+          <Route path='/my-portfolio'>
+            <MyPortfolio />
           </Route>
         </Switch>
       )}

@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 const LOAD = 'images/LOAD';
 const CREATE = 'images/CREATE';
 
+
 export const getAllImages = (state) => Object.values(state.images);
 
 const load = (images) => ({
@@ -14,6 +15,8 @@ const create = (image) => ({
     type: CREATE,
     image
 })
+
+
 
 export const getImages = () => async (dispatch) => {
     const response = await csrfFetch(`/api/images`);
@@ -42,6 +45,7 @@ export const postImage = (data) => async (dispatch) => {
         console.log(errors.errors);
     }
 }
+
 
 const initialState = {};
 

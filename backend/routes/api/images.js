@@ -27,6 +27,13 @@ router.post(
     })
 )
 
+router.patch(
+    '/:id(\\d+)',
+    asyncHandler(async function (req, res) {
+        const image = await Image.update(req.body);
+        res.json(image);
+    })
+)
 
 
 
