@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { getArtistImages } from '../../store/artist';
 import EditPostModal from '../EditPostModal';
+import DeletePostModal from '../DeletePostModal';
 
 import './MyPortfolio.css';
 
@@ -40,6 +41,8 @@ const MyPortfolio = () => {
                             <img className='grid-image' id={image?.id} key={image?.id} src={image.imageUrl} alt='i belong to me'></img>
                             <p key={image}>{tagString}</p>
                             <EditPostModal image={image} id={image.id} />
+                            <DeletePostModal image={image} id={image.id} />
+
                         </>
 
                     )
