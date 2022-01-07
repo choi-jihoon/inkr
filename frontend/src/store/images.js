@@ -47,6 +47,7 @@ export const postImage = (data) => async (dispatch) => {
 }
 
 
+
 const initialState = {};
 
 const imageReducer = (state = initialState, action) => {
@@ -63,7 +64,6 @@ const imageReducer = (state = initialState, action) => {
         }
 
         case CREATE: {
-            console.log(action.image)
             const newState = {
                 ...state,
                 [action.image.id]: action.image

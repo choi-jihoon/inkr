@@ -14,9 +14,7 @@ function UserHomePage({ user }) {
     const images = Object.values(imagesObject);
 
     useEffect(() => {
-        setTimeout(() => {
-            dispatch(getImages());
-        }, 100)
+        dispatch(getImages());
     }, [dispatch]);
 
 

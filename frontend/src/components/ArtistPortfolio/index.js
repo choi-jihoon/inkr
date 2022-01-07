@@ -22,10 +22,16 @@ const ArtistPortfolio = () => {
             <h2>{artist?.username}'s Portfolio</h2>
             <div>
                 {artistImages.map((image) => {
+                    let tagString;
+                    if (image.tags) {
+                        tagString = image.tags;
+                        tagString = tagString.map((tag) => `#${tag}`)
+                        tagString = tagString.join(', ')
+                    }
                     return (
                         <>
                             <img className='grid-image' id={image.id} key={image.id} src={image.imageUrl} alt='i belong to an artist'></img>
-                            <p key={image}>{image.tags}</p>
+                            <p key={image}>{tagString}</p>
                         </>
 
                     )

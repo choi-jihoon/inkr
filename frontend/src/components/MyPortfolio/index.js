@@ -1,11 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getArtistImages } from '../../store/artist';
+import EditPostModal from '../EditPostModal';
 
 import './MyPortfolio.css';
 
 const MyPortfolio = () => {
     const sessionUser = useSelector(state => state.session.user);
+
     const dispatch = useDispatch();
 
     const artistImagesObject = useSelector((state) => state.artist);
@@ -30,6 +32,7 @@ const MyPortfolio = () => {
                         <>
                             <img className='grid-image' id={image?.id} key={image?.id} src={image.imageUrl} alt='i belong to me'></img>
                             <p key={image}>{tagString}</p>
+                            <EditPostModal image={image} id={image.id} />
                         </>
 
                     )

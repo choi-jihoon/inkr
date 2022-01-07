@@ -16,7 +16,8 @@ router.get('/:id(\\d+)/images', asyncHandler(async function (req, res) {
         include: [
             { model: User },
             { model: Favorite }
-        ]
+        ],
+        order: [['createdAt', 'DESC']]
     })
     res.json({ images });
 }))

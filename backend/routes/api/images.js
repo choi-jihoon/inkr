@@ -13,7 +13,8 @@ router.get('/', asyncHandler(async function (_req, res) {
         include: [
             { model: User },
             { model: Favorite }
-        ]
+        ],
+        order: [['createdAt', 'DESC']]
     })
 
     res.json({ images });
@@ -27,10 +28,16 @@ router.post(
     })
 )
 
-router.patch(
+router.put(
     '/:id(\\d+)',
     asyncHandler(async function (req, res) {
-        const image = await Image.update(req.body);
+        await Image.update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        });
+
+        const image = await Image.findByPk(req.params.id);
         res.json(image);
     })
 )

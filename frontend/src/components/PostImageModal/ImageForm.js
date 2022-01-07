@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postImage } from "../../store/images";
 
-function ImageForm({showModal}) {
+function ImageForm({ showModal }) {
   const dispatch = useDispatch();
   const [imageUrl, setImageUrl] = useState('');
   const [tags, setTags] = useState([])
@@ -13,9 +13,9 @@ function ImageForm({showModal}) {
     e.preventDefault();
 
     const payload = {
-        userId: sessionUser.id,
-        imageUrl,
-        tags
+      userId: sessionUser.id,
+      imageUrl,
+      tags
     }
     dispatch(postImage(payload));
     showModal(false)
@@ -55,9 +55,11 @@ function ImageForm({showModal}) {
         />
       </label>
       <button
-      type="submit"
-      disabled={validationErrors.length > 0}
-      >Post</button>
+        type="submit"
+        disabled={validationErrors.length > 0}
+      >
+        Post
+      </button>
     </form>
   );
 }

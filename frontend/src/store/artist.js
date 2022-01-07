@@ -1,13 +1,19 @@
 import { csrfFetch } from "./csrf";
 
-const LOAD = 'images/LOAD';
+const LOAD = 'artist/LOAD';
+const EDIT_POST = 'artist/EDIT_POST'
 
 
-export const getAllArtistImages = (state) => Object.values(state.images);
+export const getAllArtistImages = (state) => Object.values(state.artist);
 
 const load = (images) => ({
     type: LOAD,
     images
+})
+
+const edit = (image) => ({
+    type: EDIT_POST,
+    image
 })
 
 export const getArtistImages = (id) => async (dispatch) => {
@@ -16,6 +22,22 @@ export const getArtistImages = (id) => async (dispatch) => {
     if (response.ok) {
         const images = await response.json();
         dispatch(load(images));
+    } else {
+        const errors = await response.json();
+        console.log(errors.errors);
+    }
+}
+
+export const editArtistImage = (data) => async (dispatch) => {
+    const response = await csrfFetch(`/api/images/${data.id}`, {
+        method: 'PUT',
+        body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+        const image = await response.json();
+        dispatch(edit(image));
+        return image;
     } else {
         const errors = await response.json();
         console.log(errors.errors);
@@ -34,6 +56,14 @@ const artistReducer = (state = initialState, action) => {
             return {
                 ...allImages,
             }
+        }
+
+        case EDIT_POST: {
+            const newState = {
+                ...state,
+                [action.image.id]: action.image
+            };
+            return newState;
         }
 
         default:
