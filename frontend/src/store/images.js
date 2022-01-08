@@ -63,13 +63,14 @@ const imageReducer = (state = initialState, action) => {
             return {
                 ...allImages,
                 ...state,
-                order: {
+                order: [
                     ...action.images
-                }
+                ]
             }
         }
 
         case CREATE: {
+            console.log('ORDER', state.order)
             const newState = {
                 ...state.images,
                 [action.image.id]: action.image,
