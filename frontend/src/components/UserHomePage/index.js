@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Masonry from "react-responsive-masonry";
 
 import { getImages } from '../../store/images';
 import ImageFormModal from '../PostImageModal';
@@ -19,13 +20,17 @@ function UserHomePage({ user }) {
 
 
     return (
-        <div>
+        <div className='user-home-container'>
             <h1>User Home Page</h1>
-            <ImageFormModal />
+            <div className='new-post-button'>
+                <ImageFormModal />
+            </div>
             <div className='all-images-container'>
-                {images?.map((image) => (
-                    <ImageDetail key={image.id} image={image} />
-                ))}
+                    <Masonry columnsCount={3} gutter={30}>
+                        {images?.map((image) => (
+                            <ImageDetail key={image.id} image={image} />
+                        ))}
+                    </Masonry>
             </div>
         </div>
     )
