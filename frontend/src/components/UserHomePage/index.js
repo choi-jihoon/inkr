@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Masonry from "react-responsive-masonry";
+import Masonry from 'react-responsive-masonry';
 
 import { getImages } from '../../store/images';
 import ImageFormModal from '../PostImageModal';
@@ -20,8 +20,8 @@ function UserHomePage({ user }) {
 
 
     return (
-        <div className='user-home-container'>
-            <h1>User Home Page</h1>
+        <div className='main-container'>
+            <h2>User Home Page</h2>
             <div className='new-post-button'>
                 <ImageFormModal />
             </div>
