@@ -49,7 +49,6 @@ export const postImage = (data) => async (dispatch) => {
 
 
 const initialState = {
-    images: {},
     order: []
 };
 
@@ -57,19 +56,27 @@ const imageReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD: {
             const allImages = {};
-            action.images.images.forEach((image) => {
+            console.log(action.images)
+            action.images.forEach((image) => {
                 allImages[image.id] = image;
             });
             return {
                 ...allImages,
-                ...state
+                ...state,
+                order: {
+                    ...action.images
+                }
             }
         }
 
         case CREATE: {
             const newState = {
-                ...state,
-                [action.image.id]: action.image
+                ...state.images,
+                [action.image.id]: action.image,
+                order: [
+                    action.image,
+                    ...state.order
+                ]
             };
             return newState;
         }

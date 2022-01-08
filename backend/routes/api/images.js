@@ -17,7 +17,7 @@ router.get('/', asyncHandler(async function (_req, res) {
         order: [['createdAt', 'DESC']]
     })
 
-    res.json({ images });
+    res.json(images);
 }))
 
 router.post(
