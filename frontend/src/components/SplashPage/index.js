@@ -15,7 +15,7 @@ function SplashPage() {
 
             </div>
 
-            <ul className="cb-slideshow">
+            <ul className="slideshow">
                 <li><span>Image 01</span></li>
                 <li><span>Image 02</span></li>
                 <li><span>Image 03</span></li>
