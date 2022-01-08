@@ -8,6 +8,7 @@ function ImageForm({ showModal }) {
   const [tags, setTags] = useState([])
   const [validationErrors, setValidationErrors] = useState([]);
   const sessionUser = useSelector(state => state.session.user);
+  const sessionImages = useSelector(state => state.images)
 
   const handleSubmit = async (e) => {
     e.preventDefault();

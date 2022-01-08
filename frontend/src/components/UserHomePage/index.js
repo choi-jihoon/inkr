@@ -10,7 +10,7 @@ import './UserHomePage.css';
 function UserHomePage({ user }) {
     const dispatch = useDispatch();
 
-    const imagesObject = useSelector((state) => state.images);
+    const imagesObject = useSelector((state) => state.images.order);
     const images = Object.values(imagesObject);
 
     useEffect(() => {
