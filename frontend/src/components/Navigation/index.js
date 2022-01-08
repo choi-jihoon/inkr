@@ -10,13 +10,20 @@ function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
 
   let sessionLinks;
+  let centerLink;
   if (sessionUser) {
     sessionLinks = (
       <>
-        <NavLink to='/my-portfolio'>My Portfolio</NavLink>
         <ProfileButton user={sessionUser} />
       </>
     );
+
+    centerLink = (
+      <>
+        <NavLink to='/my-portfolio'>My Portfolio</NavLink>
+      </>
+    )
+
   } else {
     sessionLinks = (
       <>
@@ -28,6 +35,12 @@ function Navigation({ isLoaded }) {
         </li>
       </>
     );
+
+    centerLink = (
+      <>
+        TBD
+      </>
+    )
   }
 
   return (
@@ -41,7 +54,7 @@ function Navigation({ isLoaded }) {
         </div>
 
         <div className='navbar-element' id='center-container'>
-          maybe a search bar here
+          {isLoaded && centerLink}
         </div>
 
         <div className='navbar-element' id='right-container'>

@@ -8,13 +8,21 @@ header {
     z-index: 2;
 }
 
-.nav-bar {
-    display:flex;
+/* .nav-bar {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1;
-    width: 95%;
+    width: 80%;
     padding: 24px 0;
+} */
+
+.nav-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 90%;
+    padding: 24px 0;
+    text-align: center;
 }
 
 .inkr-dots,
@@ -24,20 +32,28 @@ header {
     cursor: pointer;
 }
 
-.navbar-element {
-    display: flex;
-}
 
+#left-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 #right-container {
     display: flex;
-    justify-content: space-around;
     height: 20px;
     align-items: center;
+    justify-content: center;
 }
 
 
 .session-links {
     display: flex;
+    align-items: center;
+}
+
+#center-container {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
