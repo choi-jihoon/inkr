@@ -22,7 +22,7 @@ function UserHomePage({ user }) {
         <div>
             <h1>User Home Page</h1>
             <ImageFormModal />
-            <div>
+            <div className='all-images-container'>
                 {images?.map((image) => (
                     <ImageDetail key={image.id} image={image} />
                 ))}
