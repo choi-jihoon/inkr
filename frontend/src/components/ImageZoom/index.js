@@ -2,11 +2,11 @@ import React from "react";
 
 import './ImageZoom.css';
 
-function ImageZoom() {
+function ImageZoom({ image }) {
 
   return (
     <div>
-        <h2>HELLO</h2>
+        <img className='zoomed-image' src={image.imageUrl} alt={`Tattoo by ${image.User.username}`} />
     </div>
   );
 }

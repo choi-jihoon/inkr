@@ -13,7 +13,7 @@ const ImageDetail = ({ image, tagString }) => {
             <img onClick={() => setShowModal(true)} className='grid-image' id={image.id} key={image.id} src={image.imageUrl} alt='hello'></img>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <ImageZoom />
+                    <ImageZoom image={image} />
                 </Modal>
             )}
             <NavLink to={`/artists/${image.userId}`}>

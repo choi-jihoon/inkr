@@ -5,16 +5,3 @@ h2 {
 .new-post-button {
     margin-bottom: 30px;
 }
-
-.main-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-.all-images-container {
-    display: flex;
-    flex-direction: row;
-    width: 50%;
-}

@@ -48,7 +48,7 @@ const MyPortfolio = () => {
                                 <img onClick={() => setShowModal(true)} className='grid-image' id={image.id} key={image.id} src={image.imageUrl} alt='hello'></img>
                                 {showModal && (
                                     <Modal onClose={() => setShowModal(false)}>
-                                        <ImageZoom />
+                                        <ImageZoom image={image} />
                                     </Modal>
                                 )}
                                 <p className='favorites-count'>Favourites: {image.favoritedCount}</p>
