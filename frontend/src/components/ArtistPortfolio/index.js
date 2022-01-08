@@ -24,7 +24,7 @@ const ArtistPortfolio = () => {
         <div className='main-container'>
             <h2>{artist?.username}'s Portfolio</h2>
             <div className='all-images-container'>
-                <Masonry columnsCount={3} gutter={30}>
+                <Masonry columnsCount={3} gutter={"30px"}>
                     {artistImages.map((image) => {
                         let tagString;
                         if (image.tags) {
@@ -33,9 +33,9 @@ const ArtistPortfolio = () => {
                             tagString = tagString.join(', ')
                         }
                         return (
-                            <>
-                                <ImageDetail image={image} tagString={tagString} />
-                            </>
+                            <div className='image-container'>
+                                <ImageDetail key={image?.id} image={image} tagString={tagString} />
+                            </div>
 
                         )
                     })}

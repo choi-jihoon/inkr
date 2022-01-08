@@ -31,7 +31,7 @@ const MyPortfolio = () => {
         <div className='main-container'>
             <h2>My Portfolio</h2>
             <div className='all-images-container'>
-                <Masonry columnsCount={3} gutter={30}>
+                <Masonry columnsCount={3} gutter={"30px"}>
                     {artistImages.map((image) => {
                         let tagString;
                         if (image.tags) {

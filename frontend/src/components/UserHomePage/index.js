@@ -26,10 +26,18 @@ function UserHomePage({ user }) {
                 <ImageFormModal />
             </div>
             <div className='all-images-container'>
-                    <Masonry columnsCount={3} gutter={30}>
-                        {images?.map((image) => (
-                            <ImageDetail key={image.id} image={image} />
-                        ))}
+                    <Masonry columnsCount={3} gutter={"30px"}>
+                        {images?.map((image) => {
+                            let tagString;
+                            if (image.tags) {
+                                tagString = image.tags;
+                                tagString = tagString.map((tag) => `#${tag}`);
+                                tagString = tagString.join(', ');
+                            }
+
+                            return <ImageDetail key={image.id} image={image} tagString={tagString} />
+                        }
+                        )}
                     </Masonry>
             </div>
         </div>
