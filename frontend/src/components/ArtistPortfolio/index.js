@@ -33,9 +33,7 @@ const ArtistPortfolio = () => {
                             tagString = tagString.join(', ')
                         }
                         return (
-                            <div className='image-container'>
                                 <ImageDetail key={image?.id} image={image} tagString={tagString} />
-                            </div>
 
                         )
                     })}

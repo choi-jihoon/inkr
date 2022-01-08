@@ -2,16 +2,20 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Masonry from 'react-responsive-masonry';
+import { useState } from 'react';
 
+import { Modal } from '../../context/Modal';
 import { getArtistImages } from '../../store/artist';
 import EditPostModal from '../EditPostModal';
 import DeletePostModal from '../DeletePostModal';
+import ImageZoom from '../ImageZoom';
 
 import './MyPortfolio.css';
 
 const MyPortfolio = () => {
     const history = useHistory();
     const dispatch = useDispatch();
+    const [showModal, setShowModal] = useState(false);
 
     const sessionUser = useSelector(state => state.session.user);
 
@@ -40,13 +44,18 @@ const MyPortfolio = () => {
                             tagString = tagString.join(', ')
                         }
                         return (
-                            <>
-                                <img className='grid-image' id={image?.id} key={image?.id} src={image.imageUrl} alt='i belong to me'></img>
+                            <div className='image-container' key={image.id}>
+                                <img onClick={() => setShowModal(true)} className='grid-image' id={image.id} key={image.id} src={image.imageUrl} alt='hello'></img>
+                                {showModal && (
+                                    <Modal onClose={() => setShowModal(false)}>
+                                        <ImageZoom />
+                                    </Modal>
+                                )}
                                 <p className='favorites-count'>Favourites: {image.favoritedCount}</p>
                                 <p key={image}>{tagString}</p>
                                 <EditPostModal image={image} id={image.id} />
                                 <DeletePostModal image={image} id={image.id} />
-                            </>
+                            </div>
                         )
                     })}
                 </Masonry>
