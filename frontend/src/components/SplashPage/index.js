@@ -1,5 +1,4 @@
 import React from "react";
-import SignupFormModal from "../SignupFormModal";
 import Footer from "../Footer";
 
 import './SplashPage.css';
