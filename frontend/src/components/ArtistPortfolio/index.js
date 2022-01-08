@@ -1,7 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import Masonry from 'react-responsive-masonry';
+
 import { getArtistImages } from '../../store/artist';
+import ImageDetail from '../ImageDetail';
 
 import './ArtistPortfolio.css';
 
@@ -18,24 +21,25 @@ const ArtistPortfolio = () => {
     }, [dispatch, artistId])
 
     return (
-        <div className='artist-portfolio'>
+        <div className='main-container'>
             <h2>{artist?.username}'s Portfolio</h2>
-            <div>
-                {artistImages.map((image) => {
-                    let tagString;
-                    if (image.tags) {
-                        tagString = image.tags;
-                        tagString = tagString.map((tag) => `#${tag}`)
-                        tagString = tagString.join(', ')
-                    }
-                    return (
-                        <>
-                            <img className='grid-image' id={image.id} key={image.id} src={image.imageUrl} alt='i belong to an artist'></img>
-                            <p key={image}>{tagString}</p>
-                        </>
+            <div className='all-images-container'>
+                <Masonry columnsCount={3} gutter={30}>
+                    {artistImages.map((image) => {
+                        let tagString;
+                        if (image.tags) {
+                            tagString = image.tags;
+                            tagString = tagString.map((tag) => `#${tag}`)
+                            tagString = tagString.join(', ')
+                        }
+                        return (
+                            <>
+                                <ImageDetail image={image} tagString={tagString} />
+                            </>
 
-                    )
-                })}
+                        )
+                    })}
+                </Masonry>
             </div>
         </div>
     );
