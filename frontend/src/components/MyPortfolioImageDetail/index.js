@@ -24,7 +24,7 @@ const MyPortfolioImageDetail = ({ image, tagString }) => {
             </div>
             <div className='portfolio-image-info'>
                 <div className='tag-container'>
-                    <div className='portfolio-tags tag-text' key={image}>Tags: {tagString ? tagString.split(',').map(tag => <p key={tag} className='single-tag portfolio-tag tag-text'>{`${tag}`}</p>) : <p key='notag' className='no-tags tag-text'>No tags available</p>}</div>
+                    <div className='portfolio-tags tag-text' key={image}>Tags: {tagString ? tagString.split(',').map(tag => <p key={tag} className='single-tag portfolio-tag tag-text'>{`${tag}`}</p>) : <p key='notag' className='no-tags tag-text'>No tags</p>}</div>
                 </div>
                 <div className='favorites-count portfolio-fave-count'><i className="far fa-star portfolio-star"></i><p>{image.favoritedCount}</p></div>
             </div>

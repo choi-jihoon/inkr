@@ -7,22 +7,28 @@ import './EditPost.css';
 function EditPostForm({ showModal, image }) {
     const dispatch = useDispatch();
 
-    const [tags, setTags] = useState(image.tags);
+    const [tags, setTags] = useState([...image.tags]);
     const [validationErrors, setValidationErrors] = useState([]);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        let tagsArr;
         if (tags.length) {
-            setTags(tags.split(','))
+            tagsArr = tags.split(',');
+            setTags(tagsArr);
         };
 
         const payload = {
             id: image.id,
             userId: image.userId,
             imageUrl: image.imageUrl,
-            tags
+            tags: tagsArr
         }
+
+        console.log(payload);
+
         dispatch(editArtistImage(payload));
         showModal(false)
     };

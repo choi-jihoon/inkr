@@ -16,7 +16,7 @@ function ImageZoom({ image, tagString }) {
           <p className='zoomed-favorites-count'><i className="far fa-star"></i> {image?.favoritedCount}</p>
         </div>
         <div className='zoomed-all-tags' key={image}>
-          {tagString ? tagString.split(',').map(tag => <p key={tag} className='single-tag'>{`${tag}`}</p>) : <p key='notag' className='no-tags'>No tags available</p>}
+          {tagString ? tagString.split(',').map(tag => <p key={tag} className='single-tag'>{`${tag}`}</p>) : <p key='notag' className='no-tags'>No tags</p>}
         </div>
       </div>
     </div>
