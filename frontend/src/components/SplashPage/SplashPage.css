@@ -15,7 +15,7 @@ body {
     position: absolute;
     text-align: center;
     z-index: 10;
-    color: #fff;
+    color: var(--soft-white);
     opacity: 1;
 }
 
@@ -78,6 +78,8 @@ body {
 
 .slideshow li {
     width: 100%;
+    background: linear-gradient(0deg, #00000088 30%, #ffffff44 100%);
+
 }
 
 .slideshow li span {
@@ -104,6 +106,7 @@ body {
 .slideshow li:nth-child(2) span {
     background-image: url("../../images/slideshow2.jpg");
     animation-delay: 3s;
+
 }
 .slideshow li:nth-child(3) span {
     background-image: url("../../images/slideshow3.jpg");
