@@ -13,11 +13,15 @@ function EditPostForm({ showModal, image }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if (tags.length) {
+            setTags(tags.split(','))
+        };
+
         const payload = {
             id: image.id,
             userId: image.userId,
             imageUrl: image.imageUrl,
-            tags: tags.split(',')
+            tags
         }
         dispatch(editArtistImage(payload));
         showModal(false)
