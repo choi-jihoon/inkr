@@ -1,7 +1,9 @@
 .artist-name {
-    color: var(--soft-black);
+    color: var(--soft-white);
+    font-weight: 520;
+    font-size: 14px;
 }
 
 .artist-name:hover {
-    color:#00000062;
+    color: #dfe0dfa9;
 }

@@ -43,7 +43,8 @@ a, a:hover, a:visited, a:active {
 
 .grid-image {
   width: 100%;
-  display: block;
+  /* display: block; */
+  border-radius: 5px 5px 0 0;
 }
 
 .grid-image:hover {
@@ -62,18 +63,42 @@ a, a:hover, a:visited, a:active {
 
 .image-container {
   margin: 0;
-  display: grid;
-  grid-template-rows: 1fr auto;
+  display: absolute;
+  /* display: grid;
+  grid-template-rows: 1fr auto; */
   margin-bottom: 30px;
   break-inside: avoid;
+  background: #303030;
+  border-radius: 5px;
 }
 
-.image-container > img {
+/* .image-container > img {
   grid-row: 1 / -1;
   grid-column: 1;
-}
+} */
 
 h2 {
   font-family: 'Fredericka the Great', cursive;
   font-size: 40px;
+}
+
+.image-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5px;
+  padding: 5px;
+}
+
+.favorites-count {
+  color: rgba(245, 245, 245, 0.747);
+  cursor: default;
+}
+
+.fa-star {
+  color: rgba(245, 245, 245, 0.747);
+}
+
+.fa-star:hover {
+  color: gold;
+  cursor: pointer;
 }
