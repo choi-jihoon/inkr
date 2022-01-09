@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import Masonry from 'react-responsive-masonry';
 
 import { getArtistImages } from '../../store/artist';
 import ImageDetail from '../ImageDetail';
@@ -24,7 +23,6 @@ const ArtistPortfolio = () => {
         <div className='main-container'>
             <h2>{artist?.username}'s Portfolio</h2>
             <div className='all-images-container'>
-                <Masonry columnsCount={3} gutter={"30px"}>
                     {artistImages.map((image) => {
                         let tagString;
                         if (image.tags) {
@@ -37,7 +35,6 @@ const ArtistPortfolio = () => {
 
                         )
                     })}
-                </Masonry>
             </div>
         </div>
     );

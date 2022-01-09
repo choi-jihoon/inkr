@@ -6,7 +6,7 @@ import './Demo.css';
 function Demo() {
     const dispatch = useDispatch();
 
-    const handleSubmit = (e) => {
+    const loginDemo = (e) => {
         e.preventDefault();
         const credential = 'Demo-lition';
         const password = 'password';
@@ -18,7 +18,7 @@ function Demo() {
     }
 
     return (
-        <button className='demo-button' onClick={handleSubmit}>
+        <button className='demo-button' onClick={loginDemo}>
             Demo User
         </button>
     )

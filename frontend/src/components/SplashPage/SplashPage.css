@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Yellowtail&display=swap');
+
 body {
     margin: 0;
     width: 100%;
-    background-color: rgb(85, 85, 85);
+    background-color: rgb(218, 218, 218);
 }
 
 .body-text {
@@ -22,7 +24,9 @@ body {
 .body-text h1 {
     z-index: 10;
     opacity: 1;
+    /* font-family: 'Fredericka the Great', cursive; */
     font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+    /* font-family: 'Yellowtail', cursive; */
     font-size: 56px;
     padding: 0;
     margin: 24.12px 0px 5px;

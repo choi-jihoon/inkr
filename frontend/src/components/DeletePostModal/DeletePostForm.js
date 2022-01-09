@@ -2,6 +2,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteArtistImage } from "../../store/artist";
 
+import './DeletePostForm.css';
+
 function DeletePostForm({ showModal, image }) {
     const dispatch = useDispatch();
 
@@ -27,14 +29,21 @@ function DeletePostForm({ showModal, image }) {
             <label>
                 Are you sure you want to delete this post?
             </label>
-            <button
-                type="submit"
-            >
-                Delete
-            </button>
-            <button type='button' onClick={handleCancelClick}>
-                Cancel
-            </button>
+            <div className='button-container'>
+                <button
+                    className='delete-post-button'
+                    type="submit"
+                >
+                    Delete
+                </button>
+                <button
+                    className='cancel-delete-button'
+                    type='button'
+                    onClick={handleCancelClick}
+                >
+                    Cancel
+                </button>
+            </div>
         </form>
     );
 }

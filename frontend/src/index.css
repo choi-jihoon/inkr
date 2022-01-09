@@ -1,4 +1,6 @@
 /* TODO Add site wide styles */
+
+
 :root {
   --soft-white: #DFE0DF;
   --soft-black: #303030;
@@ -33,17 +35,45 @@ a, a:hover, a:visited, a:active {
   width: fit-content;
 }
 
-.all-images-container {
+/* .all-images-container {
   display: flex;
   flex-direction: row;
   width: 60%;
-}
+} */
 
 .grid-image {
   width: 100%;
+  display: block;
 }
 
 .grid-image:hover {
   opacity: 70%;
   cursor:zoom-in;
+}
+
+
+
+.all-images-container {
+  column-count: 3;
+  column-gap: 30px;
+  width: 60%;
+  margin: auto;
+}
+
+.image-container {
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  margin-bottom: 30px;
+  break-inside: avoid;
+}
+
+.image-container > img {
+  grid-row: 1 / -1;
+  grid-column: 1;
+}
+
+h2 {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 40px;
 }

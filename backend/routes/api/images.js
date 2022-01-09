@@ -43,7 +43,12 @@ router.put(
             }
         });
 
-        const image = await Image.findByPk(req.params.id);
+        const image = await Image.findByPk(req.params.id, {
+            include: [
+                { model: User },
+                { model: Favorite }
+            ],
+        });
         res.json(image);
     })
 )

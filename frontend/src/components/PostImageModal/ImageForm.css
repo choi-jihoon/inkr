@@ -1,0 +1,34 @@
+.post-button {
+    cursor: pointer;
+    background-color: #797979;
+    border: 1px solid #797979;
+    color: whitesmoke;
+    padding: 10px;
+    border-radius: 3px;
+    width: 300px;
+}
+
+.post-button:placeholder {
+    font-size:10px;
+}
+
+.post-button:hover {
+    background-color: #797979c4;
+    border: 1px solid #797979c4;
+}
+
+.post-button:disabled {
+    opacity: 30%;
+}
+
+.post-button:disabled:hover {
+    background-color: #797979;
+    border: 1px solid #797979;
+    color: whitesmoke;
+    opacity: 30%;
+    cursor:default;
+}
+
+.form-label {
+    font-size: 14px;
+}

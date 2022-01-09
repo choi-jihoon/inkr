@@ -4,6 +4,7 @@ import * as sessionActions from "../../store/session";
 
 import Demo from "../Demo";
 
+
 import './LoginForm.css';
 
 function LoginForm() {
@@ -11,6 +12,7 @@ function LoginForm() {
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,31 +27,39 @@ function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div className='form-header'>
+        <img className='form-logo' src='/images/small-logo.png' alt='inkr logo'></img>
+        <h4>
+          Log in to Inkr
+        </h4>
+      </div>
       <ul>
         {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
+          <li className='error' key={idx}>{error}</li>
         ))}
       </ul>
-      <label>
-        Username or Email
+      <div className='form-element'>
         <input
           type="text"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
+          placeholder='Username or Email'
           required
         />
-      </label>
-      <label>
-        Password
+      </div>
+      <div className='form-element'>
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder='Password'
           required
         />
-      </label>
-      <button type="submit">Log In</button>
-      <Demo />
+      </div>
+      <div className='button-container'>
+        <button className='login-button' type="submit">Log In</button>
+        <Demo />
+      </div>
     </form>
   );
 }

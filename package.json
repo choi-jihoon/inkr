@@ -23,7 +23,5 @@
     "url": "https://github.com/choi-jihoon/inkr/issues"
   },
   "homepage": "https://github.com/choi-jihoon/inkr#readme",
-  "dependencies": {
-    "react-responsive-masonry": "^2.1.4"
-  }
+  "dependencies": {}
 }

@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import Masonry from 'react-responsive-masonry';
 import { useState } from 'react';
 
 import { Modal } from '../../context/Modal';
@@ -35,7 +34,6 @@ const MyPortfolio = () => {
         <div className='main-container'>
             <h2>My Portfolio</h2>
             <div className='all-images-container'>
-                <Masonry columnsCount={3} gutter={"30px"}>
                     {artistImages.map((image) => {
                         let tagString;
                         if (image.tags) {
@@ -58,7 +56,6 @@ const MyPortfolio = () => {
                             </div>
                         )
                     })}
-                </Masonry>
             </div>
         </div>
     );
