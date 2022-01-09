@@ -23,7 +23,13 @@ router.get('/', asyncHandler(async function (_req, res) {
 router.post(
     '/',
     asyncHandler(async function (req, res) {
-        const image = await Image.create(req.body);
+        const newImage = await Image.create(req.body);
+        const image = await Image.findByPk(newImage.id, {
+            include: [
+                { model: User },
+                { model: Favorite }
+            ],
+        })
         res.json(image);
     })
 )

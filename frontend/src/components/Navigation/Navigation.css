@@ -8,21 +8,13 @@ header {
     z-index: 2;
 }
 
-/* .nav-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1;
-    width: 80%;
-    padding: 24px 0;
-} */
-
 .nav-bar {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 90%;
+    grid-template-columns: 125px 8fr 200px;
+    width: 80%;
     padding: 24px 0;
     text-align: center;
+
 }
 
 .inkr-dots,
@@ -37,6 +29,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-self: flex-start;
+    width: fit-content;
 }
 
 #right-container {
@@ -44,16 +38,79 @@ header {
     height: 20px;
     align-items: center;
     justify-content: center;
+    justify-self: flex-end;
+    flex-direction: column;
+    position: relative;
+    width: fit-content;
+    height: 100%;
 }
 
 
 .session-links {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 #center-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+}
+
+.profile-dropdown {
+    width: auto;
+    height: auto;
+    position: absolute;
+    background-color: var(--soft-white);
+    top: 40px;
+    right: 0;
+    border-radius: 3px;
+    padding: 15px 40px 15px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.profile-dropdown li {
+    padding: 10px;
+    font-size: 15px;
+    color: var(--soft-black)
+}
+
+.profile-dropdown li:hover {
+    color: #303030b4;
+}
+
+.welcome-text {
+    padding: 0 10px;
+    color: var(--soft-white);
+}
+
+.menu-icon {
+    border: none;
+    background: transparent;
+    color: none;
+}
+
+.fa-bars {
+    color: var(--soft-white);
+    font-size: 20px;
+}
+
+.fa-bars:hover {
+    color: #dfe0dfb4;
+    cursor: pointer;
+}
+
+.logout {
+    border: none;
+    display: inline-block;
+    color: inherit;
+    font-size: inherit;
+    margin: 0;
+    background: none;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 500;
 }

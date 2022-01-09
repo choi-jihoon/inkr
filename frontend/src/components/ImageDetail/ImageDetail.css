@@ -1,0 +1,7 @@
+.artist-name {
+    color: var(--soft-white);
+}
+
+.artist-name:hover {
+    color:#ffffff94;
+}
