@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
+import ImageFormModal from '../PostImageModal';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -20,7 +21,7 @@ function Navigation({ isLoaded }) {
 
     centerLink = (
       <>
-        <NavLink to='/my-portfolio'>My Portfolio</NavLink>
+        <ImageFormModal />
       </>
     )
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 
 function ProfileButton({ user }) {
@@ -34,15 +34,17 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+      <li className='welcome-text'>Welcome, {user.username}!</li>
+      <button className='menu-icon' onClick={openMenu}>
+        <i className="fas fa-bars" />
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
+          <li><NavLink to='/my-portfolio'>My Portfolio</NavLink></li>
+          <li>Favorites</li>
+          <li>Settings</li>
           <li>
-            <button onClick={logout}>Log Out</button>
+            <button className='logout' onClick={logout}>Log Out</button>
           </li>
         </ul>
       )}
