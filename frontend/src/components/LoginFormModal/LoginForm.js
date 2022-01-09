@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 
+import Demo from "../Demo";
+
 import './LoginForm.css';
 
 function LoginForm() {
@@ -47,6 +49,7 @@ function LoginForm() {
         />
       </label>
       <button type="submit">Log In</button>
+      <Demo />
     </form>
   );
 }
