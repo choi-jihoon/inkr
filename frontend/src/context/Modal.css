@@ -22,10 +22,9 @@
   #modal-content {
     position: absolute;
     background-color: whitesmoke;
-    height: 500px;
-    width: 500px;
+    width: fit-content;
     border-radius: 7px;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
   }

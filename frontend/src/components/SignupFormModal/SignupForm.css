@@ -1,0 +1,15 @@
+.signup-butt {
+    cursor: pointer;
+    background-color: #797979;
+    border: 1px solid #797979;
+    color: whitesmoke;
+    padding: 10px;
+    border-radius: 5px;
+    width: 300px;
+    margin-top: 10px;
+}
+
+.signup-butt:hover {
+    background-color: #797979c4;
+    border: 1px solid #797979c4;
+}

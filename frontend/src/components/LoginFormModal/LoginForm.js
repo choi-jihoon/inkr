@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 
 import Demo from "../Demo";
+import SignupFormModal from '../SignupFormModal';
 
 import './LoginForm.css';
 
@@ -11,6 +12,7 @@ function LoginForm() {
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,35 +27,39 @@ function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div className='form-header'>
+        <img className='form-logo' src='/images/small-logo.png' alt='inkr logo'></img>
+        <h4>
+          Log in to Inkr
+        </h4>
+      </div>
       <ul>
         {errors.map((error, idx) => (
           <li className='error' key={idx}>{error}</li>
         ))}
       </ul>
-      <label className='form-input'>
-        Username or Email
+      <div className='form-element'>
         <input
-          className='form-input'
           type="text"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
           placeholder='Username or Email'
           required
         />
-      </label>
-      <label className='form-input'>
-        Password
+      </div>
+      <div className='form-element'>
         <input
-          className='form-input'
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder='Password'
           required
         />
-      </label>
-      <button type="submit">Log In</button>
-      <Demo />
+      </div>
+      <div className='login-demo-button-container'>
+        <button className='login-button' type="submit">Log In</button>
+        <Demo />
+      </div>
     </form>
   );
 }
