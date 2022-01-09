@@ -118,6 +118,5 @@ header {
 }
 
 .profile-dropdown li.not-yet {
-    color: whitesmoke;
-    cursor: default;
+    visibility: hidden;
 }

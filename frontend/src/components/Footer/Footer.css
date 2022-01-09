@@ -40,7 +40,7 @@ footer {
     font-size: 15px;
     display: flex;
     justify-content: space-between;
-    width: 20%;
+    width: fit-content;
     min-width: 260px;
 }
 

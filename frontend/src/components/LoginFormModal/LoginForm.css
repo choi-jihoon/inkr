@@ -64,8 +64,6 @@ form {
 .login-button,
 .demo-button {
     cursor: pointer;
-    background-color: #797979;
-    border: 1px solid #797979;
     color: whitesmoke;
     padding: 10px;
     border-radius: 3px;
@@ -74,10 +72,21 @@ form {
 
 .login-button {
     margin-bottom: 10px;
+    background-color: #00C896;
+    border: 1px solid #00C896;
 }
 
-.login-button:hover,
+.demo-button {
+    background-color: #0077B4;
+    border: 1px solid #0077B4;
+}
+
+.login-button:hover {
+    background-color: #00c896ce;
+    border: 1px solid #00c896ce;
+}
+
 .demo-button:hover {
-    background-color: #797979c4;
-    border: 1px solid #797979c4;
+    background-color: #0078b4ce;
+    border: 1px solid #0078b4ce;
 }
