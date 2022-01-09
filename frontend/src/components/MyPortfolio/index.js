@@ -1,20 +1,15 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useState } from 'react';
 
-import { Modal } from '../../context/Modal';
 import { getArtistImages } from '../../store/artist';
-import EditPostModal from '../EditPostModal';
-import DeletePostModal from '../DeletePostModal';
-import ImageZoom from '../ImageZoom';
+import MyPortfolioImageDetail from '../MyPortfolioImageDetail';
 
 import './MyPortfolio.css';
 
 const MyPortfolio = () => {
     const history = useHistory();
     const dispatch = useDispatch();
-    const [showModal, setShowModal] = useState(false);
 
     const sessionUser = useSelector(state => state.session.user);
 
@@ -31,32 +26,23 @@ const MyPortfolio = () => {
     }, [dispatch, sessionUser])
 
     return (
-        <div className='main-container'>
-            <h2>My Portfolio</h2>
-            <div className='all-images-container'>
-                    {artistImages.map((image) => {
-                        let tagString;
-                        if (image.tags) {
-                            tagString = image.tags;
-                            tagString = tagString.map((tag) => `#${tag}`)
-                            tagString = tagString.join(', ')
-                        }
-                        return (
-                            <div className='image-container' key={image.id}>
-                                <img onClick={() => setShowModal(true)} className='grid-image' id={image.id} key={image.id} src={image.imageUrl} alt='hello'></img>
-                                {showModal && (
-                                    <Modal onClose={() => setShowModal(false)}>
-                                        <ImageZoom image={image} />
-                                    </Modal>
-                                )}
-                                <p className='favorites-count'>Favourites: {image.favoritedCount}</p>
-                                <p key={image}>{tagString}</p>
-                                <EditPostModal image={image} id={image.id} />
-                                <DeletePostModal image={image} id={image.id} />
-                            </div>
-                        )
-                    })}
+        <div className='main-container my-portfolio-container'>
+            <h2 className='my-portfolio-header'>My Portfolio</h2>
+            <div className='all-images-container portfolio-all-images-container'>
+                {artistImages.map((image) => {
+                    let tagString;
+                    if (image.tags) {
+                        tagString = image.tags;
+                        tagString = tagString.map((tag) => `#${tag}`)
+                        tagString = tagString.join(', ')
+                    }
+                    return (
+                        <MyPortfolioImageDetail key={image.id} image={image} tagString={tagString} />
+                    )
+                })}
             </div>
+
+
         </div>
     );
 };

@@ -1,20 +1,25 @@
 
-
-.zoomed-image {
-    max-height: 800px;
-    max-width: 800px;
-}
-
 .zoomed-container {
     color: var(--soft-black);
     background-color: rgb(245, 245, 245);
     font-style: italic;
+    max-width: 450px;
+
 }
+
+.zoomed-image {
+    /* max-height: 50em;
+    max-width: 50em; */
+    height: 100%;
+    width: 100%;
+}
+
 
 .zoomed-image-info {
     display: grid;
     padding: 10px;
     grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
 }
 
 .zoomed-artist-container {
@@ -53,6 +58,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow:hidden;
 }
 
 .single-tag:hover {

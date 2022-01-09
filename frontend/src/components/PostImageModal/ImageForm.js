@@ -15,14 +15,16 @@ function ImageForm({ showModal }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    let tagsArr;
     if (tags.length) {
-      setTags(tags.split(','))
+      tagsArr = (tags.split(','));
+      setTags(tagsArr);
     };
 
     const payload = {
       userId: sessionUser.id,
       imageUrl,
-      tags
+      tags: tagsArr
     }
     dispatch(postImage(payload));
     showModal(false)

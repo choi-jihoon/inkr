@@ -13,17 +13,14 @@ const ImageDetail = ({ image, tagString }) => {
             <img onClick={() => setShowModal(true)} className='grid-image' id={image.id} key={image.id} src={image.imageUrl} alt='hello'></img>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <ImageZoom image={image} tagString={tagString} />
+                    <ImageZoom image={image} tagString={tagString} key={`${image.id}-zoom`} />
                 </Modal>
             )}
             <div className='image-info'>
                 <NavLink to={`/artists/${image?.userId}`}>
                     <p className='artist-name'>{image?.User.username}</p>
                 </NavLink>
-                <p className='favorites-count'><i class="far fa-star"></i> {image?.favoritedCount}</p>
-                {/* <div className='all-tags' key={image}>
-                    {tagString}
-                </div> */}
+                <p className='favorites-count'><i className="far fa-star"></i> {image?.favoritedCount}</p>
             </div>
         </div>
     )

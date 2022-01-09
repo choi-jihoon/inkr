@@ -1,0 +1,89 @@
+
+.portfolio-image {
+    background-color: transparent;
+    /* margin: 10px; */
+    position: relative;
+}
+
+.portfolio-grid-image {
+    border-radius: 5px;
+}
+
+.portfolio-image:hover .edit-delete-butt-container {
+    visibility: visible;
+}
+
+.portfolio-image-info {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    padding: 5px;
+}
+
+.portfolio-fave-count {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.8vmin;
+}
+
+.portfolio-star {
+    margin-right: 5px;
+}
+
+.tag-container {
+    display: flex;
+    align-items: center;
+    overflow-wrap:break-word;
+}
+
+.tag-text {
+    font-size: 1.4vmin;
+}
+
+.portfolio-tags {
+    overflow:auto;
+}
+
+.portfolio-tag, .no-tags {
+    width: fit-content;
+    padding-left: 5px;
+}
+
+
+.edit-delete-butt-container {
+    position: absolute;
+    width: fit-content;
+    right: 10px;
+    top: 10px;
+    visibility: hidden;
+}
+
+.edit-post-icon,
+.delete-post-trash {
+    width: fit-content;
+    border: 0;
+    background-color: transparent;
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.fa-edit {
+    color: var(--soft-black);
+
+}
+
+.delete-post-trash {
+    width: fit-content;
+}
+
+.fa-trash-alt {
+    color: var(--soft-black);
+}
+
+.fa-edit:hover {
+    color: #628A38;
+}
+
+.fa-trash-alt:hover {
+    color: #B6677AE0;
+}
