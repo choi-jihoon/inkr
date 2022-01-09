@@ -1,4 +1,61 @@
+
+
 .zoomed-image {
     max-height: 800px;
     max-width: 800px;
+}
+
+.zoomed-container {
+    color: var(--soft-black);
+    background-color: rgb(245, 245, 245);
+    font-style: italic;
+}
+
+.zoomed-image-info {
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.zoomed-artist-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.zoomed-artist-name {
+    color: var(--soft-black);
+    display: inline-block;
+    width: fit-content;
+}
+
+.zoomed-artist-name:hover {
+    color: #303030b7;
+}
+
+.zoomed-favorites-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.zoomed-favorites-count > .fa-star {
+    color: var(--soft-black);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.zoomed-favorites-count > .fa-star:hover {
+    color: gold;
+}
+
+.zoomed-all-tags {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.single-tag:hover {
+    color: #3030308e;
+    cursor: default;
 }
