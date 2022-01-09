@@ -41,8 +41,8 @@ function ProfileButton({ user }) {
       {showMenu && (
         <ul className="profile-dropdown">
           <li><NavLink to='/my-portfolio'>My Portfolio</NavLink></li>
-          <li>Favorites</li>
-          <li>Settings</li>
+          <li className='not-yet'>Favorites</li>
+          <li className='not-yet'>Settings</li>
           <li>
             <button className='logout' onClick={logout}>Log Out</button>
           </li>
