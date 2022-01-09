@@ -15,9 +15,26 @@ function Footer() {
                 <li>JSON API</li>
                 <li>Git</li>
             </ul>
-            <div className='copyright'>
-                © 2021 | Inkr
-            </div>
+            <ul className='copyright'>
+                <li className='footer-text'>
+                    © 2022 | Inkr
+                </li>
+                <ul className='about-me'>
+                    <li className='footer-text'>
+                        Fiona Choi
+                    </li>
+                    <li>
+                        <a href='https://github.com/choi-jihoon'>
+                            <i className='fab fa-github' />
+                        </a>
+                    </li>
+                    <li>
+                        <a href='https://www.linkedin.com/in/jihoon-choi-a6967a221/'>
+                            <i className='fab fa-linkedin' />
+                        </a>
+                    </li>
+                </ul>
+            </ul>
         </footer>
     );
 }
