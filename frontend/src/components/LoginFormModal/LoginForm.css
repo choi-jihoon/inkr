@@ -3,4 +3,10 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: var(--soft-black);
+}
+
+.form-input:focus {
+    color: var(--soft-black);
+    background: rgba(184, 184, 184, 0.596);
 }
