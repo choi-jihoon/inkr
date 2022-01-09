@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { editArtistImage } from "../../store/artist";
 
+import './EditPost.css';
+
 function EditPostForm({ showModal, image }) {
     const dispatch = useDispatch();
 
@@ -23,7 +25,7 @@ function EditPostForm({ showModal, image }) {
 
     useEffect(() => {
         const errors = [];
-        if (tags.indexOf(' ') >= 0) errors.push('Please make sure tags are separated by commas and have no spaces. e.g. "color,animal"');
+        if (tags.indexOf(' ') >= 0) errors.push('Tags must be separated by commas and have no spaces. e.g. "animal,fox,color"');
 
         setValidationErrors(errors);
     }, [tags])
@@ -31,21 +33,28 @@ function EditPostForm({ showModal, image }) {
 
     return (
         <form onSubmit={handleSubmit}>
+            <div className='form-header'>
+                <img className='form-logo' src='/images/small-logo.png' alt='inkr logo'></img>
+                <h4>
+                    Edit Tags
+                </h4>
+            </div>
             <ul>
                 {validationErrors.length > 0 && validationErrors.map((error) => (
-                    <li key={error}>{error}</li>
+                    <li className='error' key={error}>{error}</li>
                 ))}
             </ul>
-            <label>
-                Tags
+            <div className='form-element'>
+                <label className='form-label'>Tags (Optional)</label>
                 <input
                     type="text"
                     value={tags}
                     onChange={(e) => setTags((e.target.value))}
-                    placeholder="Separate tags by commas, no spaces. e.g. 'color,animal'"
+                    placeholder='e.g. "animal,fox,color"'
                 />
-            </label>
+            </div>
             <button
+                className='edit-button'
                 type="submit"
                 disabled={validationErrors.length > 0}
             >

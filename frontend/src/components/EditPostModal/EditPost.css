@@ -1,0 +1,30 @@
+.edit-button {
+    cursor: pointer;
+    background-color: #797979;
+    border: 1px solid #797979;
+    color: whitesmoke;
+    padding: 10px;
+    border-radius: 3px;
+    width: 300px;
+}
+
+.edit-button:placeholder {
+    font-size:10px;
+}
+
+.edit-button:hover {
+    background-color: #797979c4;
+    border: 1px solid #797979c4;
+}
+
+.edit-button:disabled {
+    opacity: 30%;
+}
+
+.edit-button:disabled:hover {
+    background-color: #797979;
+    border: 1px solid #797979;
+    color: whitesmoke;
+    opacity: 30%;
+    cursor:default;
+}

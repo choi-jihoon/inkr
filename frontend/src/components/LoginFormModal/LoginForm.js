@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 
 import Demo from "../Demo";
-import SignupFormModal from '../SignupFormModal';
+
 
 import './LoginForm.css';
 
@@ -56,7 +56,7 @@ function LoginForm() {
           required
         />
       </div>
-      <div className='login-demo-button-container'>
+      <div className='button-container'>
         <button className='login-button' type="submit">Log In</button>
         <Demo />
       </div>

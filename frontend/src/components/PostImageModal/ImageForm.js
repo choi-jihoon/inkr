@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postImage } from "../../store/images";
 
+import './ImageForm.css';
+
 function ImageForm({ showModal }) {
   const dispatch = useDispatch();
   const [imageUrl, setImageUrl] = useState('');
   const [tags, setTags] = useState([])
   const [validationErrors, setValidationErrors] = useState([]);
   const sessionUser = useSelector(state => state.session.user);
-  const sessionImages = useSelector(state => state.images)
+  // const sessionImages = useSelector(state => state.images)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,7 +18,7 @@ function ImageForm({ showModal }) {
     const payload = {
       userId: sessionUser.id,
       imageUrl,
-      tags
+      tags: tags.split(',')
     }
     dispatch(postImage(payload));
     showModal(false)
@@ -26,38 +28,47 @@ function ImageForm({ showModal }) {
   useEffect(() => {
     const errors = [];
     if (!imageUrl.length) errors.push('Please provide an image url.');
+    if (tags.indexOf(' ') >= 0) errors.push('Tags must be separated by commas and have no spaces. e.g. "animal,fox,color"');
 
     setValidationErrors(errors);
-  }, [imageUrl])
+  }, [imageUrl, tags])
 
   return (
     <form onSubmit={handleSubmit}>
+      <div className='form-header'>
+        <img className='form-logo' src='/images/small-logo.png' alt='inkr logo'></img>
+        <h4>
+          Create New Post
+        </h4>
+      </div>
       <ul>
         {validationErrors.length > 0 && validationErrors.map((error) => (
-          <li key={error}>{error}</li>
+          <li className='error' key={error}>{error}</li>
         ))}
       </ul>
-      <label>
-        Image Url
+      <div className='form-element'>
         <input
           type="text"
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
+          placeholder='Image URL'
           required
         />
-      </label>
-      <label>
-        Tags
+      </div>
+      <div className='form-element'>
+        <label className='form-label'>Tags (Optional)</label>
         <input
           type="text"
           value={tags}
-          onChange={(e) => setTags((e.target.value).split(','))}
-          placeholder="Separate tags by commas, no spaces. e.g. 'color,animal'"
+          onChange={(e) => setTags((e.target.value))}
+          placeholder='e.g. "animal,fox,color"'
         />
-      </label>
+      </div>
       <button
+        className='post-button'
         type="submit"
         disabled={validationErrors.length > 0}
+
       >
         Post
       </button>

@@ -54,7 +54,7 @@ form {
     margin-bottom: 20px;
 }
 
-.login-demo-button-container {
+.button-container {
     display: flex;
     flex-direction: column;
     width: 100%;

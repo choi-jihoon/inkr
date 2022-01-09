@@ -19,7 +19,7 @@ function UserHomePage({ user }) {
 
     return (
         <div className='main-container'>
-            <h2>User Home Page</h2>
+            <h2>Discover</h2>
             <div className='all-images-container'>
                         {images?.map((image) => {
                             let tagString;
