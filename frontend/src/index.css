@@ -1,5 +1,8 @@
 /* TODO Add site wide styles */
 
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Staatliches&family=Yellowtail&display=swap');
+@import url('https://use.typekit.net/kyk0anv.css');
+
 
 :root {
   --soft-white: #DFE0DF;
@@ -15,7 +18,7 @@ html {
     box-sizing: border-box;
     text-decoration: none;
     list-style-type: none;
-    font-family: sans-serif;
+    font-family: proxima-nova, sans-serif;
   }
 
 a, a:hover, a:visited, a:active {
@@ -78,7 +81,9 @@ a, a:hover, a:visited, a:active {
 } */
 
 h2 {
-  font-family: 'Fredericka the Great', cursive;
+
+  font-family: 'Permanent Marker', cursive;
+
   font-size: 40px;
 }
 

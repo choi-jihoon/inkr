@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Modal } from '../../context/Modal';
 import ImageZoom from '../ImageZoom';
@@ -7,6 +7,15 @@ import './ImageDetail.css';
 
 const ImageDetail = ({ image, tagString }) => {
     const [showModal, setShowModal] = useState(false);
+
+    useEffect(() => {
+        const modal = document.querySelector('#modal-content');
+
+        if (showModal) {
+            modal.classList.add('modal-animation');
+        }
+
+    }, [showModal])
 
     return (
         <div className='image-container'>
