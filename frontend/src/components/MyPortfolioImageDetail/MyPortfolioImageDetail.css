@@ -23,6 +23,7 @@
     display: flex;
     justify-content: flex-end;
     font-size: 1.8vmin;
+    align-items: center;
 }
 
 .portfolio-star {
@@ -69,6 +70,7 @@
 
 .fa-edit {
     color: var(--soft-black);
+    transition-duration: 0.2s;
 
 }
 
@@ -78,12 +80,15 @@
 
 .fa-trash-alt {
     color: var(--soft-black);
+    transition-duration: 0.2s;
 }
 
 .fa-edit:hover {
     color: #628A38;
+    transform: scale(2);
 }
 
 .fa-trash-alt:hover {
     color: #B6677AE0;
+    transform: scale(2);
 }

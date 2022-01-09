@@ -27,8 +27,6 @@ function EditPostForm({ showModal, image }) {
             tags: tagsArr
         }
 
-        console.log(payload);
-
         dispatch(editArtistImage(payload));
         showModal(false)
     };
