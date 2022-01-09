@@ -1,7 +1,7 @@
 
 .portfolio-image {
     background-color: transparent;
-    margin: 10px;
+    /* margin: 10px; */
     position: relative;
 }
 
@@ -32,6 +32,7 @@
 .tag-container {
     display: flex;
     align-items: center;
+    overflow-wrap:break-word;
 }
 
 .tag-text {
@@ -39,7 +40,7 @@
 }
 
 .portfolio-tags {
-    display: flex;
+    overflow:auto;
 }
 
 .portfolio-tag, .no-tags {

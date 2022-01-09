@@ -49,7 +49,7 @@ function Navigation({ isLoaded }) {
       <nav className='nav-bar'>
         <div className='navbar-element' id='left-container'>
           <NavLink exact to="/">
-            <img className='inkr-dots' src='/images/black-and-white.png' alt='inkr dots'></img>
+            <img className='inkr-dots' src='/images/black-and-white.png' alt='inkr dots' />
             <img className='inkr-logo' src='/images/logotype.svg' alt='inkr logo'></img>
           </NavLink>
         </div>
