@@ -10,6 +10,8 @@ import './ImageDetail.css';
 const ImageDetail = ({ image, tagString }) => {
     const dispatch = useDispatch();
     const [showModal, setShowModal] = useState(false);
+    const [count, setCount] = useState(image.favoriteCount);
+
 
     // useEffect(() => {
     //     const modal = document.querySelector('#modal-content');
@@ -19,6 +21,7 @@ const ImageDetail = ({ image, tagString }) => {
     //     }
 
     // }, [showModal])
+
 
     return (
         <div className='image-container'>
@@ -36,8 +39,9 @@ const ImageDetail = ({ image, tagString }) => {
                     <button
                         className='favorited-button'
                         onClick={() => {
-                            console.log('CLICKED')
-                            dispatch(favoriteToggle(image))}}
+                            dispatch(favoriteToggle(image));
+                            setCount(count + 1);
+                        }}
                     >
                         <i className="far fa-star"></i>
                     </button>

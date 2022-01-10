@@ -54,6 +54,36 @@ export const postImage = (data) => async (dispatch) => {
     }
 }
 
+export const addToFavorites = (data) => async(dispatch) => {
+    const response = await csrfFetch(`/api/images/${data.id}/favorites`, {
+        method: 'POST',
+        body: JSON.stringify(data)
+    })
+
+    if (response.ok) {
+        return;
+    } else {
+        const errors = await response.json();
+        console.log(errors.errors);
+    }
+}
+
+export const updateFavoriteCount = (data) => async(dispatch) => {
+    const response = await csrfFetch(`/api/images/${data.id}`, {
+        method: 'PATCH',
+        body: JSON.stringify(data)
+    })
+
+    if (response.ok) {
+        const image = await response.json();
+        dispatch(favoriteToggle(image));
+        return image;
+    } else {
+        const errors = await response.json();
+        console.log(errors.errors);
+    }
+}
+
 
 const initialState = {
     order: []

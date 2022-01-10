@@ -62,5 +62,37 @@ router.delete(
     })
 )
 
+// update favoriteCount
+router.patch(
+    '/:id(\\d+)',
+    asyncHandler(async function (req, res) {
+        await Image.update(req.body.favoriteCount, {
+            where: {
+                id: req.params.id
+            }
+        });
+
+        const image = await Image.findByPk(req.params.id, {
+            include: [
+                { model: User},
+                { model: Favorite }
+            ]
+        });
+
+
+
+        res.json(image);
+    })
+)
+
+// add to favorites table with updated favoriteCount
+router.post(
+    '/:id(\\d+)/favorites',
+    asyncHandler(async function (req, res) {
+        const favorite = await Favorite.create(req.body);
+        res.json(favorite);
+    })
+)
+
 
 module.exports = router;
