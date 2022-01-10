@@ -5,7 +5,7 @@ const CREATE = 'images/CREATE';
 const FAVORITE = 'images/FAVORITE';
 const UNFAVORITE = 'images/UNFAVORITE'
 
-const LOAD_ARTIST_PAGE = 'images/artist/LOAD'
+// const LOAD_ARTIST_PAGE = 'images/artist/LOAD'
 
 
 export const getAllImages = (state) => Object.values(state.images);
@@ -36,10 +36,10 @@ const unfavorite = (image, userId) => {
     }
 }
 
-const loadArtistPage = (images) => ({
-    type: LOAD_ARTIST_PAGE,
-    images
-})
+// const loadArtistPage = (images) => ({
+//     type: LOAD_ARTIST_PAGE,
+//     images
+// })
 
 
 
@@ -55,17 +55,17 @@ export const getImages = () => async (dispatch) => {
     }
 }
 
-export const getArtistImages = (id) => async (dispatch) => {
-    const response = await csrfFetch(`/api/artists/${id}/images`);
+// export const getArtistImages = (id) => async (dispatch) => {
+//     const response = await csrfFetch(`/api/artists/${id}/images`);
 
-    if (response.ok) {
-        const images = await response.json();
-        dispatch(loadArtistPage(images));
-    } else {
-        const errors = await response.json();
-        console.log(errors.errors);
-    }
-}
+//     if (response.ok) {
+//         const images = await response.json();
+//         dispatch(loadArtistPage(images));
+//     } else {
+//         const errors = await response.json();
+//         console.log(errors.errors);
+//     }
+// }
 
 export const postImage = (data) => async (dispatch) => {
     const response = await csrfFetch(`/api/images`, {
@@ -144,41 +144,83 @@ export const incrementFavoriteCount = (data, userId) => async(dispatch) => {
 }
 
 
+
+
+const LOAD_FAVORITES = 'favorites/LOAD_FAVORITES';
+
+const loadFavorites = (favImages) => {
+    return {
+        type: LOAD_FAVORITES,
+        favImages
+    }
+}
+
+export const getFavImages = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/favorites/${id}`)
+
+    if (response.ok) {
+        const favImages = await response.json();
+        dispatch(loadFavorites(favImages));
+    } else {
+        const errors = await response.json();
+        console.log(errors.errors);
+    }
+}
+
+
+
+
+
+
 const initialState = {
     order: [],
-    artistPage: {}
+    favoritesPage: {},
 };
 
 const imageReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD: {
-            const allImages = {};
+            const loadImages = {};
             action.images.forEach((image) => {
-                allImages[image.id] = image;
+                loadImages[image.id] = image;
             });
             return {
-                ...allImages,
                 ...state,
+                ...loadImages,
                 order: [
                     ...action.images
                 ]
             }
         }
 
-        case LOAD_ARTIST_PAGE: {
-            const allArtistImages = {};
-            action.images.forEach((image) => {
-                allArtistImages[image.id] = image;
-            });
-            return {
+        // case LOAD_ARTIST_PAGE: {
+        //     const allArtistImages = {};
+        //     action.images.forEach((image) => {
+        //         allArtistImages[image.id] = image;
+        //     });
+        //     return {
+        //         ...state,
+        //         artistPage: {
+        //             ...allArtistImages,
+        //             artistOrder: [
+        //                 ...action.images
+        //             ]
+        //         }
+        //     }
+        // }
+
+        case LOAD_FAVORITES: {
+            const allFaves = {};
+            action.favImages.forEach((image) => {
+                allFaves[image.id] = image;
+            })
+            const newState = {
                 ...state,
-                artistPage: {
-                    ...allArtistImages,
-                    artistOrder: [
-                        ...action.images
-                    ]
+                favoritesPage: {
+                    ...allFaves
                 }
             }
+            return newState;
         }
 
         case CREATE: {

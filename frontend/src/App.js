@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import MainView from "./components/MainView";
 import ArtistPortfolio from "./components/ArtistPortfolio";
 import MyPortfolio from "./components/MyPortfolio";
+import FavoritesPage from "./components/FavoritesPage";
 
 import './index.css'
 
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route path='/my-portfolio'>
             <MyPortfolio />
+          </Route>
+          <Route path='/my-favorites'>
+            <FavoritesPage />
           </Route>
           <Route>
             Page Not Found.

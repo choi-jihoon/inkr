@@ -4,11 +4,13 @@ import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import imageReducer from './images';
 import artistReducer from './artist';
+// import favoriteReducer from './favorite';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     images: imageReducer,
-    artist: artistReducer
+    artist: artistReducer,
+    // favorites: favoriteReducer
 });
 
 
