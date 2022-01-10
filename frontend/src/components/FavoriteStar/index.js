@@ -4,27 +4,37 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-import { addToFavorites, updateFavoriteCount } from '../../store/images';
+import { addToFavorites, incrementFavoriteCount, deleteFromFavorites, decrementFavoriteCount } from '../../store/images';
 import animationData from './favoritestar.json';
 import './FavoriteStar.css';
 
 
 const FavoriteStar = ({ image }) => {
     const dispatch = useDispatch();
+
+    // for lottie animation
     const container = useRef(null);
     const anim = useRef(null);
     const [favorite, setFavorite] = useState(false);
+
     const [count, setCount] = useState(image.favoritedCount);
+
     const sessionUser = useSelector(state => state.session.user);
+    const sessionImages = useSelector(state => state.images);
+
+    const isFavorite = sessionImages[image.id].Favorites.filter(favorite => favorite.userId === sessionUser.id);
+
 
     const handleFavorite = async (e) => {
         e.preventDefault();
 
+        // for lottie animation
         setFavorite(!favorite);
         anim.current?.play();
 
         setCount(prevState => prevState + 1);
 
+        // post to favorites table
         const payload = {
             userId: sessionUser.id,
             imageId: image.id
@@ -32,17 +42,86 @@ const FavoriteStar = ({ image }) => {
 
         await dispatch(addToFavorites(payload));
 
+        // update favoritedCount for image
         const payload2 = {
             id: image.id,
             userId: image.userId,
             imageUrl: image.imageUrl,
             tags: image.tags,
-            favoritedCount: (count + 1)
+            favoritedCount: (image.favoritedCount + 1)
         }
 
-        await dispatch(updateFavoriteCount(payload2));
+        await dispatch(incrementFavoriteCount(payload2, sessionUser.id));
+
+        // change icon render
+        setIcon(favoritedStarIcon)
     }
 
+    const handleUnfavorite = async (e) => {
+        e.preventDefault();
+
+        // for lottie animation
+        // setFavorite(!favorite);
+
+        setCount(prevState => prevState - 1);
+
+        // changes icon to not favorited
+        setIcon(notFavoritedIcon);
+
+        const payload = {
+            imageId: image.id,
+            userId: sessionUser.id
+        }
+
+        await dispatch(deleteFromFavorites(payload));
+
+        const payload2 = {
+            id: image.id,
+            userId: image.userId,
+            imageUrl: image.imageUrl,
+            tags: image.tags,
+            favoritedCount: (image.favoritedCount - 1)
+        }
+
+
+        await dispatch(decrementFavoriteCount(payload2, sessionUser.id))
+    }
+
+
+    const favoritedStarIcon = (
+        <>
+            <i
+                onClick={handleUnfavorite}
+                className="fas fa-star favorited-star"
+            >
+            </i>
+        </>
+    )
+
+    const notFavoritedIcon = (
+        <>
+            <button
+                onClick={handleFavorite}
+                className='favorite-star'
+                ref={container}
+            >
+            </button>
+        </>
+    )
+
+    const [icon, setIcon] = useState(notFavoritedIcon);
+
+    useEffect(() => {
+        if (isFavorite.length) {
+            setIcon(favoritedStarIcon)
+        } else {
+            setIcon(notFavoritedIcon);
+        }
+    }, []);
+
+
+
+    // for lottie animation
     useEffect(() => {
         if (container.current) {
             anim.current = lottie.loadAnimation({
@@ -52,22 +131,16 @@ const FavoriteStar = ({ image }) => {
                 autoplay: false,
                 animationData,
             })
-            anim.current.setSpeed(3);
-
-            return () => anim.current?.destroy();
+            anim.current.setSpeed(2);
+            // return () => anim.current?.destroy();
         }
-    }, []);
+    }, [icon]);
 
 
     return (
         <>
             <div className='favorite-star-container'>
-                <button
-                    onClick={handleFavorite}
-                    className='favorite-star'
-                    ref={container}
-                >
-                </button>
+                {icon}
             </div>
             <p className='favorites-number'>
                 {count}
