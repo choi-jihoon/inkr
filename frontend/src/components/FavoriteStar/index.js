@@ -54,7 +54,9 @@ const FavoriteStar = ({ image }) => {
         await dispatch(incrementFavoriteCount(payload2, sessionUser.id));
 
         // change icon render
-        setIcon(favoritedStarIcon)
+        setTimeout(() => {
+            setIcon(favoritedStarIcon);
+        }, 1000)
     }
 
     const handleUnfavorite = async (e) => {
@@ -131,7 +133,7 @@ const FavoriteStar = ({ image }) => {
                 autoplay: false,
                 animationData,
             })
-            anim.current.setSpeed(2);
+            anim.current.setSpeed(1);
             // return () => anim.current?.destroy();
         }
     }, [icon]);
