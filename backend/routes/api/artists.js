@@ -19,7 +19,7 @@ router.get('/:id(\\d+)/images', asyncHandler(async function (req, res) {
         ],
         order: [['createdAt', 'DESC']]
     })
-    res.json({ images });
+    res.json(images);
 }))
 
 
