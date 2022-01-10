@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+import FavoriteStar from "../FavoriteStar";
 import './ImageZoom.css';
 
 function ImageZoom({ image, tagString }) {
@@ -13,7 +14,7 @@ function ImageZoom({ image, tagString }) {
           <p className='zoomed-artist-name'>{image?.User.username}</p>
         </NavLink>
         <div className='zoomed-favorites-container'>
-          <p className='zoomed-favorites-count'><i className="far fa-star"></i> {image?.favoritedCount}</p>
+         <FavoriteStar image={image} />
         </div>
         <div className='zoomed-all-tags' key={image}>
           {tagString ? tagString.split(',').map(tag => <p key={tag} className='single-tag'>{`${tag}`}</p>) : <p key='notag' className='no-tags'>No tags</p>}

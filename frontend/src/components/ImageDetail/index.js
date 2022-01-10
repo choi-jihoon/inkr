@@ -1,21 +1,24 @@
 import { NavLink } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-
+import { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import ImageZoom from '../ImageZoom';
+import FavoriteStar from '../FavoriteStar';
 import './ImageDetail.css';
 
 const ImageDetail = ({ image, tagString }) => {
     const [showModal, setShowModal] = useState(false);
 
-    useEffect(() => {
-        const modal = document.querySelector('#modal-content');
 
-        if (showModal) {
-            modal.classList.add('modal-animation');
-        }
+    // useEffect(() => {
+    //     const modal = document.querySelector('#modal-content');
 
-    }, [showModal])
+    //     if (showModal) {
+    //         modal.classList.add('modal-animation');
+    //     }
+
+    // }, [showModal])
+
+
 
     return (
         <div className='image-container'>
@@ -29,7 +32,9 @@ const ImageDetail = ({ image, tagString }) => {
                 <NavLink to={`/artists/${image?.userId}`}>
                     <p className='artist-name'>{image?.User.username}</p>
                 </NavLink>
-                <p className='favorites-count'><i className="far fa-star"></i> {image?.favoritedCount}</p>
+                <div className='favorites-count'>
+                    <FavoriteStar image={image} />
+                </div>
             </div>
         </div>
     )

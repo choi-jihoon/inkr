@@ -1,7 +1,7 @@
 
 .zoomed-container {
     color: var(--soft-black);
-    background-color: rgb(245, 245, 245);
+    background-color: rgb(34, 34, 34);
     font-style: italic;
     max-width: 450px;
 
@@ -19,7 +19,11 @@
     display: grid;
     padding: 10px;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 30px;
     width: 100%;
+    background-color: rgb(34, 34, 34);
+    position:relative;
+    bottom: 3px;
 }
 
 .zoomed-artist-container {
@@ -29,22 +33,31 @@
 }
 
 .zoomed-artist-name {
-    color: var(--soft-black);
+    color: var(--soft-white);
     display: inline-block;
     width: fit-content;
 }
 
 .zoomed-artist-name:hover {
-    color: #303030b7;
+    color: rgba(255, 255, 255, 0.555);
 }
 
 .zoomed-favorites-container {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
 }
 
-.zoomed-favorites-count > .fa-star {
+.zoomed-favorites-container > .favorite-star-container {
+   position: relative;
+   top: 4px;
+}
+
+.zoomed-favorites-container > .favorites-number {
+    color: var(--soft-white);
+}
+
+/* .zoomed-favorites-count > .fa-star {
     color: var(--soft-black);
     font-size: 20px;
     cursor: pointer;
@@ -52,16 +65,17 @@
 
 .zoomed-favorites-count > .fa-star:hover {
     color: gold;
-}
+} */
 
 .zoomed-all-tags {
     display: flex;
     justify-content: center;
     align-items: center;
     overflow:hidden;
+    color: var(--soft-white);
 }
 
-.single-tag:hover {
-    color: #3030308e;
+.zoomed-all-tags > .single-tag:hover {
+    color: rgba(255, 255, 255, 0.555);
     cursor: default;
 }
