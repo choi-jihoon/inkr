@@ -6,7 +6,7 @@ import ImageDetail from "../ImageDetail";
 
 import './UserHomePage.css';
 
-function UserHomePage({ user }) {
+function UserHomePage() {
     const dispatch = useDispatch();
 
     const imagesObject = useSelector((state) => state.images.order);
