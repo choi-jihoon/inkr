@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf';
 
 const LOAD = 'images/LOAD';
 const CREATE = 'images/CREATE';
+const FAVORITE_UNFAVORITE = 'images/FAVORITE_UNFAVORITE';
 
 
 export const getAllImages = (state) => Object.values(state.images);
@@ -15,6 +16,13 @@ const create = (image) => ({
     type: CREATE,
     image
 })
+
+export const favoriteToggle = (image) => {
+    return {
+        type: FAVORITE_UNFAVORITE,
+        image
+    }
+}
 
 
 
@@ -47,7 +55,6 @@ export const postImage = (data) => async (dispatch) => {
 }
 
 
-
 const initialState = {
     order: []
 };
@@ -77,6 +84,25 @@ const imageReducer = (state = initialState, action) => {
                     ...state.order
                 ]
             };
+            return newState;
+        }
+
+        case FAVORITE_UNFAVORITE: {
+            const favoritedCount = Number(state[action.image.id].favoritedCount);
+            const orderedImageIndex = state.order.findIndex(image => image.id === action.image.id);
+            const newCount = favoritedCount + 1;
+            const newState = {
+                ...state,
+                [action.image.id]: {
+                    ...state[action.image.id],
+                    favoritedCount: newCount,
+                    Favorites: [
+                        ...state[action.image.id].Favorites,
+                        action.image
+                    ]
+                }
+            };
+            newState.order[orderedImageIndex].favoritedCount = newCount;
             return newState;
         }
 

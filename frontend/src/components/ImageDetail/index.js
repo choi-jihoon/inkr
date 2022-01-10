@@ -1,21 +1,24 @@
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Modal } from '../../context/Modal';
+import { favoriteToggle } from '../../store/images';
 import ImageZoom from '../ImageZoom';
 import './ImageDetail.css';
 
 const ImageDetail = ({ image, tagString }) => {
+    const dispatch = useDispatch();
     const [showModal, setShowModal] = useState(false);
 
-    useEffect(() => {
-        const modal = document.querySelector('#modal-content');
+    // useEffect(() => {
+    //     const modal = document.querySelector('#modal-content');
 
-        if (showModal) {
-            modal.classList.add('modal-animation');
-        }
+    //     if (showModal) {
+    //         modal.classList.add('modal-animation');
+    //     }
 
-    }, [showModal])
+    // }, [showModal])
 
     return (
         <div className='image-container'>
@@ -29,7 +32,19 @@ const ImageDetail = ({ image, tagString }) => {
                 <NavLink to={`/artists/${image?.userId}`}>
                     <p className='artist-name'>{image?.User.username}</p>
                 </NavLink>
-                <p className='favorites-count'><i className="far fa-star"></i> {image?.favoritedCount}</p>
+                <div className='favorites-count'>
+                    <button
+                        className='favorited-button'
+                        onClick={() => {
+                            console.log('CLICKED')
+                            dispatch(favoriteToggle(image))}}
+                    >
+                        <i className="far fa-star"></i>
+                    </button>
+                    <p>
+                        {image?.favoritedCount}
+                    </p>
+                </div>
             </div>
         </div>
     )
