@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from 'react-router-dom';
 import { postImage } from "../../store/images";
 
 import './ImageForm.css';
 
 function ImageForm({ showModal }) {
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const [imageUrl, setImageUrl] = useState('');
   const [tags, setTags] = useState([])
   const [validationErrors, setValidationErrors] = useState([]);
   const sessionUser = useSelector(state => state.session.user);
-  // const sessionImages = useSelector(state => state.images)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +29,9 @@ function ImageForm({ showModal }) {
       tags: tagsArr
     }
     dispatch(postImage(payload));
+
+    history.push('/');
+
     showModal(false)
   };
 

@@ -20,9 +20,9 @@ const FavoriteStar = ({ image }) => {
     const [count, setCount] = useState(image.favoritedCount);
 
     const sessionUser = useSelector(state => state.session.user);
-    const sessionImages = useSelector(state => state.images);
+    // const sessionImages = useSelector(state => state.images);
 
-    const isFavorite = sessionImages[image.id].Favorites.filter(favorite => favorite.userId === sessionUser.id);
+    const isFavorite = image.Favorites.filter(favorite => favorite.userId === sessionUser.id);
 
 
     const handleFavorite = async (e) => {

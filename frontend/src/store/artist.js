@@ -70,7 +70,7 @@ const artistReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD: {
             const allImages = {};
-            action.images.images.forEach((image) => {
+            action.images.forEach((image) => {
                 allImages[image.id] = image;
             });
             return {
