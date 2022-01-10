@@ -1,6 +1,6 @@
 
 import lottie from 'lottie-web/build/player/lottie_light';
-import { useEffect, useRef, useState, useMemo } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -103,6 +103,8 @@ const FavoriteStar = ({ image }) => {
             setIcon(notFavoritedIcon);
         }
     }, []);
+
+
 
 
     useEffect(() => {
