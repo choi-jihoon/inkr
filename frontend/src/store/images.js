@@ -144,9 +144,37 @@ export const incrementFavoriteCount = (data, userId) => async(dispatch) => {
 }
 
 
+
+
+const LOAD_FAVORITES = 'favorites/LOAD_FAVORITES';
+
+const loadFavorites = (favImages) => {
+    return {
+        type: LOAD_FAVORITES,
+        favImages
+    }
+}
+
+export const getFavImages = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/favorites/${id}`)
+
+    if (response.ok) {
+        const favImages = await response.json();
+        dispatch(loadFavorites(favImages));
+    } else {
+        const errors = await response.json();
+        console.log(errors.errors);
+    }
+}
+
+
+
+
+
+
 const initialState = {
     order: [],
-    artistPage: {}
+    favoritesPage: {}
 };
 
 const imageReducer = (state = initialState, action) => {
@@ -180,6 +208,20 @@ const imageReducer = (state = initialState, action) => {
         //         }
         //     }
         // }
+
+        case LOAD_FAVORITES: {
+            const allFaves = {};
+            action.favImages.forEach((image) => {
+                allFaves[image.id] = image;
+            })
+            const newState = {
+                ...state.images,
+                favoritesPage: {
+                    ...allFaves
+                }
+            }
+            return newState;
+        }
 
         case CREATE: {
             const newState = {

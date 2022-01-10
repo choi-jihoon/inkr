@@ -1,24 +1,16 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ImageDetail from "../ImageDetail";
-import { getFavImages } from '../../store/favorite';
+import { getFavImages } from '../../store/images';
 
 import './FavoritesPage.css';
 
 function FavoritesPage() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-
-    // const imagesObject = useSelector((state) => state.images);
-    // const images = Object.values(imagesObject);
-    // const favoritesArray = images.map(image => image.Favorites);
-    // const allFavorites = favoritesArray.filter(fave => fave.length > 0)
-    // const userFavorites = allFavorites.filter(fave => fave[0].userId === sessionUser.id);
-
-    const favImagesObject = useSelector((state) => state.favorites);
+    const favImagesObject = useSelector((state) => state.images.favoritesPage);
     const favImages = Object.values(favImagesObject);
 
-    console.log(favImages)
 
     useEffect(() => {
         dispatch(getFavImages(sessionUser.id))
