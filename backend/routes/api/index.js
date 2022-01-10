@@ -7,11 +7,13 @@ const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const imagesRouter = require('./images');
 const artistsRouter = require('./artists');
+const favoritesRouter = require('./favorites');
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 router.use('/images', imagesRouter);
 router.use('/artists', artistsRouter);
+router.use('/favorites', favoritesRouter);
 
 
 

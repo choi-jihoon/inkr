@@ -5,7 +5,7 @@ const CREATE = 'images/CREATE';
 const FAVORITE = 'images/FAVORITE';
 const UNFAVORITE = 'images/UNFAVORITE'
 
-const LOAD_ARTIST_PAGE = 'images/artist/LOAD'
+// const LOAD_ARTIST_PAGE = 'images/artist/LOAD'
 
 
 export const getAllImages = (state) => Object.values(state.images);
@@ -36,10 +36,10 @@ const unfavorite = (image, userId) => {
     }
 }
 
-const loadArtistPage = (images) => ({
-    type: LOAD_ARTIST_PAGE,
-    images
-})
+// const loadArtistPage = (images) => ({
+//     type: LOAD_ARTIST_PAGE,
+//     images
+// })
 
 
 
@@ -55,17 +55,17 @@ export const getImages = () => async (dispatch) => {
     }
 }
 
-export const getArtistImages = (id) => async (dispatch) => {
-    const response = await csrfFetch(`/api/artists/${id}/images`);
+// export const getArtistImages = (id) => async (dispatch) => {
+//     const response = await csrfFetch(`/api/artists/${id}/images`);
 
-    if (response.ok) {
-        const images = await response.json();
-        dispatch(loadArtistPage(images));
-    } else {
-        const errors = await response.json();
-        console.log(errors.errors);
-    }
-}
+//     if (response.ok) {
+//         const images = await response.json();
+//         dispatch(loadArtistPage(images));
+//     } else {
+//         const errors = await response.json();
+//         console.log(errors.errors);
+//     }
+// }
 
 export const postImage = (data) => async (dispatch) => {
     const response = await csrfFetch(`/api/images`, {
@@ -165,21 +165,21 @@ const imageReducer = (state = initialState, action) => {
             }
         }
 
-        case LOAD_ARTIST_PAGE: {
-            const allArtistImages = {};
-            action.images.forEach((image) => {
-                allArtistImages[image.id] = image;
-            });
-            return {
-                ...state,
-                artistPage: {
-                    ...allArtistImages,
-                    artistOrder: [
-                        ...action.images
-                    ]
-                }
-            }
-        }
+        // case LOAD_ARTIST_PAGE: {
+        //     const allArtistImages = {};
+        //     action.images.forEach((image) => {
+        //         allArtistImages[image.id] = image;
+        //     });
+        //     return {
+        //         ...state,
+        //         artistPage: {
+        //             ...allArtistImages,
+        //             artistOrder: [
+        //                 ...action.images
+        //             ]
+        //         }
+        //     }
+        // }
 
         case CREATE: {
             const newState = {
