@@ -174,19 +174,19 @@ export const getFavImages = (id) => async (dispatch) => {
 
 const initialState = {
     order: [],
-    favoritesPage: {}
+    favoritesPage: {},
 };
 
 const imageReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD: {
-            const allImages = {};
+            const loadImages = {};
             action.images.forEach((image) => {
-                allImages[image.id] = image;
+                loadImages[image.id] = image;
             });
             return {
-                ...allImages,
                 ...state,
+                ...loadImages,
                 order: [
                     ...action.images
                 ]
@@ -215,7 +215,7 @@ const imageReducer = (state = initialState, action) => {
                 allFaves[image.id] = image;
             })
             const newState = {
-                ...state.images,
+                ...state,
                 favoritesPage: {
                     ...allFaves
                 }
