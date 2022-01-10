@@ -97,6 +97,16 @@ h2 {
 .favorites-count {
   color: rgba(245, 245, 245, 0.747);
   cursor: default;
+  display: flex;
+}
+
+.favorited-button {
+  border: none;
+  background: none;
+}
+
+.favorites-number {
+  margin-left: 5px;
 }
 
 .fa-star {

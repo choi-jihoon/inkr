@@ -55,7 +55,7 @@ export const postImage = (data) => async (dispatch) => {
 }
 
 export const addToFavorites = (data) => async(dispatch) => {
-    const response = await csrfFetch(`/api/images/${data.id}/favorites`, {
+    const response = await csrfFetch(`/api/images/${data.imageId}/favorites`, {
         method: 'POST',
         body: JSON.stringify(data)
     })
@@ -69,8 +69,8 @@ export const addToFavorites = (data) => async(dispatch) => {
 }
 
 export const updateFavoriteCount = (data) => async(dispatch) => {
-    const response = await csrfFetch(`/api/images/${data.id}`, {
-        method: 'PATCH',
+    const response = await csrfFetch(`/api/images/${data.id}/favorites`, {
+        method: 'PUT',
         body: JSON.stringify(data)
     })
 

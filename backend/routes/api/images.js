@@ -63,10 +63,10 @@ router.delete(
 )
 
 // update favoriteCount
-router.patch(
-    '/:id(\\d+)',
+router.put(
+    '/:id(\\d+)/favorites',
     asyncHandler(async function (req, res) {
-        await Image.update(req.body.favoriteCount, {
+        await Image.update(req.body, {
             where: {
                 id: req.params.id
             }
