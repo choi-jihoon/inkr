@@ -11,23 +11,30 @@ import './FavoriteStar.css';
 
 const FavoriteStar = ({ image }) => {
     const dispatch = useDispatch();
+
+    // for lottie animation
     const container = useRef(null);
     const anim = useRef(null);
     const [favorite, setFavorite] = useState(false);
+
     const [count, setCount] = useState(image.favoritedCount);
+
     const sessionUser = useSelector(state => state.session.user);
     const sessionImages = useSelector(state => state.images);
 
     const isFavorite = sessionImages[image.id].Favorites.filter(favorite => favorite.userId === sessionUser.id);
 
+
     const handleFavorite = async (e) => {
         e.preventDefault();
 
+        // for lottie animation
         setFavorite(!favorite);
         anim.current?.play();
 
         setCount(prevState => prevState + 1);
 
+        // post to favorites table
         const payload = {
             userId: sessionUser.id,
             imageId: image.id
@@ -35,25 +42,30 @@ const FavoriteStar = ({ image }) => {
 
         await dispatch(addToFavorites(payload));
 
+        // update favoritedCount for image
         const payload2 = {
             id: image.id,
             userId: image.userId,
             imageUrl: image.imageUrl,
             tags: image.tags,
-            favoritedCount: (count + 1)
+            favoritedCount: (image.favoritedCount + 1)
         }
-
 
         await dispatch(incrementFavoriteCount(payload2, sessionUser.id));
 
+        // change icon render
         setIcon(favoritedStarIcon)
     }
 
     const handleUnfavorite = async (e) => {
         e.preventDefault();
 
-        setFavorite(!favorite);
+        // for lottie animation
+        // setFavorite(!favorite);
+
         setCount(prevState => prevState - 1);
+
+        // changes icon to not favorited
         setIcon(notFavoritedIcon);
 
         const payload = {
@@ -68,7 +80,7 @@ const FavoriteStar = ({ image }) => {
             userId: image.userId,
             imageUrl: image.imageUrl,
             tags: image.tags,
-            favoritedCount: (count - 1)
+            favoritedCount: (image.favoritedCount - 1)
         }
 
 
@@ -76,12 +88,13 @@ const FavoriteStar = ({ image }) => {
     }
 
 
-    const favoritedStarIcon =  (
+    const favoritedStarIcon = (
         <>
             <i
                 onClick={handleUnfavorite}
                 className="fas fa-star favorited-star"
-                ></i>
+            >
+            </i>
         </>
     )
 
@@ -91,7 +104,7 @@ const FavoriteStar = ({ image }) => {
                 onClick={handleFavorite}
                 className='favorite-star'
                 ref={container}
-                >
+            >
             </button>
         </>
     )
@@ -108,7 +121,7 @@ const FavoriteStar = ({ image }) => {
 
 
 
-
+    // for lottie animation
     useEffect(() => {
         if (container.current) {
             anim.current = lottie.loadAnimation({
@@ -118,11 +131,10 @@ const FavoriteStar = ({ image }) => {
                 autoplay: false,
                 animationData,
             })
-            anim.current.setSpeed(3);
-
-            return () => anim.current?.destroy();
+            anim.current.setSpeed(2);
+            // return () => anim.current?.destroy();
         }
-    }, []);
+    }, [icon]);
 
 
     return (

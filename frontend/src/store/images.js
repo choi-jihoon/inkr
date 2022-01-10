@@ -177,9 +177,9 @@ const imageReducer = (state = initialState, action) => {
         }
 
         case UNFAVORITE: {
-            const favoritedCount = Number(state[action.image.id].favoritedCount);
+            const oldFavoritedCount = Number(state[action.image.id].favoritedCount);
             const favoriteIndex = state[action.image.id].Favorites.findIndex(favorite => favorite.userId === action.userId);
-            const newCount = favoritedCount - 1;
+            const newCount = oldFavoritedCount - 1;
             const newState = {
                 ...state,
                 [action.imageId]: {
