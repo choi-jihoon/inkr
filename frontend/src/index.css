@@ -98,6 +98,7 @@ h2 {
   color: rgba(245, 245, 245, 0.747);
   cursor: default;
   display: flex;
+  max-height: 28px;
 }
 
 .favorited-button {

@@ -1,0 +1,12 @@
+.favorite-star {
+    background: transparent;
+    border: none;
+    width: 70px;
+    right: 50px;
+}
+
+.favorite-star-container {
+    position: relative;
+    bottom: 22px;
+    left: 20px;
+}
