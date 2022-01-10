@@ -10,3 +10,7 @@
     bottom: 22px;
     left: 20px;
 }
+
+.favorite-star > svg > g:hover {
+    cursor: pointer;
+}

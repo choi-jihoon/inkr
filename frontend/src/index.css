@@ -1,5 +1,5 @@
 /* TODO Add site wide styles */
-
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Staatliches&family=Yellowtail&display=swap');
 @import url('https://use.typekit.net/kyk0anv.css');
 
@@ -58,9 +58,13 @@ a, a:hover, a:visited, a:active {
 
 
 .all-images-container {
-  column-count: 3;
-  column-gap: 30px;
-  width: 60%;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 15px; */
+  column-count: 4;
+  column-gap: 15px;
+  width: 70%;
   margin: auto;
 }
 
@@ -69,7 +73,7 @@ a, a:hover, a:visited, a:active {
   display: absolute;
   /* display: grid;
   grid-template-rows: 1fr auto; */
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   break-inside: avoid;
   background: #303030;
   border-radius: 5px;
@@ -82,7 +86,7 @@ a, a:hover, a:visited, a:active {
 
 h2 {
 
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Fredericka the Great', cursive;
 
   font-size: 40px;
 }
@@ -108,13 +112,4 @@ h2 {
 
 .favorites-number {
   margin-left: 5px;
-}
-
-.fa-star {
-  color: rgba(245, 245, 245, 0.747);
-}
-
-.fa-star:hover {
-  color: gold;
-  cursor: pointer;
 }

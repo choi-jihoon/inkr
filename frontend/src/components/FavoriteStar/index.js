@@ -9,7 +9,7 @@ import animationData from './favoritestar.json';
 import './FavoriteStar.css';
 
 
-const FavoriteStar = ({ image, tagString }) => {
+const FavoriteStar = ({ image }) => {
     const dispatch = useDispatch();
     const container = useRef(null);
     const anim = useRef(null);

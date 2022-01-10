@@ -1,10 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
-
+import { useState } from 'react';
 import { Modal } from '../../context/Modal';
-import { addToFavorites, updateFavoriteCount } from '../../store/images';
 import ImageZoom from '../ImageZoom';
 import FavoriteStar from '../FavoriteStar';
 import './ImageDetail.css';
@@ -37,7 +33,7 @@ const ImageDetail = ({ image, tagString }) => {
                     <p className='artist-name'>{image?.User.username}</p>
                 </NavLink>
                 <div className='favorites-count'>
-                    <FavoriteStar image={image} tagString={tagString} />
+                    <FavoriteStar image={image} />
                 </div>
             </div>
         </div>
