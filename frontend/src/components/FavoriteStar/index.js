@@ -63,7 +63,7 @@ const FavoriteStar = ({ image }) => {
         e.preventDefault();
 
         // for lottie animation
-        // setFavorite(!favorite);
+        setFavorite(!favorite);
 
         setCount(prevState => prevState - 1);
 
@@ -141,7 +141,7 @@ const FavoriteStar = ({ image }) => {
 
     return (
         <>
-            <div className='favorite-star-container'>
+            <div className={isFavorite.length ? 'favorite-star-container favorited' : 'favorite-star-container not-favorited'}>
                 {icon}
             </div>
             <p className='favorites-number'>

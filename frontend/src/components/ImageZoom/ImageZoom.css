@@ -44,14 +44,19 @@
 
 .zoomed-favorites-container {
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
 }
 
 .zoomed-favorites-container > .favorite-star-container {
    position: relative;
-   top: 4px;
 }
+
+.zoomed-favorites-container > .not-favorited {
+    position: relative;
+    top: 3px;
+}
+
 
 .zoomed-favorites-container > .favorites-number {
     color: var(--soft-white);

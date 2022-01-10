@@ -11,6 +11,11 @@
     left: 20px;
 }
 
+/* .favorite-star-container.not-favorited {
+    position: relative;
+    bottom: 18px;
+} */
+
 .favorite-star > svg > g:hover {
     cursor: pointer;
 }
