@@ -32,6 +32,8 @@ a, a:hover, a:visited, a:active {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  position: absolute;
+  top: 78px;
 }
 
 .favorites-count {
@@ -65,7 +67,8 @@ a, a:hover, a:visited, a:active {
   column-count: 4;
   column-gap: 15px;
   width: 70%;
-  margin: auto;
+  /* margin: auto; */
+  margin-bottom: 30px;
 }
 
 .image-container {

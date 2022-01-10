@@ -5,8 +5,9 @@ header {
     display: flex;
     justify-content: center;
     margin: 0;
-    background-color: rgba(0,0,0, 0.5);
-    position: relative;
+    background-color: rgba(0, 0, 0, 0.664);
+    position: fixed;
+    width: 100%;
     z-index: 2;
 }
 
