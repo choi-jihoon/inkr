@@ -37,13 +37,14 @@ const FavoriteStar = ({ image }) => {
 
         const payload2 = {
             id: image.id,
-            userId: sessionUser.id,
+            userId: image.userId,
             imageUrl: image.imageUrl,
             tags: image.tags,
             favoritedCount: (count + 1)
         }
 
-        await dispatch(incrementFavoriteCount(payload2));
+
+        await dispatch(incrementFavoriteCount(payload2, sessionUser.id));
 
         setIcon(favoritedStarIcon)
     }
@@ -69,6 +70,7 @@ const FavoriteStar = ({ image }) => {
             tags: image.tags,
             favoritedCount: (count - 1)
         }
+
 
         await dispatch(decrementFavoriteCount(payload2, sessionUser.id))
     }

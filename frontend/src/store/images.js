@@ -18,10 +18,11 @@ const create = (image) => ({
     image
 })
 
-const favorite = (image) => {
+const favorite = (image, userId) => {
     return {
         type: FAVORITE,
-        image
+        image,
+        userId
     }
 }
 
@@ -107,7 +108,7 @@ export const decrementFavoriteCount = (data, userId) => async(dispatch) => {
     }
 }
 
-export const incrementFavoriteCount = (data) => async(dispatch) => {
+export const incrementFavoriteCount = (data, userId) => async(dispatch) => {
     const response = await csrfFetch(`/api/images/${data.id}/favorites`, {
         method: 'PUT',
         body: JSON.stringify(data)
@@ -115,7 +116,7 @@ export const incrementFavoriteCount = (data) => async(dispatch) => {
 
     if (response.ok) {
         const image = await response.json();
-        dispatch(favorite(image));
+        dispatch(favorite(image, userId));
         return image;
     } else {
         const errors = await response.json();
@@ -167,7 +168,7 @@ const imageReducer = (state = initialState, action) => {
                     favoritedCount: newCount,
                     Favorites: [
                         ...state[action.image.id].Favorites,
-                        action.image
+                        {userId: action.userId, imageId: action.image.id}
                     ]
                 }
             };
@@ -185,8 +186,7 @@ const imageReducer = (state = initialState, action) => {
                     ...state[action.image.id],
                     favoritedCount: newCount,
                     Favorites: [
-                        ...state[action.image.id].Favorites,
-                        action.image
+                        ...state[action.image.id].Favorites
                     ]
                 }
             }
