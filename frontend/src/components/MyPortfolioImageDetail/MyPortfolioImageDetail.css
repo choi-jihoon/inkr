@@ -24,10 +24,14 @@
     justify-content: flex-end;
     font-size: 1.8vmin;
     align-items: center;
+    color: var(--soft-black);
 }
 
 .portfolio-star {
     margin-right: 5px;
+    color: var(--soft-black);
+
+
 }
 
 .tag-container {
