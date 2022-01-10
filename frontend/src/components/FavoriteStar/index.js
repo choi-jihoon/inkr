@@ -74,16 +74,16 @@ const FavoriteStar = ({ image }) => {
     }
 
 
-    const favoritedStarIcon = useMemo(() => (
+    const favoritedStarIcon =  (
         <>
             <i
                 onClick={handleUnfavorite}
                 className="fas fa-star favorited-star"
                 ></i>
         </>
-    ))
+    )
 
-    const notFavoritedIcon = useMemo(() => (
+    const notFavoritedIcon = (
         <>
             <button
                 onClick={handleFavorite}
@@ -92,7 +92,7 @@ const FavoriteStar = ({ image }) => {
                 >
             </button>
         </>
-    ))
+    )
 
     const [icon, setIcon] = useState(notFavoritedIcon);
 
