@@ -2,7 +2,8 @@ import { csrfFetch } from './csrf';
 
 const LOAD = 'images/LOAD';
 const CREATE = 'images/CREATE';
-const FAVORITE_UNFAVORITE = 'images/FAVORITE_UNFAVORITE';
+const FAVORITE = 'images/FAVORITE';
+const UNFAVORITE = 'images/UNFAVORITE'
 
 
 export const getAllImages = (state) => Object.values(state.images);
@@ -17,10 +18,18 @@ const create = (image) => ({
     image
 })
 
-export const favoriteToggle = (image) => {
+const favorite = (image) => {
     return {
-        type: FAVORITE_UNFAVORITE,
+        type: FAVORITE,
         image
+    }
+}
+
+const unfavorite = (image, userId) => {
+    return {
+        type: UNFAVORITE,
+        image,
+        userId
     }
 }
 
@@ -68,7 +77,21 @@ export const addToFavorites = (data) => async(dispatch) => {
     }
 }
 
-export const updateFavoriteCount = (data) => async(dispatch) => {
+export const deleteFromFavorites = (data) => async(dispatch) => {
+    const response = await csrfFetch(`/api/images/${data.imageId}/favorites`, {
+        method: 'DELETE',
+        body: JSON.stringify(data)
+    })
+
+    if (response.ok) {
+        return;
+    } else {
+        const errors = await response.json();
+        console.log(errors.errors);
+    }
+}
+
+export const decrementFavoriteCount = (data, userId) => async(dispatch) => {
     const response = await csrfFetch(`/api/images/${data.id}/favorites`, {
         method: 'PUT',
         body: JSON.stringify(data)
@@ -76,7 +99,23 @@ export const updateFavoriteCount = (data) => async(dispatch) => {
 
     if (response.ok) {
         const image = await response.json();
-        dispatch(favoriteToggle(image));
+        dispatch(unfavorite(image, userId));
+        return image;
+    } else {
+        const errors = await response.json();
+        console.log(errors.errors);
+    }
+}
+
+export const incrementFavoriteCount = (data) => async(dispatch) => {
+    const response = await csrfFetch(`/api/images/${data.id}/favorites`, {
+        method: 'PUT',
+        body: JSON.stringify(data)
+    })
+
+    if (response.ok) {
+        const image = await response.json();
+        dispatch(favorite(image));
         return image;
     } else {
         const errors = await response.json();
@@ -117,7 +156,7 @@ const imageReducer = (state = initialState, action) => {
             return newState;
         }
 
-        case FAVORITE_UNFAVORITE: {
+        case FAVORITE: {
             const favoritedCount = Number(state[action.image.id].favoritedCount);
             const orderedImageIndex = state.order.findIndex(image => image.id === action.image.id);
             const newCount = favoritedCount + 1;
@@ -133,6 +172,25 @@ const imageReducer = (state = initialState, action) => {
                 }
             };
             newState.order[orderedImageIndex].favoritedCount = newCount;
+            return newState;
+        }
+
+        case UNFAVORITE: {
+            const favoritedCount = Number(state[action.image.id].favoritedCount);
+            const favoriteIndex = state[action.image.id].Favorites.findIndex(favorite => favorite.userId === action.userId);
+            const newCount = favoritedCount - 1;
+            const newState = {
+                ...state,
+                [action.imageId]: {
+                    ...state[action.image.id],
+                    favoritedCount: newCount,
+                    Favorites: [
+                        ...state[action.image.id].Favorites,
+                        action.image
+                    ]
+                }
+            }
+            newState[action.image.id].Favorites.splice(favoriteIndex, 1);
             return newState;
         }
 

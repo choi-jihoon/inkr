@@ -1,10 +1,10 @@
 
 import lottie from 'lottie-web/build/player/lottie_light';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-import { addToFavorites, updateFavoriteCount } from '../../store/images';
+import { addToFavorites, incrementFavoriteCount, deleteFromFavorites, decrementFavoriteCount } from '../../store/images';
 import animationData from './favoritestar.json';
 import './FavoriteStar.css';
 
@@ -16,6 +16,9 @@ const FavoriteStar = ({ image }) => {
     const [favorite, setFavorite] = useState(false);
     const [count, setCount] = useState(image.favoritedCount);
     const sessionUser = useSelector(state => state.session.user);
+    const sessionImages = useSelector(state => state.images);
+
+    const isFavorite = sessionImages[image.id].Favorites.filter(favorite => favorite.userId === sessionUser.id);
 
     const handleFavorite = async (e) => {
         e.preventDefault();
@@ -34,14 +37,73 @@ const FavoriteStar = ({ image }) => {
 
         const payload2 = {
             id: image.id,
-            userId: image.userId,
+            userId: sessionUser.id,
             imageUrl: image.imageUrl,
             tags: image.tags,
             favoritedCount: (count + 1)
         }
 
-        await dispatch(updateFavoriteCount(payload2));
+        await dispatch(incrementFavoriteCount(payload2));
+
+        setIcon(favoritedStarIcon)
     }
+
+    const handleUnfavorite = async (e) => {
+        e.preventDefault();
+
+        setFavorite(!favorite);
+        setCount(prevState => prevState - 1);
+        setIcon(notFavoritedIcon);
+
+        const payload = {
+            imageId: image.id,
+            userId: sessionUser.id
+        }
+
+        await dispatch(deleteFromFavorites(payload));
+
+        const payload2 = {
+            id: image.id,
+            userId: image.userId,
+            imageUrl: image.imageUrl,
+            tags: image.tags,
+            favoritedCount: (count - 1)
+        }
+
+        await dispatch(decrementFavoriteCount(payload2, sessionUser.id))
+    }
+
+
+    const favoritedStarIcon = useMemo(() => (
+        <>
+            <i
+                onClick={handleUnfavorite}
+                className="fas fa-star favorited-star"
+                ></i>
+        </>
+    ))
+
+    const notFavoritedIcon = useMemo(() => (
+        <>
+            <button
+                onClick={handleFavorite}
+                className='favorite-star'
+                ref={container}
+                >
+            </button>
+        </>
+    ))
+
+    const [icon, setIcon] = useState(notFavoritedIcon);
+
+    useEffect(() => {
+        if (isFavorite.length) {
+            setIcon(favoritedStarIcon)
+        } else {
+            setIcon(notFavoritedIcon);
+        }
+    }, []);
+
 
     useEffect(() => {
         if (container.current) {
@@ -62,12 +124,7 @@ const FavoriteStar = ({ image }) => {
     return (
         <>
             <div className='favorite-star-container'>
-                <button
-                    onClick={handleFavorite}
-                    className='favorite-star'
-                    ref={container}
-                >
-                </button>
+                {icon}
             </div>
             <p className='favorites-number'>
                 {count}

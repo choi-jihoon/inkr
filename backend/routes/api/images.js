@@ -72,13 +72,7 @@ router.put(
             }
         });
 
-        const image = await Image.findByPk(req.params.id, {
-            include: [
-                { model: User},
-                { model: Favorite }
-            ]
-        });
-
+        const image = await Image.findByPk(req.params.id);
 
 
         res.json(image);
@@ -91,6 +85,22 @@ router.post(
     asyncHandler(async function (req, res) {
         const favorite = await Favorite.create(req.body);
         res.json(favorite);
+    })
+)
+
+// delete from favorites table
+router.delete(
+    '/:id(\\d+)/favorites',
+    asyncHandler(async function (req, res) {
+        const favorite = await Favorite.findOne({
+            where: {
+                imageId: req.params.id,
+                userId: req.body.userId
+            }
+        })
+
+        await favorite.destroy();
+        res.status(204).end();
     })
 )
 

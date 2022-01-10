@@ -14,3 +14,15 @@
 .favorite-star > svg > g:hover {
     cursor: pointer;
 }
+
+.favorited-star {
+    position: relative;
+    right: 20px;
+    top: 22px;
+    color: gold;
+    font-size: 18px;
+}
+
+.favorited-star:hover {
+    cursor: pointer;
+}
