@@ -14,7 +14,34 @@ function ImageForm({ showModal }) {
   const [validationErrors, setValidationErrors] = useState([]);
   const sessionUser = useSelector(state => state.session.user);
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   let tagsArr;
+  //   if (tags.length) {
+  //     tagsArr = (tags.split(','));
+  //     setTags(tagsArr);
+  //   };
+
+  //   const payload = {
+  //     userId: sessionUser.id,
+  //     imageUrl,
+  //     tags: tagsArr
+  //   }
+
+  //   dispatch(postImage(payload)).catch(async (res) => {
+  //     const data = await res.json();
+  //     if (data && data.errors) setValidationErrors(data.errors);
+  //   })
+
+  //   // if (!validationErrors.length) {
+  //   //   showModal(false);
+  //   //   history.push('/');
+  //   // }
+
+  // }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     let tagsArr;
@@ -29,51 +56,27 @@ function ImageForm({ showModal }) {
       tags: tagsArr
     }
 
-    dispatch(postImage(payload)).catch(async (res) => {
-      const data = await res.json();
-      if (data && data.errors) setValidationErrors(data.errors);
-    })
+    dispatch(postImage(payload))
 
-    // if (!validationErrors.length) {
-    //   showModal(false);
-    //   history.push('/');
-    // }
 
-  }
+    history.push('/');
+    showModal(false)
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
 
-  //   let tagsArr;
-  //   if (tags.length) {
-  //     tagsArr = (tags.split(','));
-  //     setTags(tagsArr);
-  //   };
-
-  //   const payload = {
-  //     userId: sessionUser.id,
-  //     imageUrl,
-  //     tags: tagsArr
-  //   }
-  //   dispatch(postImage(payload));
-
-  //   history.push('/');
-
-  //   showModal(false)
-  // };
+  };
 
 
   useEffect(() => {
     const errors = [];
-    // if (!imageUrl.length) errors.push('Please provide an image url.');
+    if (!imageUrl.length) errors.push('Please provide an image url.');
     if (tags.indexOf(' ') >= 0) errors.push('Tags must be separated by commas and have no spaces. e.g. "animal,fox,color"');
 
     setValidationErrors(errors);
-  }, [tags])
+  }, [tags, imageUrl])
 
-  useEffect(() => {
-    setValidationErrors([]);
-  }, [imageUrl])
+  // useEffect(() => {
+  //   setValidationErrors([]);
+  // }, [imageUrl])
 
   return (
     <form onSubmit={handleSubmit}>
@@ -109,7 +112,7 @@ function ImageForm({ showModal }) {
       <button
         className='post-button'
         type="submit"
-        disabled={validationErrors.length > 0}
+      disabled={validationErrors.length > 0}
 
       >
         Post
