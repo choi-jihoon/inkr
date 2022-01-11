@@ -19,7 +19,7 @@ module.exports = {
       {
         userId: 1,
         fullName: 'Demo User',
-        location: 'Narnia',
+        location: 'The Matrix',
         description: "What is my purpose?",
         specialties: ['machine learning']
       }
