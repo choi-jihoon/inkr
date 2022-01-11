@@ -71,7 +71,7 @@
     color: var(--soft-white);
 }
 
-.favorited-star.zoomed-star {
+.fa-star.favorited-star.zoomed-star {
     position: relative;
     top: 0;
     right: 0;
