@@ -52,14 +52,32 @@
    position: relative;
 }
 
+.zoomed-favorites-container > .favorited {
+    position: relative;
+    top: 6px;
+}
+
 .zoomed-favorites-container > .not-favorited {
     position: relative;
     top: 3px;
 }
 
+.favorites-number {
+    cursor: default;
+}
+
 
 .zoomed-favorites-container > .favorites-number {
     color: var(--soft-white);
+}
+
+.favorited-star.zoomed-star {
+    position: relative;
+    top: 0;
+    right: 0;
+    cursor: default;
+    color: var(--soft-white);
+
 }
 
 /* .zoomed-favorites-count > .fa-star {
