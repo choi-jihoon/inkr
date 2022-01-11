@@ -8,8 +8,8 @@ import './FavoritesPage.css';
 function FavoritesPage() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    const favImagesObject = useSelector((state) => state.images.favoritesPage);
-    const favImages = Object.values(favImagesObject);
+    const favImagesObject = useSelector((state) => state.images);
+    const favImages = Object.values(favImagesObject.favoritesPage);
 
 
     useEffect(() => {

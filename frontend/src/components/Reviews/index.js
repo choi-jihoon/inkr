@@ -14,8 +14,8 @@ function Reviews({artistId}) {
         dispatch(getArtistReviews(artistId));
     }, [dispatch, artistId])
 
-    const artistReviewsObject = useSelector(state => state.artist.reviews);
-    const artistReviews = Object.values(artistReviewsObject);
+    const artistReviewsObject = useSelector(state => state.artist);
+    const artistReviews = Object.values(artistReviewsObject.reviews);
 
     return (
         <>

@@ -7,9 +7,9 @@ import './ArtistPortfolioProfile.css';
 function ArtistPortfolioProfile({ artistId }) {
     const dispatch = useDispatch();
 
-    const artistProfile = useSelector(state => state.artist.artistProfile);
-    const artistProfileLoaded = Object.values(artistProfile);
-    console.log(artistProfile)
+    const sessionArtist = useSelector(state => state.artist);
+    const artistProfileLoaded = Object.values(sessionArtist.artistProfile);
+    const artistProfile = sessionArtist.artistProfile;
 
     useEffect(() => {
         dispatch(getArtistProfile(artistId));
