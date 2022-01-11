@@ -6,6 +6,7 @@ import { getArtistImages } from '../../store/artist';
 import ImageDetail from '../ImageDetail';
 import ArtistPortfolioProfile from '../ArtistPortfolioProfile';
 import Reviews from '../Reviews';
+import ReviewFormModal from '../ReviewFormModal';
 
 import './ArtistPortfolio.css';
 
@@ -42,6 +43,7 @@ const ArtistPortfolio = () => {
                     </div>
                     <ArtistPortfolioProfile artistId={artistId} />
                     <Reviews artistId={artistId} />
+                    <ReviewFormModal artistId={artistId} />
                 </>
             }
         </div>

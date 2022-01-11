@@ -35,16 +35,26 @@ const loadProfile = (profile) => ({
     profile
 })
 
-// const addReview = (review) => ({
-//     type: ADD_REVIEW,
-//     review
-// })
+const addReview = (review) => ({
+    type: ADD_REVIEW,
+    review
+})
 
-// export const addArtistReview = (id) => async(dispatch) => {
-//     const response = await csrfFetch(`/api/reviews`, {
+export const addArtistReview = (data) => async(dispatch) => {
+    const response = await csrfFetch(`/api/reviews`, {
+        method: 'POST',
+        body: JSON.stringify(data)
+    });
 
-//     })
-// }
+    if (response.ok) {
+        const review = await response.json();
+        dispatch(addReview(review));
+        return review;
+    } else {
+        const errors = await response.json();
+        console.log(errors.errors);
+    }
+}
 
 export const getArtistProfile = (id) => async(dispatch) => {
     const response = await csrfFetch(`/api/profiles/${id}`);
@@ -159,6 +169,15 @@ const artistReducer = (state = initialState, action) => {
             newState.reviews = {
                 ...allReviews
             };
+            return newState;
+        }
+
+        case ADD_REVIEW: {
+            const newState = { ...state };
+            newState.reviews = {
+                ...newState.reviews,
+                [action.review.id]: action.review
+            }
             return newState;
         }
 
