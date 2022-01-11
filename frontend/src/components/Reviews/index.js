@@ -19,11 +19,13 @@ function Reviews({artistId}) {
     return (
         <>
             <h3>Reviews</h3>
-            {artistReviews?.map(review => {
-                return (
-                    <ReviewDetail key={review.id} review={review} />
-                )
-            })}
+            <div className='all-reviews-container'>
+                {artistReviews?.map(review => {
+                    return (
+                        <ReviewDetail key={review.id} review={review} />
+                    )
+                })}
+            </div>
         </>
     )
 
