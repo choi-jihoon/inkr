@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 
 import { getArtistImages } from '../../store/artist';
 import ImageDetail from '../ImageDetail';
+import Reviews from '../Reviews';
 
 import './ArtistPortfolio.css';
 
@@ -36,6 +37,7 @@ const ArtistPortfolio = () => {
                         )
                     })}
             </div>
+            <Reviews artistId={artistId} />
         </div>
     );
 };

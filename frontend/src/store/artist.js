@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 const LOAD = 'artist/LOAD';
 const EDIT_POST = 'artist/EDIT_POST'
 const DELETE = 'artist/DELETE'
+const LOAD_REVIEWS = 'artist/LOAD_REVIEWS'
 
 
 export const getAllArtistImages = (state) => Object.values(state.artist);
@@ -21,6 +22,23 @@ const deleteImage = (imageId) => ({
     type: DELETE,
     imageId
 })
+
+const loadReviews = (reviews) => ({
+    type: LOAD_REVIEWS,
+    reviews
+})
+
+export const getArtistReviews = (id) => async(dispatch) => {
+    const response = await csrfFetch(`/api/reviews/${id}`);
+
+    if (response.ok) {
+        const reviews = await response.json();
+        dispatch(loadReviews(reviews));
+    } else {
+        const errors = await response.json();
+        console.log(errors.errors);
+    }
+}
 
 export const getArtistImages = (id) => async (dispatch) => {
     const response = await csrfFetch(`/api/artists/${id}/images`);
@@ -64,7 +82,9 @@ export const deleteArtistImage = (data) => async (dispatch) => {
     }
 }
 
-const initialState = {};
+const initialState = {
+    reviews: {}
+};
 
 const artistReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -89,6 +109,17 @@ const artistReducer = (state = initialState, action) => {
         case DELETE: {
             const newState = { ...state };
             delete newState[action.imageId]
+            return newState;
+        }
+
+        case LOAD_REVIEWS: {
+            const newState = { ...state };
+            const allReviews = action.reviews.forEach(review => {
+                allReviews[review.id] = review;
+            });
+            newState.reviews = {
+                ...allReviews
+            };
             return newState;
         }
 
