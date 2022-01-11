@@ -30,4 +30,10 @@ router.post('/', asyncHandler(async function (req, res) {
     res.json(review);
 }))
 
+router.delete('/:id(\\d+)', asyncHandler(async function (req, res) {
+    const review = await Review.findByPk(req.params.id);
+    await review.destroy();
+    res.status(204).end();
+}))
+
 module.exports = router;

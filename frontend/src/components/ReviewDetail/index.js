@@ -1,7 +1,10 @@
+import { useSelector } from 'react-redux';
 
+import DeleteReviewModal from '../DeleteReviewModal';
 import './ReviewDetail.css';
 
 const ReviewDetail = ({ review }) => {
+    const sessionUser = useSelector(state => state.session.user);
 
     return (
         <div className='review-container'>
@@ -14,6 +17,7 @@ const ReviewDetail = ({ review }) => {
             <div className='review-text'>
                 {review.reviewText}
             </div>
+            { sessionUser.id === review.userId && <DeleteReviewModal review={review} />}
         </div>
     )
 }

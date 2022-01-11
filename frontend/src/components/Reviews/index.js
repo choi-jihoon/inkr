@@ -8,13 +8,14 @@ import './Reviews.css';
 
 function Reviews({artistId}) {
     const dispatch = useDispatch();
-    const artistReviewsObject = useSelector(state => state.artist.reviews);
-    const artistReviews = Object.values(artistReviewsObject);
-    console.log(artistReviews);
+
 
     useEffect(() => {
         dispatch(getArtistReviews(artistId));
     }, [dispatch, artistId])
+
+    const artistReviewsObject = useSelector(state => state.artist.reviews);
+    const artistReviews = Object.values(artistReviewsObject);
 
     return (
         <>

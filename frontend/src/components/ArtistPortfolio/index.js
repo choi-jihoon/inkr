@@ -8,6 +8,7 @@ import ArtistPortfolioProfile from '../ArtistPortfolioProfile';
 import Reviews from '../Reviews';
 import ReviewFormModal from '../ReviewFormModal';
 
+
 import './ArtistPortfolio.css';
 
 const ArtistPortfolio = () => {

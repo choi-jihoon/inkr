@@ -17,8 +17,7 @@ const MyPortfolio = () => {
         history.push('/');
     }
 
-
-    const artistImagesObject = useSelector((state) => state.artist);
+    const artistImagesObject = useSelector((state) => state.artist.artistImages);
     const artistImages = Object.values(artistImagesObject);
 
     useEffect(() => {
