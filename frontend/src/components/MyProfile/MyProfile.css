@@ -1,0 +1,43 @@
+.main-container.my-profile-container {
+    width: 100%;
+}
+
+.my-profile-content {
+    display: grid;
+    grid-template-columns: 200px 300px;
+    grid-template-areas: "pic content";
+    height: 400px;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px grey;
+}
+
+.my-profile-image-div-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-profile-image-div {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-profile-image {
+    width: 100%;
+    position: absolute;
+}
+
+.my-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: fit-content;
+}

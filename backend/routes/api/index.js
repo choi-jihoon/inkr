@@ -8,12 +8,14 @@ const usersRouter = require('./users.js');
 const imagesRouter = require('./images');
 const artistsRouter = require('./artists');
 const favoritesRouter = require('./favorites');
+const profilesRouter = require('./profiles');
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 router.use('/images', imagesRouter);
 router.use('/artists', artistsRouter);
 router.use('/favorites', favoritesRouter);
+router.use('/profiles', profilesRouter);
 
 
 

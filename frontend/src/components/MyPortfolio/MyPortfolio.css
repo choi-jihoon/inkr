@@ -1,3 +1,11 @@
+.main-container.my-portfolio-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
 /* .my-portfolio-container {
     display: flex;
     justify-content: center;
