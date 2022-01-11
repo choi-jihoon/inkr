@@ -50,6 +50,7 @@ a, a:hover, a:visited, a:active {
   width: 100%;
   /* display: block; */
   border-radius: 5px 5px 0 0;
+  min-width: 180px;
 }
 
 .grid-image:hover {
@@ -69,6 +70,7 @@ a, a:hover, a:visited, a:active {
   width: 70%;
   /* margin: auto; */
   margin-bottom: 30px;
+  min-width: 760px;
 }
 
 .image-container {
@@ -99,6 +101,8 @@ h2 {
   justify-content: space-between;
   margin: 0 5px;
   padding: 5px;
+  min-height: 38px;
+
 }
 
 .favorites-count {
@@ -106,6 +110,9 @@ h2 {
   cursor: default;
   display: flex;
   max-height: 28px;
+  min-width: 90px;
+  justify-content: flex-end;
+  position: relative;
 }
 
 .favorited-button {
@@ -114,5 +121,5 @@ h2 {
 }
 
 .favorites-number {
-  margin-left: 5px;
+  width: 30px;
 }
