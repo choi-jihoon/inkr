@@ -83,7 +83,8 @@ export const deleteArtistImage = (data) => async (dispatch) => {
 }
 
 const initialState = {
-    reviews: {}
+    reviews: {},
+    artistImages: {}
 };
 
 const artistReducer = (state = initialState, action) => {
@@ -94,21 +95,27 @@ const artistReducer = (state = initialState, action) => {
                 allImages[image.id] = image;
             });
             return {
-                ...allImages,
+                ...state,
+                artistImages: {
+                    ...allImages
+                }
             }
         }
 
         case EDIT_POST: {
             const newState = {
                 ...state,
-                [action.image.id]: action.image
+                artistImages: {
+                    ...state.artistImages,
+                    [action.image.id]: action.image
+                }
             };
             return newState;
         }
 
         case DELETE: {
             const newState = { ...state };
-            delete newState[action.imageId]
+            delete newState.artistImages[action.imageId]
             return newState;
         }
 
