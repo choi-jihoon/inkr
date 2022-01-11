@@ -8,6 +8,14 @@ const { Image, User, Favorite } = require('../../db/models');
 
 const router = express.Router();
 
+const validateImage = [
+    check('imageUrl')
+        .exists({ checkFalsy: true })
+        .isURL()
+        .withMessage('Please provide a valid image url.'),
+    handleValidationErrors,
+];
+
 router.get('/', asyncHandler(async function (_req, res) {
     const images = await Image.findAll({
         include: [
@@ -22,6 +30,7 @@ router.get('/', asyncHandler(async function (_req, res) {
 
 router.post(
     '/',
+    validateImage,
     asyncHandler(async function (req, res) {
         const newImage = await Image.create(req.body);
         const image = await Image.findByPk(newImage.id, {
