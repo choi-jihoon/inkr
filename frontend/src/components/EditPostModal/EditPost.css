@@ -1,7 +1,9 @@
 .edit-button {
     cursor: pointer;
-    background-color: #797979;
-    border: 1px solid #797979;
+    /* background-color: #B36754;
+    border: 1px solid #B36754; */
+    background-color: #4E8075;
+    border: 1px solid #4E8075;
     color: whitesmoke;
     padding: 10px;
     border-radius: 3px;
@@ -13,8 +15,10 @@
 }
 
 .edit-button:hover {
-    background-color: #797979c4;
-    border: 1px solid #797979c4;
+    /* background-color: #B36754c4;
+    border: 1px solid #B36754c4; */
+    background-color: #4E8075c4;
+    border: 1px solid #4E8075c4;
 }
 
 .edit-button:disabled {
@@ -22,8 +26,8 @@
 }
 
 .edit-button:disabled:hover {
-    background-color: #797979;
-    border: 1px solid #797979;
+    background-color: #4E8075;
+    border: 1px solid #4E8075;
     color: whitesmoke;
     opacity: 30%;
     cursor:default;

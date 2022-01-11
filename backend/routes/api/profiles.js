@@ -16,5 +16,17 @@ router.get('/:id(\\d+)', asyncHandler(async function (req, res) {
     res.json(profile);
 }))
 
+router.put('/:id(\\d+)', asyncHandler(async function (req, res) {
+    await Profile.update(req.body, {
+        where: {
+            id: req.params.id
+        }
+    })
+    const editedProfile = await Profile.findByPk(req.params.id, {
+        include: [{ model: User }]
+    });
+    res.json(editedProfile);
+}))
+
 
 module.exports = router;

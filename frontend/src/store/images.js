@@ -225,7 +225,7 @@ const imageReducer = (state = initialState, action) => {
 
         case CREATE: {
             const newState = {
-                ...state.images,
+                ...state,
                 [action.image.id]: action.image,
                 order: [
                     action.image,
