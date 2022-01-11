@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getImages } from '../../store/images';
+
 import ImageDetail from "../ImageDetail";
 
 import './UserHomePage.css';
