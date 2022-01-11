@@ -12,3 +12,11 @@
     font-weight: 400;
     font-style: normal;
 } */
+
+.new-post-buton.nav-butt {
+    width: fit-content;
+}
+
+.fa-plus-square {
+    font-size: 30px;
+}

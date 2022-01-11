@@ -9,7 +9,7 @@ function ImageFormModal() {
 
   return (
     <>
-      <button className='new-post-button nav-butt' onClick={() => setShowModal(true)}>New Post</button>
+      <button className='new-post-button nav-butt' onClick={() => setShowModal(true)}><i className="fas fa-plus-square"></i></button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <ImageForm showModal={setShowModal} />
