@@ -20,4 +20,14 @@ router.get('/:artistId(\\d+)', asyncHandler(async function (req, res) {
     res.json(reviews);
 }))
 
+router.post('/', asyncHandler(async function (req, res) {
+    const newReview = await Review.create(req.body);
+    const review = await Review.findByPk(newReview.id, {
+        include: [
+            { model: User }
+        ]
+    });
+    res.json(review);
+}))
+
 module.exports = router;

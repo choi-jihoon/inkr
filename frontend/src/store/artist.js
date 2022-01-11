@@ -5,6 +5,7 @@ const EDIT_POST = 'artist/EDIT_POST'
 const DELETE = 'artist/DELETE'
 const LOAD_REVIEWS = 'artist/LOAD_REVIEWS'
 const LOAD_PROFILE = 'artist/LOAD_PROFILE'
+const ADD_REVIEW = 'artist/ADD_REVIEW'
 
 
 export const getAllArtistImages = (state) => Object.values(state.artist);
@@ -33,6 +34,17 @@ const loadProfile = (profile) => ({
     type: LOAD_PROFILE,
     profile
 })
+
+// const addReview = (review) => ({
+//     type: ADD_REVIEW,
+//     review
+// })
+
+// export const addArtistReview = (id) => async(dispatch) => {
+//     const response = await csrfFetch(`/api/reviews`, {
+
+//     })
+// }
 
 export const getArtistProfile = (id) => async(dispatch) => {
     const response = await csrfFetch(`/api/profiles/${id}`);

@@ -23,23 +23,27 @@ const ArtistPortfolio = () => {
 
     return (
         <div className='main-container'>
-            <h2>{artist?.username}'s Portfolio</h2>
-            <div className='all-images-container'>
-                    {artistImages.map((image) => {
-                        let tagString;
-                        if (image.tags) {
-                            tagString = image.tags;
-                            tagString = tagString.map((tag) => `#${tag}`)
-                            tagString = tagString.join(', ')
-                        }
-                        return (
+            {artistImagesObject &&
+                <>
+                    <h2>{artist?.username}'s Portfolio</h2>
+                    <div className='all-images-container'>
+                        {artistImages.map((image) => {
+                            let tagString;
+                            if (image.tags) {
+                                tagString = image.tags;
+                                tagString = tagString.map((tag) => `#${tag}`)
+                                tagString = tagString.join(', ')
+                            }
+                            return (
                                 <ImageDetail key={image?.id} image={image} tagString={tagString} />
 
-                        )
-                    })}
-            </div>
-            <ArtistPortfolioProfile artistId={artistId} />
-            <Reviews artistId={artistId} />
+                            )
+                        })}
+                    </div>
+                    <ArtistPortfolioProfile artistId={artistId} />
+                    <Reviews artistId={artistId} />
+                </>
+            }
         </div>
     );
 };

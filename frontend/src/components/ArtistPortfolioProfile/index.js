@@ -8,7 +8,8 @@ function ArtistPortfolioProfile({ artistId }) {
     const dispatch = useDispatch();
 
     const artistProfile = useSelector(state => state.artist.artistProfile);
-
+    const artistProfileLoaded = Object.values(artistProfile);
+    console.log(artistProfile)
 
     useEffect(() => {
         dispatch(getArtistProfile(artistId));
@@ -17,10 +18,11 @@ function ArtistPortfolioProfile({ artistId }) {
 
     return (
         <div className='artist-portfolio-profile'>
+            {artistProfileLoaded &&
             <div className='my-profile-content'>
                 <div className='my-profile-image-div-container'>
                     <div className='my-profile-image-div'>
-                        <img className='my-profile-image' src={artistProfile?.profilePic} alt={`${artistProfile?.User.username}'s profile`}></img>
+                        <img className='my-profile-image' src={artistProfile?.profilePic} alt={`${artistProfile?.User?.username}'s profile`}></img>
                     </div>
                 </div>
                 <div className='my-profile-content-container'>
@@ -31,14 +33,14 @@ function ArtistPortfolioProfile({ artistId }) {
                             </h4>
                         </div>
                         <div className='my-profile-username'>
-                            {artistProfile?.User.username}
+                            {artistProfile?.User?.username}
                         </div>
                         <div className='my-profile-location'>
                             <p className='my-profile-label'>Location: <span className='profile-location-text'>{artistProfile?.location}</span></p>
                         </div>
                         <div className='my-profile-specialties'>
                             <p className='my-profile-label'>Specialties</p>
-                            <p>{artistProfile.specialties ? artistProfile?.specialties.join(', ') : ''}</p>
+                            <p>{artistProfile?.specialties ? artistProfile?.specialties.join(', ') : ''}</p>
                         </div>
                         <p className='my-profile-label'>About the artist</p>
                         <div className='my-profile-description'>
@@ -47,7 +49,7 @@ function ArtistPortfolioProfile({ artistId }) {
                     </div>
                 </div>
 
-            </div>
+            </div>}
         </div>
     )
 
