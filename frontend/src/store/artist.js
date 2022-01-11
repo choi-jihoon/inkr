@@ -121,7 +121,8 @@ const artistReducer = (state = initialState, action) => {
 
         case LOAD_REVIEWS: {
             const newState = { ...state };
-            const allReviews = action.reviews.forEach(review => {
+            const allReviews = {};
+            action.reviews.forEach(review => {
                 allReviews[review.id] = review;
             });
             newState.reviews = {
