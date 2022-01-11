@@ -62,7 +62,7 @@ header {
 }
 
 .profile-dropdown {
-    width: auto;
+    width: 200px;
     height: auto;
     position: absolute;
     background-color: whitesmoke;
