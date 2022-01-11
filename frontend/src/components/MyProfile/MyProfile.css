@@ -44,7 +44,7 @@
     align-self: flex-start;
     margin: 20px 20px 0 0;
     border: none;
-    z-index: 20;
+    z-index: 1;
 }
 
 .edit-my-profile-button > .edit-profile {
