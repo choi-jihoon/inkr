@@ -4,6 +4,7 @@ const LOAD = 'artist/LOAD';
 const EDIT_POST = 'artist/EDIT_POST'
 const DELETE = 'artist/DELETE'
 const LOAD_REVIEWS = 'artist/LOAD_REVIEWS'
+const LOAD_PROFILE = 'artist/LOAD_PROFILE'
 
 
 export const getAllArtistImages = (state) => Object.values(state.artist);
@@ -27,6 +28,23 @@ const loadReviews = (reviews) => ({
     type: LOAD_REVIEWS,
     reviews
 })
+
+const loadProfile = (profile) => ({
+    type: LOAD_PROFILE,
+    profile
+})
+
+export const getArtistProfile = (id) => async(dispatch) => {
+    const response = await csrfFetch(`/api/profiles/${id}`);
+
+    if (response.ok) {
+        const profile = await response.json();
+        dispatch(loadProfile(profile))
+    } else {
+        const errors = await response.json();
+        console.log(errors.errors);
+    }
+}
 
 export const getArtistReviews = (id) => async(dispatch) => {
     const response = await csrfFetch(`/api/reviews/${id}`);
@@ -84,7 +102,8 @@ export const deleteArtistImage = (data) => async (dispatch) => {
 
 const initialState = {
     reviews: {},
-    artistImages: {}
+    artistImages: {},
+    artistProfile: {}
 };
 
 const artistReducer = (state = initialState, action) => {
@@ -128,6 +147,12 @@ const artistReducer = (state = initialState, action) => {
             newState.reviews = {
                 ...allReviews
             };
+            return newState;
+        }
+
+        case LOAD_PROFILE: {
+            const newState = { ...state };
+            newState.artistProfile = {...action.profile};
             return newState;
         }
 

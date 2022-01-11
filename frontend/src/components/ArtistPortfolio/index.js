@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 
 import { getArtistImages } from '../../store/artist';
 import ImageDetail from '../ImageDetail';
+import ArtistPortfolioProfile from '../ArtistPortfolioProfile';
 import Reviews from '../Reviews';
 
 import './ArtistPortfolio.css';
@@ -37,6 +38,7 @@ const ArtistPortfolio = () => {
                         )
                     })}
             </div>
+            <ArtistPortfolioProfile artistId={artistId} />
             <Reviews artistId={artistId} />
         </div>
     );
