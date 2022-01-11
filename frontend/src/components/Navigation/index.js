@@ -22,7 +22,7 @@ function Navigation({ isLoaded }) {
     centerLink = (
       <>
         <ImageFormModal />
-        <NavLink to='/my-favorites'>Favorites</NavLink>
+        <NavLink to='/my-favorites'><div className='favorites-nav nav-butt'>Favorites</div></NavLink>
       </>
     )
 

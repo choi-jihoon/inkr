@@ -14,7 +14,7 @@ function FavoritesPage() {
 
     useEffect(() => {
         dispatch(getFavImages(sessionUser.id))
-    }, [dispatch]);
+    }, [dispatch, sessionUser.id]);
 
     return (
         <div className='main-container'>
