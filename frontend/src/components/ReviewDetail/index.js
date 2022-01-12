@@ -6,6 +6,8 @@ import './ReviewDetail.css';
 const ReviewDetail = ({ review }) => {
     const sessionUser = useSelector(state => state.session.user);
 
+    const date = new Date(review.createdAt).toDateString();
+
     return (
         <div className='review-container'>
             <div className='reviewed-by'>
@@ -16,6 +18,9 @@ const ReviewDetail = ({ review }) => {
             </div>
             <div className='review-text'>
                 {review.reviewText}
+            </div>
+            <div className='reviewed-on'>
+                {date}
             </div>
             { sessionUser.id === review.userId && <DeleteReviewModal review={review} />}
         </div>
