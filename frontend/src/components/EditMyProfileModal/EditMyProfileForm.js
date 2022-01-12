@@ -38,12 +38,12 @@ function EditMyProfileForm({ showModal, myProfile }) {
         showModal(false)
     };
 
-    // useEffect(() => {
-    //     const errors = [];
-    //     if (specialties.indexOf(' ') >= 0) errors.push('Specialties must be separated by commas and have no spaces. e.g. "minimalism,dotwork"');
+    useEffect(() => {
+        const errors = [];
+        if (description.length > 255) errors.push('Description cannot be longer than 255 characters.');
 
-    //     setValidationErrors(errors);
-    // }, [specialties]);
+        setValidationErrors(errors);
+    }, [description]);
 
 
     return (
@@ -92,7 +92,7 @@ function EditMyProfileForm({ showModal, myProfile }) {
                     type="text"
                     value={specialties}
                     onChange={(e) => setSpecialties((e.target.value))}
-                    placeholder='Specialties'
+                    placeholder='Separate specalities by comma and space'
                 />
             </div>
             <div className='form-element form-text-area'>
