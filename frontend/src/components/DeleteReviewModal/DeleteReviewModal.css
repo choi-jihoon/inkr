@@ -2,4 +2,10 @@
     position: absolute;
     top: 8px;
     right: 12px;
+    opacity: 0;
+    transition-duration: 0.4s;
+}
+
+.review-container:hover #delete-review-trash {
+    opacity: 100%;
 }

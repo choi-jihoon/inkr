@@ -10,7 +10,7 @@
 }
 
 .portfolio-image:hover .edit-delete-butt-container {
-    visibility: visible;
+    opacity: 100%;
 }
 
 .portfolio-image-info {
@@ -70,7 +70,8 @@
     width: fit-content;
     right: 10px;
     top: 10px;
-    visibility: hidden;
+    opacity: 0;
+    transition-duration: 0.3s;
 }
 
 .edit-post-icon,

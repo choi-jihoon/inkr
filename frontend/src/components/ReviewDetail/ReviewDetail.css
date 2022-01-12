@@ -1,0 +1,34 @@
+
+
+.reviewed-by-and-rating {
+    display: flex;
+    width: fit-content;
+    width: 100%;
+}
+
+.reviewed-by {
+    font-weight: 700;
+}
+
+.review-star {
+    color: rgba(194, 167, 18, 0.753);
+}
+
+.review-rating {
+    width: 100%;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.541);
+    padding: 10px 0;
+}
+
+.review-text {
+    padding: 10px 0;
+    font-family: proxima-nova-condensed, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.reviewed-on {
+    font-family: proxima-nova-condensed, sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
