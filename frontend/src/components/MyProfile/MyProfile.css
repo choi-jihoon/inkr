@@ -1,6 +1,19 @@
 .main-container.my-profile-container {
     width: 100%;
+    height: 100vh;
 }
+
+#my-profile-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#my-profile-title-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
 
 .my-profile-content {
     display: grid;

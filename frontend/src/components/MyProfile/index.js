@@ -24,8 +24,10 @@ const MyProfile = () => {
     }, [dispatch])
 
     return (
-        <div className='main-container my-profile-container'>
-            <h2 className='my-profile-header'>My Profile</h2>
+        <div className='main-container my-profile-container' id='my-profile-container'>
+            <div className='title-container' id='my-profile-title-container'>
+                <h2 className='my-profile-header'>My Profile</h2>
+            </div>
             <div className='my-profile-content'>
 
                 <div className='my-profile-image-div-container'>
@@ -49,7 +51,7 @@ const MyProfile = () => {
                         </div>
                         <div className='my-profile-specialties'>
                             <p className='my-profile-label'>Specialties</p>
-                            <p>{myProfile?.specialties.join(', ')}</p>
+                            <p>{myProfile?.specialties && myProfile.specialties.join(', ')}</p>
                         </div>
                         <p className='my-profile-label'>About the artist</p>
                         <div className='my-profile-description'>

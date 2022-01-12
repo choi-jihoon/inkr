@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import ImageZoom from '../ImageZoom';
@@ -8,18 +8,6 @@ import './ImageDetail.css';
 const ImageDetail = ({ image, tagString }) => {
     const [showModal, setShowModal] = useState(false);
 
-
-    // useEffect(() => {
-    //     const modal = document.querySelector('#modal-content');
-
-    //     if (showModal) {
-    //         modal.classList.add('modal-animation');
-    //     }
-
-    // }, [showModal])
-
-
-
     return (
         <div className='image-container'>
             <img onClick={() => setShowModal(true)} className='grid-image' id={image.id} key={image.id} src={image.imageUrl} alt='hello'></img>
@@ -28,14 +16,12 @@ const ImageDetail = ({ image, tagString }) => {
                     <ImageZoom image={image} tagString={tagString} key={`${image.id}-zoom`} />
                 </Modal>
             )}
-            <div className='image-info'>
+            {/* <div className='artist-username-container'>
                 <NavLink to={`/artists/${image?.userId}`}>
-                    <p className='artist-name'>{image?.User.username}</p>
+                    <p className='artist-username'>{image?.User.username}</p>
                 </NavLink>
-                <div className='favorites-count'>
-                    <FavoriteStar image={image} />
-                </div>
-            </div>
+            </div> */}
+            <FavoriteStar image={image} />
         </div>
     )
 }

@@ -10,8 +10,8 @@ import './UserHomePage.css';
 function UserHomePage() {
     const dispatch = useDispatch();
 
-    const imagesObject = useSelector((state) => state.images.order);
-    const images = Object.values(imagesObject);
+    const imagesObject = useSelector((state) => state.images);
+    const images = Object.values(imagesObject.order);
 
 
     useEffect(() => {
@@ -21,7 +21,9 @@ function UserHomePage() {
 
     return (
         <div className='main-container'>
-            <h2>Discover</h2>
+            <div className='title-container'>
+                <h2 id='discover'>Discover</h2>
+            </div>
             <div className='all-images-container'>
                         {images?.map((image) => {
                             let tagString;

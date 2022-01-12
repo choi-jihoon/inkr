@@ -6,7 +6,7 @@
 }
 
 .portfolio-grid-image {
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
 }
 
 .portfolio-image:hover .edit-delete-butt-container {
@@ -17,19 +17,22 @@
     display: grid;
     grid-template-columns: 5fr 1fr;
     padding: 5px;
+    background-color: whitesmoke;
+    border-radius: 0 0 5px 5px;
 }
 
-.favorites-count.portfolio-fave-count {
+.portfolio-fave-count {
     display: flex;
-    justify-content: flex-end;
+    bottom: 0;
     font-size: 1.8vmin;
     align-items: center;
     color: var(--soft-black);
 }
 
 .portfolio-star {
-    margin-right: 5px;
+    margin: 0 5px;
     color: var(--soft-black);
+
 }
 
 .portfolio-star:hover {
@@ -41,20 +44,24 @@
     display: flex;
     align-items: center;
     overflow-wrap:break-word;
+    padding: 5px;
 }
 
-.tag-text {
-    font-size: 1.4vmin;
+.tag-text,
+.no-tags.portfolio-no-tags {
+    font-size: 1.5vmin;
+    color: var(--soft-black);
 }
 
 .portfolio-tags {
     overflow:auto;
     cursor: default;
+    font-family: var(--font-for-image-display);
+    font-style: italic;
 }
 
 .portfolio-tag, .no-tags {
     width: fit-content;
-    padding-left: 5px;
 }
 
 
@@ -71,9 +78,14 @@
     width: fit-content;
     border: 0;
     background-color: transparent;
-    font-size: 15px;
+    font-size: 20px;
     cursor: pointer;
     margin-left: 10px;
+    text-shadow:
+    0.03em 0 white,
+    0 0.03em white,
+    -0.03em 0 white,
+    0 -0.03em white;
 }
 
 .fa-edit {

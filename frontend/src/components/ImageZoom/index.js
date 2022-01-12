@@ -11,8 +11,10 @@ function ImageZoom({ image, tagString }) {
         <NavLink className='zoomed-artist-container' to={`/artists/${image?.userId}`}>
           <p className='zoomed-artist-name'>{image?.User.username}</p>
         </NavLink>
-        <div className='zoomed-favorites-container'>
-          {/* <FavoriteStar image={image} /> */}
+        <div className='zoomed-all-tags' key={image}>
+          {tagString ? tagString.split(',').map(tag => <p key={tag} className='single-tag'>{`${tag}`}</p>) : <p key='notag' className='no-tags'>No tags</p>}
+        </div>
+        {/* <div className='zoomed-favorites-container'>
           <i
             className="fas fa-star favorited-star zoomed-star"
           >
@@ -20,10 +22,7 @@ function ImageZoom({ image, tagString }) {
           <p className='favorites-number'>
                 {image.favoritedCount}
             </p>
-        </div>
-        <div className='zoomed-all-tags' key={image}>
-          {tagString ? tagString.split(',').map(tag => <p key={tag} className='single-tag'>{`${tag}`}</p>) : <p key='notag' className='no-tags'>No tags</p>}
-        </div>
+        </div> */}
       </div>
     </div>
   );

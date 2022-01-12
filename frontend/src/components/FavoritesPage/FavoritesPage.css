@@ -1,0 +1,15 @@
+h2#favorites-header {
+    padding: 10px 0 10px 10px;
+    color: var(--soft-black);
+}
+
+#favorites-main-container {
+    /* min-height: fit-content; */
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#favorites-all-images-container {
+    margin: 0;
+}
