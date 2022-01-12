@@ -22,7 +22,13 @@ module.exports = {
         location: 'The Matrix',
         description: "What is my purpose?",
         specialties: ['machine learning']
-      }
+      },
+      {
+        userId: 2,
+        fullName: 'Test User',
+        location: 'Narnia',
+        description: 'Who am I?',
+      },
     ], {});
   },
 

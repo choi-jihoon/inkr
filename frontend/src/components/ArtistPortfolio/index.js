@@ -24,7 +24,7 @@ const ArtistPortfolio = () => {
     }, [dispatch, artistId])
 
     return (
-        <div className='main-container'>
+        <div className='main-container artist-portfolio-main-container'>
             {artistImagesObject &&
                 <>
                     <h2>{artist?.username}'s Portfolio</h2>
