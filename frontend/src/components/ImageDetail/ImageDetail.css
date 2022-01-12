@@ -21,8 +21,8 @@
 }
 
 .grid-image:hover {
-opacity: 70%;
-cursor:zoom-in;
+    opacity: 70%;
+    cursor:zoom-in;
 }
 
 /* %%%%%%%%%%%%%%%%%%%%% Favorites Count %%%%%%%%%%%%%%%%%%%%% */
@@ -38,6 +38,7 @@ cursor:zoom-in;
         -0.04em 0 white,
         0 -0.04em white;
     /* visibility: hidden; */
+    font-family: var(--font-for-image-display);
 }
 
 .grid-image:hover + .favorites-count {
@@ -65,20 +66,28 @@ cursor:zoom-in;
     visibility: visible;
 }
 
+.please-stay-in-place:hover ~ .artist-username-container {
+    visibility: visible;
+}
+
 /* %%%%%%%%%%%%%%%%%%%%% Not Favorited Star %%%%%%%%%%%%%%%%%%%%% */
 
 .favorite-star-container.not-favorited {
     position: absolute;
     right: -15px;
     top: -15px;
-    /* visibility: hidden;
-    display: none; */
 }
 
 .favorite-star {
     background: transparent;
     border: none;
     width: 100px;
+    transition-duration: 0.2s;
+}
+
+button.favorite-star:hover {
+    transform: scale(1.2);
+    cursor: pointer;
 }
 
 .favorite-star > svg > g:hover {
@@ -88,6 +97,7 @@ cursor:zoom-in;
 .grid-image:hover ~ .please-stay-in-place {
     visibility:visible;
 }
+
 
 
 
@@ -110,9 +120,46 @@ cursor:zoom-in;
 }
 
 
+/* %%%%%%%%%%%%%%%%%%%%% Artist Username %%%%%%%%%%%%%%%%%%%%% */
 
+.artist-username-container {
+    position: absolute;
+    left: 30px;
+    top: 22px;
+    visibility: hidden;
+    width: fit-content;
 
+}
 
+.grid-image:hover ~ .artist-username-container {
+    visibility: visible;
+}
+
+.artist-username {
+    font-family: var(--font-for-image-display);
+    width: fit-content;
+    color: black;
+    font-size: 14x;
+    font-style: italic;
+    text-shadow:
+        0.04em 0 white,
+        0 0.04em white,
+        -0.04em 0 white,
+        0 -0.04em white;
+
+    transition-duration: 0.2s;
+}
+
+.artist-username:hover {
+    visibility: visible;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.651);
+    transform: scale(1.1);
+}
+
+/* .artist-username-container:hover + .please-stay-in-place {
+    visibility: default;
+} */
 
 
 .artist-name {

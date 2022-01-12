@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Modal } from '../../context/Modal';
 import ImageZoom from '../ImageZoom';
 import FavoriteStar from '../FavoriteStar';
@@ -24,9 +24,12 @@ const ImageDetail = ({ image, tagString }) => {
                     <FavoriteStar image={image} />
                 </div>
             </div> */}
+            <div className='artist-username-container'>
+                <NavLink to={`/artists/${image?.userId}`}>
+                    <p className='artist-username'>{image?.User.username}</p>
+                </NavLink>
+            </div>
             <FavoriteStar image={image} />
-            {/* <div className='favorites-count'> */}
-            {/* </div> */}
         </div>
     )
 }

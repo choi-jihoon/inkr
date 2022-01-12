@@ -7,6 +7,10 @@
 :root {
   --soft-white: #DFE0DF;
   --soft-black: #303030;
+  --switch-white: #E5F4F4;
+  --switch-teal: #408F92;
+  --switch-teal-fade: #408f92a2;
+  --font-for-image-display: proxima-nova-condensed, sans-serif;
 }
 
 
@@ -19,9 +23,9 @@ html {
     text-decoration: none;
     list-style-type: none;
     font-family: proxima-nova, sans-serif;
-  }
+}
 
 a, a:hover, a:visited, a:active {
   color: inherit;
   text-decoration: none;
-  }
+}

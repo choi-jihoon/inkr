@@ -1,11 +1,9 @@
 
-
-
 header {
     display: flex;
     justify-content: center;
     margin: 0;
-    background-color: rgba(0, 0, 0, 0.664);
+    background-color: rgba(0, 0, 0, 0.774);
     position: fixed;
     width: 100%;
     z-index: 2;
