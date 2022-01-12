@@ -5,8 +5,8 @@
     align-items: center;
     height: fit-content;
     width: 100%;
-    padding-top: 10px;
-    background: rgba(0, 0, 0, 0.24);
+
+    /* background: rgba(0, 0, 0, 0.24); */
     border-radius: 7px;
     margin-top: 10px;
 }
@@ -61,7 +61,7 @@
     padding: 10px;
     border-radius: 3px;
     width: 380px;
-    margin: 5px;
+
 }
 
 .add-review-modal-button:hover {
