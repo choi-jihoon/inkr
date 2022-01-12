@@ -13,10 +13,10 @@
     font-style: normal;
 } */
 
-.new-post-buton.nav-butt {
+.new-post-button.nav-butt {
     width: fit-content;
 }
 
-.fa-plus-square {
-    font-size: 30px;
+.fa-cloud-upload-alt {
+    font-size: 25px;
 }

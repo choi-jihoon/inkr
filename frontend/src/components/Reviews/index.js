@@ -19,14 +19,14 @@ function Reviews({ artistId }) {
 
     return (
         <>
-            <div className='all-reviews-container'>
-                <h3>Reviews</h3>
+            {artistReviews.length ? <div className='all-reviews-container'>{/* <h3 id='reviews-title'>Reviews</h3> */}
                 {artistReviews?.map(review => {
                     return (
                         <ReviewDetail key={review.id} review={review} />
                     )
                 })}
-            </div>
+            </div> : null}
+
         </>
     )
 

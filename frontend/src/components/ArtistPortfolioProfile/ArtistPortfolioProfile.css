@@ -1,3 +1,82 @@
+.portfolio-profile-container {
+    margin-top: 10px;
+}
+
 #artist-profile-content {
     height: 300px;
+    width: 100%;
+
+    /* background-color: whitesmoke; */
+    /* border-radius: 20px; */
+    padding: 20px;
+
+    display: grid;
+    grid-template-areas: 'pic content';
+    grid-template-columns: 50% 50%;
+    margin-bottom: 20px;
+
+    border-bottom: 1px solid grey;
+
+}
+
+#artist-name-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#artist-profile-fullName {
+    font-family: 'Permanent Marker', cursive;
+}
+
+.image-name-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+.artist-profile-content-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.artist-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.artist-profile-label {
+    font-family: proxima-nova-condensed, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.artist-profile-label > .profile-location-text,
+.artist-profile-text {
+    font-family: proxima-nova-condensed, sans-serif;
+    font-style: italic;
+
+}
+
+.artist-profile-description-text {
+    font-family: proxima-nova-condensed, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#artist-email {
+    font-family: proxima-nova-condensed, sans-serif;
+    font-weight: 400;
+    font-style: italic;
 }

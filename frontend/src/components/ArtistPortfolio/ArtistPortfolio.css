@@ -1,64 +1,47 @@
+.artist-portfolio-main-container-container {
+    min-width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    position: absolute;
+    top: 75.61px;
+    /* padding: 20px 100px; */
+    display: flex;
+    justify-content: center;
+    /* background: linear-gradient(0deg, #00000088 30%, #ffffff44 100%); */
+}
+
 #artist-portfolio-main-container {
     display: grid;
-    grid-template-areas: 'profile images'
+    grid-template-areas: 'profile profile'
     'reviews images';
-    grid-template-columns: 2fr 3fr;
-    grid-template-rows: 25% 75%;
-    width: 100%;
-    margin: 0 auto;
+    grid-template-columns: 400px auto;
+    grid-template-rows: fit-content fit-content;
+    width: 60%;
+    background-color: transparent;
+    min-width: 985px;
 
-    padding: 40px;
 }
 
 .portfolio-profile-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    grid-area: profile;
 }
 
 .artist-portfolio-profile {
-    grid-area: profile;
-    width: 500px;
-    height: 300px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
 }
 
-#artist-portfolio-images-container {
+#artist-portfolio-images-container.all-images-container {
     grid-area: images;
     column-count: 3;
-}
+    min-height: 100vh;
+    padding: 10px 0 10px 10px;
+    min-width: 100%;
 
-.all-reviews-container-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100%;
-    flex-direction: column;
-}
-
-.all-reviews-container {
-    grid-area: reviews;
-    display: flex;
-    flex-direction: column;
-    height: fit-content;
-}
-
-.add-review-button-container {
-    display: flex;
-    justify-content: center;
-}
-
-.add-review-modal-button {
-    cursor: pointer;
-    background-color: #4E8075;
-    border: 1px solid #4E8075;
-    color: whitesmoke;
-    padding: 10px;
-    border-radius: 3px;
-    width: 300px;
-    margin: 5px;
-}
-
-.add-review-modal-button:hover {
-    background-color: #4E8075c4;
-    border: 1px solid #4E8075c4;
 }

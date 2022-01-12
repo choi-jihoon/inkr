@@ -19,37 +19,44 @@ function ArtistPortfolioProfile({ artistId }) {
     return (
         <div className='artist-portfolio-profile'>
             {artistProfileLoaded &&
-            <div className='my-profile-content' id='artist-profile-content'>
-                <div className='my-profile-image-div-container'>
-                    <div className='my-profile-image-div'>
-                        <img className='my-profile-image' src={artistProfile?.profilePic} alt={`${artistProfile?.User?.username}'s profile`}></img>
-                    </div>
-                </div>
-                <div className='my-profile-content-container'>
-                    <div className='my-profile'>
-                        <div className='my-profile-fullName'>
-                            <h4>
+                <div id='artist-profile-content'>
+                    <div className='image-name-container'>
+                        <div className='my-profile-image-div-container' id='artist-profile-image-div-container'>
+                            <div className='my-profile-image-div' id='artist-profile-image-div'>
+                                <img className='my-profile-image' src={artistProfile?.profilePic} alt={`${artistProfile?.User?.username}'s profile`}></img>
+                            </div>
+                        </div>
+                        <div id='artist-name-container'>
+                            <div id='artist-profile-fullName'>
                                 {artistProfile?.fullName}
-                            </h4>
-                        </div>
-                        <div className='my-profile-username'>
-                            {artistProfile?.User?.username}
-                        </div>
-                        <div className='my-profile-location'>
-                            <p className='my-profile-label'>Location: <span className='profile-location-text'>{artistProfile?.location}</span></p>
-                        </div>
-                        <div className='my-profile-specialties'>
-                            <p className='my-profile-label'>Specialties</p>
-                            <p>{artistProfile?.specialties ? artistProfile?.specialties.join(', ') : ''}</p>
-                        </div>
-                        <p className='my-profile-label'>About the artist</p>
-                        <div className='my-profile-description'>
-                            <p className='my-profile-description-text'>{artistProfile?.description}</p>
+                            </div>
+                            <div id='artist-profile-username'>
+                                {artistProfile?.User?.username}
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div className='artist-profile-content-container'>
+                        <div className='artist-profile'>
+                            <div id='artist-email'>
+                                <p className='artist-profile-label'>Email: <span className='profile-location-text'>{artistProfile?.User?.email}</span></p>
+                            </div>
+                            <div className='artist-profile-location'>
+                                <p className='artist-profile-label'>Location: <span className='profile-location-text'>{artistProfile?.location}</span></p>
+                            </div>
+                            <div className='artist-profile-specialties'>
+                                <p className='artist-profile-label'>Specialties</p>
+                                <p className='artist-profile-text'>{artistProfile?.specialties ? artistProfile?.specialties.join(', ') : ''}</p>
+                            </div>
+                            <div className='artist-profile-description-container'>
+                                <p className='artist-profile-label'>About the artist</p>
+                                <div className='artist-profile-description'>
+                                    <p className='artist-profile-description-text'>{artistProfile?.description}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-            </div>}
+                </div>}
         </div>
     )
 
