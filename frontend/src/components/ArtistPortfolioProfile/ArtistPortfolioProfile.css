@@ -74,3 +74,9 @@
     font-weight: 400;
     font-style: normal;
 }
+
+#artist-email {
+    font-family: proxima-nova-condensed, sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
