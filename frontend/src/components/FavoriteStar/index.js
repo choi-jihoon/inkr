@@ -56,6 +56,11 @@ const FavoriteStar = ({ image }) => {
         // change icon render
         setTimeout(() => {
             setIcon(favoritedStarIcon);
+            const currStar = document.querySelector(`.not-favorited-${image.id}`);
+            currStar.classList.remove('not-favorited');
+            currStar.classList.add('favorited');
+            currStar.classList.add(`favorited-${image.id}`);
+            currStar.classList.remove(`not-favorited-${image.id}`)
         }, 1000)
     }
 
@@ -69,6 +74,12 @@ const FavoriteStar = ({ image }) => {
 
         // changes icon to not favorited
         setIcon(notFavoritedIcon);
+        const currStar = document.querySelector(`.favorited-${image.id}`);
+
+        currStar.classList.remove('favorited');
+        currStar.classList.add('not-favorited');
+        currStar.classList.add(`not-favorited-${image.id}`);
+        currStar.classList.remove(`favorited-${image.id}`)
 
         const payload = {
             imageId: image.id,
@@ -141,12 +152,16 @@ const FavoriteStar = ({ image }) => {
 
     return (
         <>
-            <div className={isFavorite.length ? 'favorite-star-container favorited' : 'favorite-star-container not-favorited'}>
-                {icon}
+            <div className='please-stay-in-place'>
+                <p className='favorites-count'>
+                    {count}
+                </p>
+                <div className={isFavorite.length ? `favorite-star-container favorited favorited-${image.id}` : `favorite-star-container not-favorited not-favorited-${image.id}`}>
+                    {icon}
+                </div>
+
             </div>
-            <p className='favorites-number'>
-                {count}
-            </p>
+
         </>
     )
 }

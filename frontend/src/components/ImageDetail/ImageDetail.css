@@ -1,3 +1,120 @@
+.image-container {
+    margin: 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    margin-bottom: 10px;
+    break-inside: avoid;
+    position: relative;
+  }
+
+.image-container > img {
+    grid-row: 1 / -1;
+    grid-column: 1;
+}
+
+.grid-image {
+    max-width: 100%;
+    display: block;
+
+    border-radius: 7px;
+    min-width: 180px;
+}
+
+.grid-image:hover {
+opacity: 70%;
+cursor:zoom-in;
+}
+
+/* %%%%%%%%%%%%%%%%%%%%% Favorites Count %%%%%%%%%%%%%%%%%%%%% */
+.favorites-count {
+    position: absolute;
+    right: 60px;
+    top: 22px;
+    color: black;
+    font-size: 14x;
+    text-shadow:
+        0.04em 0 white,
+        0 0.04em white,
+        -0.04em 0 white,
+        0 -0.04em white;
+    /* visibility: hidden; */
+}
+
+.grid-image:hover + .favorites-count {
+    visibility: visible;
+}
+
+.favorites-count:hover {
+    visibility: visible;
+    cursor: default;
+}
+
+/* %%%%%%%%%%%%%%%%%%%%% Star Container %%%%%%%%%%%%%%%%%%%%% */
+
+.please-stay-in-place {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    display: flex;
+    height: 50px;
+    visibility: hidden;
+}
+
+.please-stay-in-place:hover {
+    visibility: visible;
+}
+
+/* %%%%%%%%%%%%%%%%%%%%% Not Favorited Star %%%%%%%%%%%%%%%%%%%%% */
+
+.favorite-star-container.not-favorited {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    /* visibility: hidden;
+    display: none; */
+}
+
+.favorite-star {
+    background: transparent;
+    border: none;
+    width: 100px;
+}
+
+.favorite-star > svg > g:hover {
+    cursor: pointer;
+}
+
+.grid-image:hover ~ .please-stay-in-place {
+    visibility:visible;
+}
+
+
+
+/* %%%%%%%%%%%%%%%%%%%%% Favorited Star %%%%%%%%%%%%%%%%%%%%% */
+
+.favorite-star-container.favorited {
+    position: absolute;
+    right: 20px;
+    top: 19px;
+}
+
+.favorited-star {
+    color: gold;
+    font-size: 27px;
+    visibility: visible;
+}
+
+.favorited-star:hover {
+    cursor: pointer;
+}
+
+
+
+
+
+
+
 .artist-name {
     color: var(--soft-white);
     font-size: 14px;

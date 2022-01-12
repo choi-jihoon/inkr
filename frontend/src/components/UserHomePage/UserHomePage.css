@@ -1,3 +1,109 @@
-h2 {
-    padding: 30px;
-}
+.main-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 75.61px;
+  }
+
+  .title-container {
+    display: flex;
+    width: 90%;
+    justify-self: flex-start;
+  }
+
+  h2 {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 40px;
+  }
+
+  h2#discover {
+    padding: 10px 0;
+  }
+
+
+  /* .all-images-container {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+  } */
+
+  /* div.all-images-container { */
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 15px; */
+    /* column-count: 4; */
+    /* column-gap: 15px; */
+    /* width: 90%; */
+    /* margin: auto; */
+    /* min-width: 760px; */
+  /* } */
+
+  div.all-images-container {
+    column-count: 4;
+    column-gap: 10px;
+    max-width: 90%;
+    min-width: 800px;
+    margin: auto;
+    background-color: black;
+    padding: 10px;
+    border-radius: 7px;
+  }
+
+
+
+  /* .image-container { */
+    /* margin: 0; */
+    /* display: grid;
+    grid-template-rows: 1fr auto; */
+    /* margin-bottom: 15px; */
+    /* break-inside: avoid; */
+    /* background: #303030; */
+    /* border-radius: 5px; */
+  /* } */
+
+  /* .image-container > img {
+    grid-row: 1 / -1;
+    grid-column: 1;
+  } */
+
+
+  /* .image-info { */
+    /* display: flex;
+    justify-content: space-between;
+    margin: 0 5px;
+    padding: 5px;
+    min-height: 38px;
+    position: relative; */
+
+    /* visibility: hidden; */
+
+  /* } */
+  /*
+  .favorites-count {
+    color: rgba(245, 245, 245, 0.747);
+    cursor: default;
+    display: flex;
+    max-height: 28px;
+    min-width: 90px;
+    justify-content: flex-end;
+    position: relative;
+    width: fit-content;
+
+  }
+
+
+  .favorited-button {
+    border: none;
+    background: none;
+  }
+
+  .favorites-number {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+
+
+  } */
