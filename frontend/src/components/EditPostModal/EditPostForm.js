@@ -7,7 +7,7 @@ import './EditPost.css';
 function EditPostForm({ showModal, image }) {
     const dispatch = useDispatch();
 
-    const [tags, setTags] = useState([...image.tags]);
+    const [tags, setTags] = useState([image.tags]);
     const [validationErrors, setValidationErrors] = useState([]);
 
 

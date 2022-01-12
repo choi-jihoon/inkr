@@ -3,7 +3,7 @@
     color: var(--soft-black);
     background-color: rgb(34, 34, 34);
     font-style: italic;
-    max-width: 450px;
+    max-width: 500px;
     position: relative;
     /* background-color: transparent; */
     border-radius: 7px;
@@ -26,6 +26,7 @@
     align-items: center;
     padding: 0 10px;
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.48503151260504207) 82%, rgba(0,0,0,0) 100%);
+    border-radius: 0 0 7px 7px;
 }
 
 .zoomed-all-tags {

@@ -5,7 +5,6 @@
     align-items: center;
     position: absolute;
     top: 75.61px;
-    /* background-color: var(--switch-white); */
 
     background: linear-gradient(0deg, #00000088 30%, #ffffff44 100%);
   }

@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom';
-import { useRef, useState } from 'react';
+// import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import ImageZoom from '../ImageZoom';
 import FavoriteStar from '../FavoriteStar';

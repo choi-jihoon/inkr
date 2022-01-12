@@ -25,10 +25,12 @@ const MyPortfolio = () => {
     }, [dispatch, sessionUser])
 
     return (
-        <div className='main-container my-portfolio-container'>
-            <h2 className='my-portfolio-header'>My Portfolio</h2>
-            <div className='all-images-container portfolio-all-images-container'>
-                {artistImages.map((image) => {
+        <div className='main-container my-portfolio-container' id='my-portfolio-container'>
+            <div className='title-container'>
+                <h2 id='my-portfolio-header'>My Portfolio</h2>
+            </div>
+            <div className='all-images-container portfolio-all-images-container' id='my-portfolio-all-images-container'>
+                {artistImages?.map((image) => {
                     let tagString;
                     if (image.tags) {
                         tagString = image.tags;

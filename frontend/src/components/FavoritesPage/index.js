@@ -17,9 +17,11 @@ function FavoritesPage() {
     }, [dispatch, sessionUser.id]);
 
     return (
-        <div className='main-container'>
-            <h2>Favorites</h2>
-            <div className='all-images-container'>
+        <div className='main-container' id='favorites-main-container'>
+            <div className='title-container'>
+                <h2 id='favorites-header'>Favorites</h2>
+            </div>
+            <div className='all-images-container' id='favorites-all-images-container'>
                 {favImages?.map((image) => {
                     let tagString;
                     if (image.tags) {
