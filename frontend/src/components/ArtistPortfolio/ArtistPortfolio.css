@@ -2,63 +2,35 @@
     display: grid;
     grid-template-areas: 'profile images'
     'reviews images';
-    grid-template-columns: 2fr 3fr;
-    grid-template-rows: 25% 75%;
+    grid-template-columns: 400px auto;
+    grid-template-rows: fit-content fit-content;
     width: 100%;
     margin: 0 auto;
 
-    padding: 40px;
+    padding: 20px 100px;
 }
 
 .portfolio-profile-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    grid-area: profile;
 }
 
 .artist-portfolio-profile {
-    grid-area: profile;
-    width: 500px;
-    height: 300px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+
 }
 
-#artist-portfolio-images-container {
+#artist-portfolio-images-container.all-images-container {
     grid-area: images;
     column-count: 3;
-}
+    min-height: 100vh;
+    padding: 0;
 
-.all-reviews-container-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100%;
-    flex-direction: column;
-}
-
-.all-reviews-container {
-    grid-area: reviews;
-    display: flex;
-    flex-direction: column;
-    height: fit-content;
-}
-
-.add-review-button-container {
-    display: flex;
-    justify-content: center;
-}
-
-.add-review-modal-button {
-    cursor: pointer;
-    background-color: #4E8075;
-    border: 1px solid #4E8075;
-    color: whitesmoke;
-    padding: 10px;
-    border-radius: 3px;
-    width: 300px;
-    margin: 5px;
-}
-
-.add-review-modal-button:hover {
-    background-color: #4E8075c4;
-    border: 1px solid #4E8075c4;
 }

@@ -8,11 +8,12 @@ header {
     width: 100%;
     z-index: 2;
     max-height: 75.61px;
+    min-width: 885px;
 }
 
 .nav-bar {
     display: grid;
-    grid-template-columns: 150px 8fr 200px;
+    grid-template-columns: 150px 8fr auto;
     width: 90%;
     padding: 24px 0;
     text-align: center;
@@ -60,7 +61,7 @@ header {
     justify-content: flex-start;
     align-items: center;
 }
-
+/*
 .profile-dropdown {
     width: 200px;
     height: auto;
@@ -86,7 +87,7 @@ header {
 
 .profile-dropdown li:hover {
     color: #303030b4;
-}
+} */
 
 .welcome-text {
     padding: 0 10px;
@@ -95,6 +96,7 @@ header {
     font-family: proxima-nova, sans-serif;
     font-weight: 400;
     font-style: normal;
+    margin-right: 20px;
 }
 
 .menu-icon {

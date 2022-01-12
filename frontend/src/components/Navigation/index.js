@@ -27,7 +27,7 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         {/* <ProfileButton user={sessionUser} /> */}
-        {/* <li className='welcome-text'>Welcome, {sessionUser.username}!</li> */}
+        <li className='welcome-text'>Welcome, {sessionUser.username}!</li>
         <ImageFormModal />
         <button className='logout' onClick={logout}>Log Out</button>
       </>

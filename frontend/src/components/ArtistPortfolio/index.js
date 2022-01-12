@@ -44,11 +44,11 @@ const ArtistPortfolio = () => {
                     </div>
                     <div className='portfolio-profile-container'>
                         <ArtistPortfolioProfile artistId={artistId} />
-                    </div>
-                    <div className='all-reviews-container-container'>
-                        <Reviews artistId={artistId} />
-                        <div className='add-review-button-container'>
-                            <ReviewFormModal artistId={artistId} />
+                        <div className='all-reviews-container-container'>
+                            <div className='add-review-button-container'>
+                                <ReviewFormModal artistId={artistId} />
+                            </div>
+                            <Reviews artistId={artistId} />
                         </div>
                     </div>
                 </>
