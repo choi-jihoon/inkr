@@ -30,32 +30,37 @@ const MyProfile = () => {
             </div>
             <div className='my-profile-content'>
 
-                <div className='my-profile-image-div-container'>
-                    <div className='my-profile-image-div'>
-                        <img className='my-profile-image' src={myProfile?.profilePic} alt={`${myProfile?.User.username}'s profile`}></img>
+                <div className='image-and-name'>
+                    <div className='my-profile-image-div-container'>
+                        <div className='my-profile-image-div'>
+                            <img className='my-profile-image' src={myProfile?.profilePic} alt={`${myProfile?.User.username}'s profile`}></img>
+                        </div>
                     </div>
+                    <div className='my-profile-username'>
+                        {myProfile?.User.username}
+                    </div>
+
                 </div>
                 <EditMyProfileModal myProfile={myProfile} />
                 <div className='my-profile-content-container'>
                     <div className='my-profile'>
-                        <div className='my-profile-fullName'>
-                            <h4>
-                                {myProfile?.fullName}
-                            </h4>
+                        <div className='my-profile-name-container profile-info'>
+                            <div id='artist-profile-username'>
+                                <p className='artist-profile-label'>Full Name: <span className='profile-location-text'>{myProfile?.fullName}</span></p>
+                            </div>
                         </div>
-                        <div className='my-profile-username'>
-                            {myProfile?.User.username}
+                        <div className='my-profile-location profile-info'>
+                            <p className='artist-profile-label'>Location: <span className='profile-location-text'>{myProfile?.location}</span></p>
                         </div>
-                        <div className='my-profile-location'>
-                            <p className='my-profile-label'>Location: <span className='profile-location-text'>{myProfile?.location}</span></p>
+                        <div className='my-profile-specialties profile-info'>
+                            <p className='artist-profile-label'>Specialties</p>
+                            <p className='artist-profile-text'>{myProfile?.specialties && myProfile.specialties.join(', ')}</p>
                         </div>
-                        <div className='my-profile-specialties'>
-                            <p className='my-profile-label'>Specialties</p>
-                            <p>{myProfile?.specialties && myProfile.specialties.join(', ')}</p>
-                        </div>
-                        <p className='my-profile-label'>About the artist</p>
-                        <div className='my-profile-description'>
-                            <p className='my-profile-description-text'>{myProfile?.description}</p>
+                        <div className='my-profile-description-container profile-info'>
+                            <p className='artist-profile-label'>About the artist</p>
+                            <div className='my-profile-description'>
+                                <p className='artist-profile-text'>{myProfile?.description}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
