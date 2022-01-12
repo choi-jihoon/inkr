@@ -1,12 +1,20 @@
-
+.portfolio-profile-container {
+    margin-top: 10px;
+}
 
 #artist-profile-content {
     height: 300px;
     width: 100%;
-    display: flex;
+
     background-color: whitesmoke;
     border-radius: 20px;
     padding: 20px;
+
+    display: grid;
+    grid-template-areas: 'pic content';
+    grid-template-columns: 50% 50%;
+    margin-bottom: 10px;
+
 }
 
 #artist-name-container {
@@ -25,6 +33,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 

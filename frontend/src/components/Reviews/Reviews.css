@@ -3,12 +3,17 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 100%;
+    height: fit-content;
     width: 100%;
     padding-top: 10px;
     background: rgba(0, 0, 0, 0.24);
     border-radius: 7px;
-    margin-top: 20px;
+    margin-top: 10px;
+}
+
+.all-reviews-and-button-container {
+    max-height: fit-content;
+    max-width: 100%;
 }
 
 .all-reviews-container {
@@ -19,7 +24,7 @@
     width: 100%;
 
     align-items: center;
-    padding: 10px;
+    padding: 10px 0;
     justify-content: space-around;
     border-radius: 7px;
 
@@ -28,15 +33,18 @@
 .review-container {
     background-color: rgba(255, 255, 255, 0.788);
     width: 95%;
+
     position: relative;
+
     padding: 10px;
     border-radius: 7px;
 
     display: flex;
     flex-direction: column;
     margin: 5px 0;
-
+    overflow-wrap:break-word;
 }
+
 
 
 .add-review-button-container {
@@ -52,7 +60,7 @@
     color: whitesmoke;
     padding: 10px;
     border-radius: 3px;
-    width: 361px;
+    width: 380px;
     margin: 5px;
 }
 
