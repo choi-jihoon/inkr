@@ -1,6 +1,8 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useHistory, NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+
+import * as sessionActions from '../../store/session';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
@@ -9,20 +11,33 @@ import './Navigation.css';
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const logout = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.logout());
+
+    history.push('/');
+  };
 
   let sessionLinks;
   let centerLink;
   if (sessionUser) {
     sessionLinks = (
       <>
-        <ProfileButton user={sessionUser} />
+        {/* <ProfileButton user={sessionUser} /> */}
+        {/* <li className='welcome-text'>Welcome, {sessionUser.username}!</li> */}
+        <ImageFormModal />
+        <button className='logout' onClick={logout}>Log Out</button>
       </>
     );
 
     centerLink = (
       <>
-        <ImageFormModal />
-        {/* <NavLink to='/my-favorites'><div className='favorites-nav nav-butt'>Favorites</div></NavLink> */}
+        <li className='nav-butt'><NavLink to='/my-portfolio'>Portfolio</NavLink></li>
+        <li className='favorites-nav nav-butt'><NavLink to='/my-favorites'>Favorites</NavLink></li>
+        <li className='nav-butt'><NavLink to='/my-profile'>Profile</NavLink></li>
       </>
     )
 
