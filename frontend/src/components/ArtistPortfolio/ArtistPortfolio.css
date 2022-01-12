@@ -3,7 +3,7 @@
     grid-template-areas: 'profile images'
     'reviews images';
     grid-template-columns: 2fr 3fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: 25% 75%;
     width: 100%;
     margin: 0 auto;
 
@@ -24,18 +24,22 @@
 
 #artist-portfolio-images-container {
     grid-area: images;
+    column-count: 3;
 }
 
 .all-reviews-container-container {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
 }
 
 .all-reviews-container {
     grid-area: reviews;
     display: flex;
     flex-direction: column;
+    height: fit-content;
 }
 
 .add-review-button-container {

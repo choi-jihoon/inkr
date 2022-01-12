@@ -47,9 +47,9 @@ const ArtistPortfolio = () => {
                     </div>
                     <div className='all-reviews-container-container'>
                         <Reviews artistId={artistId} />
-                    </div>
-                    <div className='add-review-button-container'>
-                        <ReviewFormModal artistId={artistId} />
+                        <div className='add-review-button-container'>
+                            <ReviewFormModal artistId={artistId} />
+                        </div>
                     </div>
                 </>
             }
