@@ -12,7 +12,7 @@ const ReviewDetail = ({ review }) => {
                 {review.User.username}
             </div>
             <div className='review-rating'>
-                {review.rating}
+                Rating: {review.rating} <span><i className="fas fa-star review-star"></i></span>
             </div>
             <div className='review-text'>
                 {review.reviewText}

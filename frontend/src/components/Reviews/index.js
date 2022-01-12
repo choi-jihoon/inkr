@@ -6,7 +6,7 @@ import ReviewDetail from '../ReviewDetail';
 
 import './Reviews.css';
 
-function Reviews({artistId}) {
+function Reviews({ artistId }) {
     const dispatch = useDispatch();
 
 
@@ -19,8 +19,8 @@ function Reviews({artistId}) {
 
     return (
         <>
-            <h3>Reviews</h3>
             <div className='all-reviews-container'>
+                <h3>Reviews</h3>
                 {artistReviews?.map(review => {
                     return (
                         <ReviewDetail key={review.id} review={review} />

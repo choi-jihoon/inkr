@@ -1,0 +1,8 @@
+.review-container {
+    background-color: whitesmoke;
+    margin: 5px;
+    width: 500px;
+    position: relative;
+    padding: 10px;
+    border-radius: 7px;
+}

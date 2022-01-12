@@ -1,3 +1,60 @@
-/* .main-container.artist-portfolio-main-container {
+#artist-portfolio-main-container {
+    display: grid;
+    grid-template-areas: 'profile images'
+    'reviews images';
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: auto auto auto;
+    width: 100%;
+    margin: 0 auto;
 
-} */
+    padding: 40px;
+}
+
+.portfolio-profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.artist-portfolio-profile {
+    grid-area: profile;
+    width: 500px;
+    height: 300px;
+}
+
+#artist-portfolio-images-container {
+    grid-area: images;
+}
+
+.all-reviews-container-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.all-reviews-container {
+    grid-area: reviews;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-review-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.add-review-modal-button {
+    cursor: pointer;
+    background-color: #4E8075;
+    border: 1px solid #4E8075;
+    color: whitesmoke;
+    padding: 10px;
+    border-radius: 3px;
+    width: 300px;
+    margin: 5px;
+}
+
+.add-review-modal-button:hover {
+    background-color: #4E8075c4;
+    border: 1px solid #4E8075c4;
+}

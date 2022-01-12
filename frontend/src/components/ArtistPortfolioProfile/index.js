@@ -19,7 +19,7 @@ function ArtistPortfolioProfile({ artistId }) {
     return (
         <div className='artist-portfolio-profile'>
             {artistProfileLoaded &&
-            <div className='my-profile-content'>
+            <div className='my-profile-content' id='artist-profile-content'>
                 <div className='my-profile-image-div-container'>
                     <div className='my-profile-image-div'>
                         <img className='my-profile-image' src={artistProfile?.profilePic} alt={`${artistProfile?.User?.username}'s profile`}></img>

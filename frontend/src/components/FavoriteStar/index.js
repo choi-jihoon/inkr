@@ -34,6 +34,9 @@ const FavoriteStar = ({ image }) => {
 
         setCount(prevState => prevState + 1);
 
+        const makeVisible = document.querySelector(`.not-favorited-${image.id}`);
+        makeVisible.style.visibility = 'visible';
+
         // post to favorites table
         const payload = {
             userId: sessionUser.id,

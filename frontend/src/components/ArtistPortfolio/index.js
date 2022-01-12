@@ -24,11 +24,11 @@ const ArtistPortfolio = () => {
     }, [dispatch, artistId])
 
     return (
-        <div className='main-container artist-portfolio-main-container'>
+        <div className='main-container' id='artist-portfolio-main-container'>
             {artistImagesObject &&
                 <>
-                    <h2>{artist?.username}'s Portfolio</h2>
-                    <div className='all-images-container'>
+                    {/* <h2>{artist?.username}'s Portfolio</h2> */}
+                    <div className='all-images-container' id='artist-portfolio-images-container'>
                         {artistImages.map((image) => {
                             let tagString;
                             if (image.tags) {
@@ -42,9 +42,15 @@ const ArtistPortfolio = () => {
                             )
                         })}
                     </div>
-                    <ArtistPortfolioProfile artistId={artistId} />
-                    <Reviews artistId={artistId} />
-                    <ReviewFormModal artistId={artistId} />
+                    <div className='portfolio-profile-container'>
+                        <ArtistPortfolioProfile artistId={artistId} />
+                    </div>
+                    <div className='all-reviews-container-container'>
+                        <Reviews artistId={artistId} />
+                    </div>
+                    <div className='add-review-button-container'>
+                        <ReviewFormModal artistId={artistId} />
+                    </div>
                 </>
             }
         </div>
