@@ -16,19 +16,11 @@ const ImageDetail = ({ image, tagString }) => {
                     <ImageZoom image={image} tagString={tagString} key={`${image.id}-zoom`} />
                 </Modal>
             )}
-            {/* <div className='image-info'>
-                <NavLink to={`/artists/${image?.userId}`}>
-                    <p className='artist-name'>{image?.User.username}</p>
-                </NavLink>
-                <div className='favorites-count'>
-                    <FavoriteStar image={image} />
-                </div>
-            </div> */}
-            <div className='artist-username-container'>
+            {/* <div className='artist-username-container'>
                 <NavLink to={`/artists/${image?.userId}`}>
                     <p className='artist-username'>{image?.User.username}</p>
                 </NavLink>
-            </div>
+            </div> */}
             <FavoriteStar image={image} />
         </div>
     )
