@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import ReviewForm from './ReviewForm.js';
 
-
-
 function ReviewFormModal({artistId}) {
   const [showModal, setShowModal] = useState(false);
 

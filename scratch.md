@@ -4,7 +4,6 @@ npx sequelize model:generate --name Favorite --attributes userId:integer,imageId
 
 npx sequelize model:generate --name Profile --attributes userId:integer,fullName:string,profilePic:string,location:string,description:text,specialties:array
 
-
 npx sequelize model:generate --name Review --attributes userId:integer,artistId:integer,reviewText:text,rating:integer
 
 npx sequelize model:generate --name Role --attributes name:string

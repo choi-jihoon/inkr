@@ -1,7 +1,5 @@
 .post-button {
     cursor: pointer;
-    /* background-color: #797979; */
-    /* border: 1px solid #797979; */
     background-color: #4E8075;
     border: 1px solid #4E8075;
     color: whitesmoke;
@@ -15,8 +13,6 @@
 }
 
 .post-button:hover {
-    /* background-color: #797979c4; */
-    /* border: 1px solid #797979c4; */
     background-color: #4E8075c4;
     border: 1px solid #4E8075c4;
 }

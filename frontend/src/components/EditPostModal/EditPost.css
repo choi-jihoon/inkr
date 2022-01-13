@@ -1,7 +1,5 @@
 .edit-button {
     cursor: pointer;
-    /* background-color: #B36754;
-    border: 1px solid #B36754; */
     background-color: #4E8075;
     border: 1px solid #4E8075;
     color: whitesmoke;
@@ -15,8 +13,6 @@
 }
 
 .edit-button:hover {
-    /* background-color: #B36754c4;
-    border: 1px solid #B36754c4; */
     background-color: #4E8075c4;
     border: 1px solid #4E8075c4;
 }

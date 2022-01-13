@@ -37,7 +37,6 @@
         0 0.04em white,
         -0.04em 0 white,
         0 -0.04em white;
-    /* visibility: hidden; */
     font-family: var(--font-for-image-display);
 }
 
@@ -156,11 +155,6 @@ button.favorite-star:hover {
     color: rgba(0, 0, 0, 0.651);
     transform: scale(1.1);
 }
-
-/* .artist-username-container:hover + .please-stay-in-place {
-    visibility: default;
-} */
-
 
 .artist-name {
     color: var(--soft-white);

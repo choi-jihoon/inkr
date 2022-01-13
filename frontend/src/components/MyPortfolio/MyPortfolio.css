@@ -24,26 +24,3 @@ h2#my-portfolio-header{
     font-weight: 400;
     font-style: italic;
 }
-
-/* .my-portfolio-container {
-    display: flex;
-    justify-content: center;
-}
-
-.grid-portfolio-container {
-    display: grid;
-    grid-template-areas: 'header header header profile'
-    'image image image profile'
-    'image image image profile'
-    'image image image profile';
-    width: 80%;
-}
-
-.my-portfolio-header {
-    grid-area: 'header';
-}
-
-.portfolio-all-images-container {
-    grid-area: 'image';
-    /* display: grid; */
-    /* grid-template-columns: auto auto auto auto; */

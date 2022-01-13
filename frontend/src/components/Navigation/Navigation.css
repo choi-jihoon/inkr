@@ -61,33 +61,6 @@ header {
     justify-content: flex-start;
     align-items: center;
 }
-/*
-.profile-dropdown {
-    width: 200px;
-    height: auto;
-    position: absolute;
-    background-color: whitesmoke;
-    top: 40px;
-    right: 0;
-    border-radius: 3px;
-    padding: 15px 40px 15px 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    box-shadow: 3px 3px 3px grey;
-    z-index: 10;
-
-}
-
-.profile-dropdown li {
-    padding: 10px;
-    font-size: 15px;
-    color: var(--soft-black);
-}
-
-.profile-dropdown li:hover {
-    color: #303030b4;
-} */
 
 .welcome-text {
     padding: 0 10px;
@@ -139,20 +112,6 @@ header {
     visibility: hidden;
 }
 
-/* .favorites-nav {
-    border: none;
-    display: inline-block;
-    margin: 0;
-    background: none;
-    color: var(--soft-white);
-    font-size: 20px;
-    cursor: pointer;
-    text-align: center;
-    font-family: proxima-nova, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-} */
-
 .nav-butt {
     border: none;
     background-color: transparent;
@@ -166,7 +125,6 @@ header {
     font-family: proxima-nova, sans-serif;
     font-weight: 400;
     font-style: normal;
-    /* background-color: var(--soft-white); */
     padding: 0 5px 0 0;
     margin-right: 20px;
 }

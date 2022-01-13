@@ -3,7 +3,6 @@ import { useHistory, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import * as sessionActions from '../../store/session';
-import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import ImageFormModal from '../PostImageModal';
@@ -26,7 +25,6 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <>
-        {/* <ProfileButton user={sessionUser} /> */}
         <li className='welcome-text'>Welcome, {sessionUser.username}!</li>
         <ImageFormModal />
         <button className='logout' onClick={logout}>Log Out</button>

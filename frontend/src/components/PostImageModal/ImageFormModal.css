@@ -1,18 +1,4 @@
 
-/* .new-post-button {
-    border: none;
-    display: inline-block;
-    margin: 0;
-    background: none;
-    color: var(--soft-white);
-    font-size: 20px;
-    cursor: pointer;
-    text-align: center;
-    font-family: proxima-nova, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-} */
-
 .new-post-button.nav-butt {
     width: fit-content;
 }

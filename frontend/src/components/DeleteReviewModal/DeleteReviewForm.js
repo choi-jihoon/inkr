@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteArtistReview, getArtistReviews } from '../../store/artist';
 
@@ -21,10 +21,6 @@ function DeleteReviewForm({ showModal, review }) {
         e.preventDefault();
         showModal(false);
     }
-
-    // useEffect(() => {
-    //     dispatch(getArtistReviews(review.artistId));
-    // }, [dispatch, review.artistId])
 
 
     return (
