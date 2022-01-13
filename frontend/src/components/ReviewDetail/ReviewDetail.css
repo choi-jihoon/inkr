@@ -8,10 +8,12 @@
 
 .reviewed-by {
     font-weight: 700;
+    transition-duration: 0.2s;
 }
 
 .reviewed-by:hover {
-    color: rgba(0, 0, 0, 0.596);
+    color: #64BAAA;
+    transform: scale(1.05);
 }
 
 .review-star {
