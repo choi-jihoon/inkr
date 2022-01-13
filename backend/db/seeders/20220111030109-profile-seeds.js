@@ -9,7 +9,7 @@ module.exports = {
         location: 'Bae Area',
         description: "I'm not a tattoo artist.",
         specialties: ['not crying when getting tatted'],
-        profilePic: '/images/me-03.jpg'
+        profilePic: '/images/fionaprofpic.jpg'
       },
       {
         userId: 4,
@@ -24,7 +24,8 @@ module.exports = {
         fullName: 'Demo User',
         location: 'The Matrix',
         description: "What is my purpose?",
-        specialties: ['machine learning']
+        specialties: ['machine learning'],
+        profilePic: '/images/default-pic.jpg'
       },
       {
         userId: 2,
@@ -38,8 +39,8 @@ module.exports = {
         userId: 5,
         fullName: 'Dani Ginzburg',
         location: 'Israel',
-        profilePic: '/images/banulprof.JPG',
-        specialties: ['realism', 'abstract', 'portrait']
+        specialties: ['realism', 'abstract', 'portrait'],
+        profilePic: '/images/default-pic.jpg'
       },
     ], {});
   },
