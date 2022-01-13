@@ -17,7 +17,7 @@ const ArtistPortfolio = () => {
 
     const artistImagesObject = useSelector((state) => state.artist);
     const artistImages = Object.values(artistImagesObject.artistImages);
-    const artist = artistImages[0]?.User
+
 
     useEffect(() => {
         dispatch(getArtistImages(artistId))
@@ -28,20 +28,25 @@ const ArtistPortfolio = () => {
             <div id='artist-portfolio-main-container'>
                 {artistImagesObject &&
                     <>
-                        {/* <h2>{artist?.username}'s Portfolio</h2> */}
                         <div className='all-images-container' id='artist-portfolio-images-container'>
-                            {artistImages.map((image) => {
-                                let tagString;
-                                if (image.tags) {
-                                    tagString = image.tags;
-                                    tagString = tagString.map((tag) => `#${tag}`)
-                                    tagString = tagString.join(', ')
-                                }
-                                return (
-                                    <ImageDetail key={image?.id} image={image} tagString={tagString} />
+                            {artistImages.length ?
+                                artistImages.map((image) => {
+                                    let tagString;
+                                    if (image.tags) {
+                                        tagString = image.tags;
+                                        tagString = tagString.map((tag) => `#${tag}`)
+                                        tagString = tagString.join(', ')
+                                    }
+                                    return (
+                                        <ImageDetail key={image?.id} image={image} tagString={tagString} />
+                                    )
+                                })
+                                :
+                                <div className='no-artist-images-container'>
+                                    This artist has no posts to show.
+                                </div>
+                            }
 
-                                )
-                            })}
                         </div>
                         <div className='portfolio-profile-container'>
                             <ArtistPortfolioProfile artistId={artistId} />
