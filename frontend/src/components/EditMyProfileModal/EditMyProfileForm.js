@@ -42,10 +42,10 @@ function EditMyProfileForm({ showModal, myProfile }) {
         const errors = [];
 
         if (!profilePic.match(/^https?:\/\/.+\/.+$/)
-            && (profilePic !== '/images/default-pic.jpg'
-                || profilePic !== '/images/fionaprofpic.jpg'
-                || profilePic !== '/images/profpic-grace.PNG'
-                || profilePic !== '/images/banulprof.JPG')
+            && profilePic !== '/images/default-pic.jpg'
+                && profilePic !== '/images/fionaprofpic.jpg'
+                && profilePic !== '/images/profpic-grace.PNG'
+                && profilePic !== '/images/banulprof.JPG'
             || !profilePic.length) errors.push('Please provide a valid image url for your profile picture.')
 
         if (description.length > 255) errors.push('Description cannot be longer than 255 characters.');
