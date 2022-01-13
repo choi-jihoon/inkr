@@ -15,6 +15,7 @@
     display: flex;
     width: 75%;
     justify-self: flex-start;
+    min-width: 800px;
   }
 
   h2 {

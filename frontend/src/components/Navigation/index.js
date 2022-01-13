@@ -35,9 +35,10 @@ function Navigation({ isLoaded }) {
 
     centerLink = (
       <>
+        <li className='nav-butt'><NavLink to={`/artists/${sessionUser.id}`}>My Page</NavLink></li>
+        <li className='nav-butt'><NavLink to='/my-profile'>Profile</NavLink></li>
         <li className='nav-butt'><NavLink to='/my-portfolio'>Portfolio</NavLink></li>
         <li className='favorites-nav nav-butt'><NavLink to='/my-favorites'>Favorites</NavLink></li>
-        <li className='nav-butt'><NavLink to='/my-profile'>Profile</NavLink></li>
       </>
     )
 
