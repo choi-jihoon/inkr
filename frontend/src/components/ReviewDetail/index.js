@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 import DeleteReviewModal from '../DeleteReviewModal';
 import './ReviewDetail.css';
@@ -54,9 +55,11 @@ const ReviewDetail = ({ review }) => {
         return (
             <div className='review-container'>
                 <div className='reviewed-by-and-rating'>
-                    <div className='reviewed-by'>
-                        {review.User.username}
-                    </div>
+                    <NavLink to={`/artists/${review.User.id}`}>
+                        <div className='reviewed-by'>
+                            {review.User.username}
+                        </div>
+                    </NavLink>
                 </div>
                     <div className='review-rating'>
                         {ratingStars}

@@ -10,6 +10,10 @@
     font-weight: 700;
 }
 
+.reviewed-by:hover {
+    color: rgba(0, 0, 0, 0.596);
+}
+
 .review-star {
     color: rgba(194, 167, 18, 0.753);
 }
