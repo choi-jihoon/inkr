@@ -8,14 +8,14 @@ header {
     width: 100%;
     z-index: 2;
     max-height: 75.61px;
-    min-width: 1207px;
+    min-width: 1242px;
 }
 
 .nav-bar {
     display: grid;
     grid-template-columns: 150px 8fr auto;
     width: 90%;
-    padding: 24px 0;
+    padding: 15px 0;
     text-align: center;
 }
 

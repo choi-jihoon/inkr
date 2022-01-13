@@ -1,27 +1,36 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 function Footer() {
+    const sessionUser = useSelector(state => state.session.user);
+
     return (
-        <footer>
-            <ul className="foot-stuff">
-                <li>React</li>
-                <li>Redux</li>
-                <li>Javascript</li>
-                <li>Express</li>
-                <li>PostgreSQL</li>
-                <li>HTML5</li>
-                <li>CSS</li>
-                <li>JSON API</li>
-                <li>Git</li>
-            </ul>
+        <footer className={!sessionUser ? 'splash-page-footer' : 'logged-in-footer'}>
+            {!sessionUser &&
+                <ul className="foot-stuff">
+                    <li>React</li>
+                    <li>Redux</li>
+                    <li>Javascript</li>
+                    <li>Express</li>
+                    <li>PostgreSQL</li>
+                    <li>HTML5</li>
+                    <li>CSS</li>
+                    <li>JSON API</li>
+                    <li>Git</li>
+                </ul>
+            }
             <ul className='copyright'>
                 <li className='footer-text'>
-                    © 2022 | Inkr
+                    <a target="_blank" rel="noreferrer noopener"
+                        href='https://github.com/choi-jihoon/inkr'>
+                        © 2022 | Inkr
+                    </a>
                 </li>
                 <ul className='about-me'>
                     <li className='footer-text'>
-                        Fiona Choi
+                        <Link to='/artists/3'>Fiona Choi</Link>
                     </li>
                     <li>
                         <a target="_blank" rel="noreferrer noopener"
