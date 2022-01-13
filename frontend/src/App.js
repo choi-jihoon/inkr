@@ -8,6 +8,7 @@ import ArtistPortfolio from "./components/ArtistPortfolio";
 import MyPortfolio from "./components/MyPortfolio";
 import FavoritesPage from "./components/FavoritesPage";
 import MyProfile from "./components/MyProfile";
+import Footer from "./components/Footer";
 
 
 import './index.css'
@@ -45,6 +46,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer />
     </>
   );
 }

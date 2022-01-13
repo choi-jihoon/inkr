@@ -8,10 +8,16 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.904);
+    /* background-color: rgba(0, 0, 0, 0.904); */
+    background-color: rgba(0, 0, 0, 0.801);
     height: 5rem;
     flex-direction: column;
     cursor: default;
+    padding: 5px 0;
+}
+
+footer.logged-in-footer {
+    height: 3rem;
 }
 
 .foot-stuff {
@@ -58,4 +64,13 @@ footer {
 .fa-linkedin:hover {
     color: rgb(255, 255, 255);
     transform: scale(1.4);
+}
+
+.footer-text {
+    transition-duration: 0.2s;
+}
+
+.footer-text:hover {
+    color: white;
+    transform: scale(1.1);
 }

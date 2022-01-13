@@ -15,7 +15,7 @@ header {
     display: grid;
     grid-template-columns: 150px 8fr auto;
     width: 90%;
-    padding: 24px 0;
+    padding: 15px 0;
     text-align: center;
 }
 
