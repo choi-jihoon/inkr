@@ -35,7 +35,7 @@ function SignupForm() {
           Sign up for Inkr
         </h4>
       </div>
-      <ul>
+      <ul className='errors-container'>
         {errors.map((error, idx) =>
           (<li className='error' key={idx}>{error}</li>))}
       </ul>

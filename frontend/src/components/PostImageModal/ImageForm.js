@@ -70,6 +70,7 @@ function ImageForm({ showModal }) {
     const errors = [];
     if (!imageUrl.length) errors.push('Please provide an image url.');
     if (tags.indexOf(' ') >= 0) errors.push('Tags must be separated by commas and have no spaces. e.g. "animal,fox,color"');
+    if (!imageUrl.match(/^https?:\/\/.+\/.+$/)) errors.push('Please provide a valid image url address.')
 
     setValidationErrors(errors);
   }, [tags, imageUrl])
@@ -86,7 +87,7 @@ function ImageForm({ showModal }) {
           Create New Post
         </h4>
       </div>
-      <ul>
+      <ul className='errors-container'>
         {validationErrors.length > 0 && validationErrors.map((error) => (
           <li className='error' key={error}>{error}</li>
         ))}

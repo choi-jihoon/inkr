@@ -33,7 +33,7 @@ function LoginForm() {
           Log in to Inkr
         </h4>
       </div>
-      <ul>
+      <ul className='errors-container'>
         {errors.map((error, idx) => (
           <li className='error' key={idx}>{error}</li>
         ))}

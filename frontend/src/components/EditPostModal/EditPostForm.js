@@ -47,7 +47,7 @@ function EditPostForm({ showModal, image }) {
                     Edit Tags
                 </h4>
             </div>
-            <ul>
+            <ul className='errors-container'>
                 {validationErrors.length > 0 && validationErrors.map((error) => (
                     <li className='error' key={error}>{error}</li>
                 ))}
