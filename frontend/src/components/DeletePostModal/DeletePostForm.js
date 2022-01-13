@@ -1,11 +1,15 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { deleteArtistImage } from "../../store/artist";
+import { deleteArtistImageFromHome } from "../../store/images";
 
 import './DeletePostForm.css';
 
 function DeletePostForm({ showModal, image }) {
+    const location = useLocation();
     const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -14,7 +18,13 @@ function DeletePostForm({ showModal, image }) {
             id: image.id
         }
 
-        dispatch(deleteArtistImage(payload));
+        if (location.pathname === '/my-portfolio' || location.pathname === `/artists/${sessionUser.id}`) {
+            dispatch(deleteArtistImage(payload));
+        } else {
+            dispatch(deleteArtistImageFromHome(payload))
+        }
+
+
         showModal(false);
     };
 

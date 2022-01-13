@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { editArtistImage } from "../../store/artist";
+import { editArtistImageFromHome } from "../../store/images";
 
 import './EditPost.css';
 
 function EditPostForm({ showModal, image }) {
     const dispatch = useDispatch();
+    const location = useLocation();
+    const sessionUser = useSelector(state => state.session.user);
 
     const [tags, setTags] = useState([image.tags]);
     const [validationErrors, setValidationErrors] = useState([]);
@@ -27,7 +31,12 @@ function EditPostForm({ showModal, image }) {
             tags: tagsArr
         }
 
-        dispatch(editArtistImage(payload));
+        if (location.pathname === '/my-portfolio' || location.pathname === `/artists/${sessionUser.id}`) {
+            dispatch(editArtistImage(payload));
+        } else {
+            dispatch(editArtistImageFromHome(payload))
+        }
+
         showModal(false)
     };
 

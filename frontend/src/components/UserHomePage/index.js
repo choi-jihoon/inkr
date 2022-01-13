@@ -4,12 +4,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getImages } from '../../store/images';
 
 import ImageDetail from "../ImageDetail";
+import MyPortfolioImageDetail from '../MyPortfolioImageDetail';
 
 import './UserHomePage.css';
 
 function UserHomePage() {
     const dispatch = useDispatch();
 
+    const sessionUser = useSelector(state => state.session.user)
     const imagesObject = useSelector((state) => state.images);
     const images = Object.values(imagesObject.order);
 
@@ -31,6 +33,10 @@ function UserHomePage() {
                                 tagString = image.tags;
                                 tagString = tagString.map((tag) => `#${tag}`);
                                 tagString = tagString.join(', ');
+                            }
+
+                            if (image.userId === sessionUser.id) {
+                                return <MyPortfolioImageDetail key={image.id} image={image} tagString={tagString} />
                             }
 
                             return <ImageDetail key={image.id} image={image} tagString={tagString} />
