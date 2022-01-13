@@ -27,9 +27,9 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         <SearchForm />
-        <li className='welcome-text'>Welcome, {sessionUser.username}!</li>
+        {/* <li className='welcome-text'>Welcome, {sessionUser.username}!</li> */}
         <ImageFormModal />
-        <button className='logout' onClick={logout}>Log Out</button>
+        <button className='logout right-container-element' onClick={logout}><i className="fas fa-sign-out-alt"></i></button>
       </>
     );
 
