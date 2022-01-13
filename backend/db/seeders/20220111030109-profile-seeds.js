@@ -14,8 +14,8 @@ module.exports = {
       {
         userId: 4,
         fullName: 'Grace Noelle',
-        location: 'Riverside',
-        description: 'Hit me up for some SWEET TATS.',
+        location: 'California',
+        description: 'Instagram: greyn0elle',
         profilePic: '/images/profpic-grace.PNG',
         specialties: ['dotwork', 'fine line']
       },
