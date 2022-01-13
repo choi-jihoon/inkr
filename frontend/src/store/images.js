@@ -5,6 +5,9 @@ const CREATE = 'images/CREATE';
 const FAVORITE = 'images/FAVORITE';
 const UNFAVORITE = 'images/UNFAVORITE'
 
+const EDIT_POST = 'images/EDIT_POST';
+const DELETE = 'images/DELETE'
+
 export const getAllImages = (state) => Object.values(state.images);
 
 const load = (images) => ({
@@ -15,6 +18,16 @@ const load = (images) => ({
 const create = (image) => ({
     type: CREATE,
     image
+})
+
+const edit = (image) => ({
+    type: EDIT_POST,
+    image
+})
+
+const deleteImage = (imageId) => ({
+    type: DELETE,
+    imageId
 })
 
 const favorite = (image, userId) => {
@@ -117,6 +130,36 @@ export const incrementFavoriteCount = (data, userId) => async(dispatch) => {
         const image = await response.json();
         dispatch(favorite(image, userId));
         return image;
+    } else {
+        const errors = await response.json();
+        console.log(errors.errors);
+    }
+}
+
+export const editArtistImageFromHome = (data) => async (dispatch) => {
+    const response = await csrfFetch(`/api/images/${data.id}`, {
+        method: 'PUT',
+        body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+        const image = await response.json();
+        dispatch(edit(image));
+        return image;
+    } else {
+        const errors = await response.json();
+        console.log(errors.errors);
+    }
+}
+
+export const deleteArtistImageFromHome = (data) => async (dispatch) => {
+    const response = await csrfFetch(`/api/images/${data.id}`, {
+        method: 'DELETE'
+    });
+
+    if (response.ok) {
+        dispatch(deleteImage(data.id));
+        return;
     } else {
         const errors = await response.json();
         console.log(errors.errors);
@@ -231,6 +274,24 @@ const imageReducer = (state = initialState, action) => {
                 }
             }
             newState[action.image.id].Favorites.splice(favoriteIndex, 1);
+            return newState;
+        }
+
+        case EDIT_POST: {
+            const orderedImageIndex = state.order.findIndex(image => image.id === action.image.id);
+            const newState = {
+                ...state,
+                [action.image.id]: action.image
+            }
+            newState.order[orderedImageIndex] = action.image;
+            return newState;
+        }
+
+        case DELETE: {
+            const newState = { ...state };
+            const deleteIndex = state.order.findIndex(image => image.id === action.imageId);
+            delete newState[action.imageId];
+            newState.order.splice(deleteIndex, 1);
             return newState;
         }
 

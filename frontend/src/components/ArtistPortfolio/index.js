@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 
 import { getArtistImages } from '../../store/artist';
 import ImageDetail from '../ImageDetail';
+import MyPortfolioImageDetail from '../MyPortfolioImageDetail';
 import ArtistPortfolioProfile from '../ArtistPortfolioProfile';
 import Reviews from '../Reviews';
 import ReviewFormModal from '../ReviewFormModal';
@@ -14,6 +15,9 @@ import './ArtistPortfolio.css';
 const ArtistPortfolio = () => {
     const { artistId } = useParams();
     const dispatch = useDispatch();
+
+
+    const sessionUser = useSelector(state => state.session.user)
 
     const artistImagesObject = useSelector((state) => state.artist);
     const artistImages = Object.values(artistImagesObject.artistImages);
@@ -37,6 +41,11 @@ const ArtistPortfolio = () => {
                                         tagString = tagString.map((tag) => `#${tag}`)
                                         tagString = tagString.join(', ')
                                     }
+
+                                    if (image.userId === sessionUser.id) {
+                                        return <MyPortfolioImageDetail key={image.id} image={image} tagString={tagString} />
+                                    }
+
                                     return (
                                         <ImageDetail key={image?.id} image={image} tagString={tagString} />
                                     )
