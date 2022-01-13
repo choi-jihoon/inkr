@@ -8,7 +8,19 @@ header {
     width: 100%;
     z-index: 2;
     max-height: 75.61px;
-    min-width: 1365px;
+    min-width: 1451px;
+}
+
+#splash-page-header {
+    min-width: 1074px;
+}
+
+#splash-page-nav-bar {
+    display: grid;
+    grid-template-columns: 150px 8fr auto;
+    width: 90%;
+    padding: 15px 0;
+    text-align: center;
 }
 
 .nav-bar {
@@ -172,8 +184,8 @@ header {
     font-family: proxima-nova, sans-serif;
     font-weight: 400;
     font-style: normal;
-    padding: 0 30px 0 0;
-    margin-right: 20px;
+    padding: 0 25px 0 0;
+    margin-right: 15px;
     transition-duration: 0.2s;
 }
 

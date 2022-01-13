@@ -50,3 +50,10 @@ form.search-bar:hover {
 .search-input:focus  {
     opacity: 100%;
 }
+
+
+.no-search-results-title-container {
+    position: fixed;
+    top: 35%;
+    left: 38%;
+}

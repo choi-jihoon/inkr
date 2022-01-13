@@ -15,10 +15,12 @@ function Search() {
 
     return (
         <div className='main-container'>
-            <div className='search-title'>
-                <h2 id='search-title'>Search results for "{`${searchQuery}`}"</h2>
-            </div>
-            <div className='all-images-container'>
+            {results.length ? (
+                <>
+                    <div className='search-title'>
+                        <h2 id='search-title'>Search results for "{`${searchQuery}`}"</h2>
+                    </div>
+                    <div className='all-images-container'>
                         {results?.map((image) => {
                             let tagString;
                             if (image.tags) {
@@ -34,7 +36,18 @@ function Search() {
                             return <ImageDetail key={image.id} image={image} tagString={tagString} />
                         }
                         )}
-            </div>
+                    </div>
+                </>
+            )
+                :
+                (
+                    <>
+                        <div className='no-search-results-title-container'>
+                            <h2 id='no-results-title'>No results for "{`${searchQuery}`}"</h2>
+                        </div>
+                    </>
+                )}
+
         </div>
     )
 }

@@ -9,11 +9,11 @@ import ImageFormModal from '../ImageFormModal';
 import './MyPortfolio.css';
 
 const MyPortfolio = () => {
-    const history = useHistory();
     const dispatch = useDispatch();
 
     const sessionUser = useSelector(state => state.session.user);
 
+    const history = useHistory();
     if (!sessionUser) {
         history.push('/');
     }
