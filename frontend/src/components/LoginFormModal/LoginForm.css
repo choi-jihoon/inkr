@@ -50,6 +50,8 @@ form {
 
 .errors-container {
     margin-bottom: 20px;
+    padding: 0 30px;
+    width: 100%;
 }
 
 .error {
