@@ -52,18 +52,9 @@
     justify-content: center;
 }
 
+
+
+
 .add-review-modal-button {
-    cursor: pointer;
-    background-color: #4E8075;
-    border: 1px solid #4E8075;
-    color: whitesmoke;
-    padding: 10px;
-    border-radius: 3px;
     width: 100%;
-
-}
-
-.add-review-modal-button:hover {
-    background-color: #4E8075c4;
-    border: 1px solid #4E8075c4;
 }

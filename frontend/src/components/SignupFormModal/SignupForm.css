@@ -7,9 +7,11 @@
     border-radius: 5px;
     width: 300px;
     margin-top: 10px;
+    transition-duration: 0.2s;
 }
 
 .signup-butt:hover {
     background-color: #00c896ce;
     border: 1px solid #00c896ce;
+    transform: scale(1.03);
 }

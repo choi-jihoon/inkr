@@ -1,0 +1,31 @@
+.post-button {
+    cursor: pointer;
+    background-color: var(--minty);
+    border: 1px solid var(--minty);
+    color: whitesmoke;
+    padding: 10px;
+    border-radius: 3px;
+    width: 300px;
+    transition-duration: 0.2s;
+}
+
+
+
+.post-button:hover {
+    background-color: var(--minty-hover);
+    border: 1px solid var(--minty-hover);
+    transform: scale(1.03);
+}
+
+.post-button:disabled {
+    opacity: 40%;
+}
+
+.post-button:disabled:hover {
+    cursor:default;
+    transform: none;
+}
+
+.form-label {
+    font-size: 14px;
+}

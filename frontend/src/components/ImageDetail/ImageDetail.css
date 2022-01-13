@@ -5,7 +5,7 @@
     margin-bottom: 10px;
     break-inside: avoid;
     position: relative;
-  }
+}
 
 .image-container > img {
     grid-row: 1 / -1;
@@ -15,17 +15,20 @@
 .grid-image {
     max-width: 100%;
     display: block;
-
     border-radius: 7px;
     min-width: 180px;
+    transition-duration: 0.2s;
 }
 
 .grid-image:hover {
     opacity: 70%;
-    cursor:zoom-in;
+    cursor: zoom-in;
+    transform: scale(1.03);
 }
 
+
 /* %%%%%%%%%%%%%%%%%%%%% Favorites Count %%%%%%%%%%%%%%%%%%%%% */
+
 .favorites-count {
     position: absolute;
     right: 60px;
@@ -96,8 +99,6 @@ button.favorite-star:hover {
 .grid-image:hover ~ .please-stay-in-place {
     visibility:visible;
 }
-
-
 
 
 /* %%%%%%%%%%%%%%%%%%%%% Favorited Star %%%%%%%%%%%%%%%%%%%%% */

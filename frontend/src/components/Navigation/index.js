@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
-import ImageFormModal from '../PostImageModal';
+import ImageFormModal from '../ImageFormModal';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -70,7 +70,9 @@ function Navigation({ isLoaded }) {
         </div>
 
         <div className='navbar-element' id='center-container'>
-          {isLoaded && centerLink}
+          <ul className='session-links'>
+            {isLoaded && centerLink}
+          </ul>
         </div>
 
         <div className='navbar-element' id='right-container'>

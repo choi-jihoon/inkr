@@ -31,13 +31,13 @@ function DeletePostForm({ showModal, image }) {
             </label>
             <div className='button-container'>
                 <button
-                    className='delete-post-button'
+                    className='delete-button'
                     type="submit"
                 >
                     Delete
                 </button>
                 <button
-                    className='cancel-delete-button'
+                    className='cancel-button'
                     type='button'
                     onClick={handleCancelClick}
                 >

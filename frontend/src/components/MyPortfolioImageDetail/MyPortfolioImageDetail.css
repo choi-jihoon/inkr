@@ -2,6 +2,11 @@
 .portfolio-image.image-container {
     background-color: transparent;
     position: relative;
+
+}
+
+.portfolio-grid-image:hover {
+    transform: none;
 }
 
 .portfolio-grid-image {
@@ -104,11 +109,11 @@
 }
 
 .fa-edit:hover {
-    color: #4E8075;
+    color: var(--minty);
     transform: scale(2);
 }
 
 .fa-trash-alt:hover {
-    color: #B6677AE0;
+    color: var(--pleasant-darker-red);
     transform: scale(2);
 }

@@ -9,6 +9,7 @@ import MyPortfolio from "./components/MyPortfolio";
 import FavoritesPage from "./components/FavoritesPage";
 import MyProfile from "./components/MyProfile";
 
+
 import './index.css'
 
 function App() {

@@ -24,3 +24,37 @@ h2#my-portfolio-header{
     font-weight: 400;
     font-style: italic;
 }
+
+.empty-portfolio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 15em;
+}
+
+.empty-portfolio > .new-post-button.nav-butt {
+    padding: 30px;
+}
+
+.empty-portfolio > .new-post-button.nav-butt > .fa-cloud-upload-alt {
+    font-size: 200px;
+    color: var(--minty);
+    transition-duration: 0.2s;
+}
+
+.empty-portfolio > .new-post-button.nav-butt > .fa-cloud-upload-alt:hover {
+    transform: scale(1.2);
+    text-shadow:
+        3px 3px 5px white;
+        /* 0 -0.04em white; */
+
+}
+
+#empty-portfolio-text {
+    font-family: proxima-nova, sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}

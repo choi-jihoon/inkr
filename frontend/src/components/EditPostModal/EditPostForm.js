@@ -62,7 +62,7 @@ function EditPostForm({ showModal, image }) {
                 />
             </div>
             <button
-                className='edit-button'
+                className='minty-button'
                 type="submit"
                 disabled={validationErrors.length > 0}
             >

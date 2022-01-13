@@ -11,6 +11,24 @@
   --switch-teal: #408F92;
   --switch-teal-fade: #408f92a2;
   --font-for-image-display: proxima-nova-condensed, sans-serif;
+
+  --light-theme-bg: rgb(218, 218, 218);
+
+  --dark-green: #4E8075;
+
+  --light-minty:  #74dbc3b0;
+
+  --minty: #5DB09D;
+  --minty-hover: #5db09dc4;
+  --chocolate: #212121;
+  --chocolate-fade: #212121cc;
+  --grey-text: rgb(177,177,177);
+
+  --pleasant-red: #b6677ae0;
+  --pleasant-darker-red: #9c3348d3;
+
+  --generic-grey: #797979;
+  --generic-grey-fade: #797979c4;
 }
 
 
@@ -28,4 +46,151 @@ html {
 a, a:hover, a:visited, a:active {
   color: inherit;
   text-decoration: none;
+}
+
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Button Styling %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* %%%%%%%%%%%%%%%%%%%%% Minty Button For Edit / Post %%%%%%%%%%%%%%%%%%%%% */
+
+.minty-button {
+  cursor: pointer;
+  background-color: var(--minty);
+  border: 1px solid var(--minty);
+  color: white;
+  padding: 10px;
+  border-radius: 3px;
+  width: 300px;
+  transition-duration: 0.2s;
+}
+
+
+.minty-button:hover {
+    background-color: var(--minty-hover);
+    border: 1px solid var(--minty-hover);
+    transform: scale(1.03);
+}
+
+.minty-button:disabled {
+  opacity: 40%;
+}
+
+.minty-button:disabled:hover {
+  cursor:default;
+  transform: none;
+  background-color: var(--minty);
+  border: 1px solid var(--minty);
+}
+
+/* %%%%%%%%%%%%%%%%%%%%% Delete & Cancel Buttons %%%%%%%%%%%%%%%%%%%%% */
+
+.delete-button,
+.cancel-button {
+  color: white;
+  padding: 10px;
+  border-radius: 3px;
+  width: 300px;
+  transition-duration: 0.2s;
+  cursor: pointer;
+}
+
+.delete-button:hover,
+.cancel-button:hover {
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+.delete-button {
+  background-color: var(--pleasant-darker-red);
+  border: 1px solid var(--pleasant-darker-red);
+  margin: 30px 10px 10px 10px;
+}
+
+.delete-button:hover {
+  background-color: var(--pleasant-red);
+  border: 1px solid var(--pleasant-red);
+}
+
+
+.cancel-button {
+  background-color: var(--generic-grey);
+  border: 1px solid var(--generic-grey);
+}
+
+.cancel-delete-button:hover {
+  background-color: var(--generic-grey-fade);
+  border: 1px solid var(--generic-grey-fade);
+}
+
+
+
+/* %%%%%%%%%%%%%%%%%%%%% Form Styling %%%%%%%%%%%%%%%%%%%%% */
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--soft-black);
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.form-header {
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-logo {
+  width: 30px;
+  margin: 10px;
+}
+
+.form-element {
+  margin: 0px 30px 20px 30px;
+}
+
+.form-element input {
+  display: block;
+  position: relative;
+  width: 100%;
+  min-width: 300px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 14px;
+  line-height: 1;
+  border: solid 1px grey;
+}
+
+.form-element input:focus {
+  color: var(--soft-black);
+  outline: 0;
+}
+
+.form-element input:focus::placeholder {
+  color: rgba(0,0,0,0.2);
+  transition: all 0.15s ease-in;
+}
+
+.errors-container {
+  margin-bottom: 20px;
+  padding: 0 30px;
+  width: 100%;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 }
