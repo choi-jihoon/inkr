@@ -8,7 +8,7 @@ module.exports = {
         fullName: 'Fiona Choi',
         location: 'California',
         description: "I'm not a tattoo artist, but I can make you a website with a lot of hover effects.",
-        specialties: ['full stack development', 'CSS hover effects', 'React/Redux'],
+        specialties: ['React', 'Redux', 'JS', 'Express', 'PostgreSQL', 'HTML5', 'CSS', 'JSON API', 'Git'],
         profilePic: '/images/fionaprofpic.jpg'
       },
       {
