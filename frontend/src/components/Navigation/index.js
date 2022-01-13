@@ -6,6 +6,7 @@ import * as sessionActions from '../../store/session';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import ImageFormModal from '../ImageFormModal';
+import SearchForm from '../Search/SearchForm.js';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -25,6 +26,7 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <>
+        <SearchForm />
         <li className='welcome-text'>Welcome, {sessionUser.username}!</li>
         <ImageFormModal />
         <button className='logout' onClick={logout}>Log Out</button>

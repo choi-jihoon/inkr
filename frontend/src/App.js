@@ -10,6 +10,8 @@ import FavoritesPage from "./components/FavoritesPage";
 import MyProfile from "./components/MyProfile";
 import Footer from "./components/Footer";
 
+import Search from "./components/Search";
+
 
 import './index.css'
 
@@ -40,6 +42,9 @@ function App() {
           </Route>
           <Route path='/my-profile'>
             <MyProfile />
+          </Route>
+          <Route path='/search'>
+            <Search />
           </Route>
           <Route>
             Page Not Found.

@@ -5,12 +5,14 @@ import sessionReducer from './session';
 import imageReducer from './images';
 import artistReducer from './artist';
 import profileReducer from './profiles';
+import searchReducer from './search';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     images: imageReducer,
     artist: artistReducer,
     profile: profileReducer,
+    search: searchReducer,
 });
 
 
