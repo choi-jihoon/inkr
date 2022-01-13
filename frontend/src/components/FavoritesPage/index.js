@@ -22,7 +22,7 @@ function FavoritesPage() {
             <div className='title-container'>
                 <h2 id='favorites-header'>Favorites</h2>
             </div> : <div className='title-container' id='favorites-title-container'>
-                <h2 id='favorites-header'>You haven't favorited any photos!</h2>
+                <h2 id='no-favorites-header'>You haven't favorited any photos!</h2>
             </div>}
 
             <div className='all-images-container' id='favorites-all-images-container'>

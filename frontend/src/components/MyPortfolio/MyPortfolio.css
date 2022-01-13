@@ -1,5 +1,7 @@
 h2#my-portfolio-header{
     padding: 10px 0px 10px 10px;
+    opacity: 0;
+    font-size: 10px;
 }
 
 #my-portfolio-container {
@@ -21,7 +23,7 @@ h2#my-portfolio-header{
 #portfolio-text {
     padding: 0 0 10px 10px;
     font-family: proxima-nova-condensed, sans-serif;
-    font-weight: 400;
+    font-weight: 600;
     font-style: italic;
 }
 

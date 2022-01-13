@@ -31,7 +31,7 @@ const MyPortfolio = () => {
                 <div className='main-container my-portfolio-container' id='my-portfolio-container'>
                     <div className='title-container' id='portfolio-title'>
                         <>
-                            <h2 id='my-portfolio-header'>My Portfolio</h2>
+                            <h2 id='my-portfolio-header'>Your Portfolio</h2>
                             <p id='portfolio-text'>Edit tags and delete photos from your portfolio.</p>
                         </>
                     </div>

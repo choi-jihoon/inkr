@@ -22,6 +22,8 @@ h2 {
 h2#discover {
   padding: 10px 0 10px 10px;
   color: var(--soft-black);
+  opacity: 0;
+  font-size: 10px;
 }
 
 div.all-images-container {

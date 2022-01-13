@@ -1,7 +1,11 @@
 h2#favorites-header {
     padding: 10px 0 10px 10px;
     color: var(--soft-black);
+    opacity: 0;
+    font-size: 10px;
 }
+
+
 
 #favorites-title-container {
     display: flex;
