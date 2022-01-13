@@ -1,0 +1,8 @@
+.search-title {
+    width: 75%;
+}
+
+h2#search-title {
+    font-size: 20px;
+    padding: 20px 0;
+}
