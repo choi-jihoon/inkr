@@ -13,6 +13,17 @@ h2#my-portfolio-header{
     margin: 0;
 }
 
+#portfolio-title {
+    display: flex;
+    flex-direction: column;
+}
+
+#portfolio-text {
+    padding: 0 0 10px 10px;
+    font-family: proxima-nova-condensed, sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
 
 /* .my-portfolio-container {
     display: flex;

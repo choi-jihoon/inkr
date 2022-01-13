@@ -17,10 +17,15 @@ function FavoritesPage() {
     }, [dispatch, sessionUser.id]);
 
     return (
-        <div className='main-container' id='favorites-main-container'>
+        <div className='main-container'>
+            {favImages.length ?
             <div className='title-container'>
                 <h2 id='favorites-header'>Favorites</h2>
-            </div>
+            </div> : <div className='title-container' id='favorites-title-container'>
+                <h2 id='favorites-header'>You haven't favorited any photos!</h2>
+                {/* <p id='no-faves-text'>You haven't favorited any photos!</p> */}
+            </div>}
+
             <div className='all-images-container' id='favorites-all-images-container'>
                 {favImages?.map((image) => {
                     let tagString;

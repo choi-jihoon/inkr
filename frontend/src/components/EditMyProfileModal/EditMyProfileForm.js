@@ -46,7 +46,7 @@ function EditMyProfileForm({ showModal, myProfile }) {
         if (fullName.length > 50) errors.push('Name cannot be longer than 50 characters.');
 
         setValidationErrors(errors);
-    }, [description, specialties, location]);
+    }, [description, specialties, location, fullName]);
 
 
     return (
@@ -95,7 +95,7 @@ function EditMyProfileForm({ showModal, myProfile }) {
                     type="text"
                     value={specialties}
                     onChange={(e) => setSpecialties((e.target.value))}
-                    placeholder='Separate specalities by comma and space'
+                    placeholder='e.g. "abstract, realism"'
                 />
             </div>
             <div className='form-element form-text-area'>
