@@ -43,7 +43,7 @@ function App() {
           <Route path='/my-profile'>
             <MyProfile />
           </Route>
-          <Route path='/search'>
+          <Route path='/search/:searchQuery'>
             <Search />
           </Route>
           <Route>

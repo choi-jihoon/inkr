@@ -20,7 +20,9 @@ function SearchForm() {
 
         dispatch(loadSearchResults(payload))
 
-        history.push('/search')
+        setSearchQuery('');
+
+        history.push(`/search/${searchQuery}`)
     }
 
 
