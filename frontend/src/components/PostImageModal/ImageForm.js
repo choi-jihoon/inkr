@@ -70,7 +70,7 @@ function ImageForm({ showModal }) {
     const errors = [];
     if (!imageUrl.length) errors.push('Please provide an image url.');
     if (tags.indexOf(' ') >= 0) errors.push('Tags must be separated by commas and have no spaces. e.g. "animal,fox,color"');
-    if (!imageUrl.match(/^https?:\/\/.+\/.+$/)) errors.push('Please provide a valid image url address.')
+    if (!imageUrl.match(/^https?:\/\/.+\/.+$/) && imageUrl.length > 0) errors.push('Please provide a valid image url address.')
 
     setValidationErrors(errors);
   }, [tags, imageUrl])

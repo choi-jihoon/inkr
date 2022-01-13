@@ -9,20 +9,20 @@ const ReviewDetail = ({ review }) => {
     const date = new Date(review.createdAt).toDateString();
 
     let ratingStars;
-    if (Math.floor(review.rating) === 1) {
+    if (review.rating === 1) {
         ratingStars = (
             <>
                 <span><i className="fas fa-star review-star"></i></span>
             </>
         )
-    } else if (Math.floor(review.rating) === 2) {
+    } else if (review.rating === 2) {
         ratingStars = (
             <>
                 <span><i className="fas fa-star review-star"></i></span>
                 <span><i className="fas fa-star review-star"></i></span>
             </>
         )
-    } else if (Math.floor(review.rating) === 3) {
+    } else if (review.rating === 3) {
         ratingStars = (
             <>
                 <span><i className="fas fa-star review-star"></i></span>
@@ -30,7 +30,7 @@ const ReviewDetail = ({ review }) => {
                 <span><i className="fas fa-star review-star"></i></span>
             </>
         )
-    } else if (Math.floor(review.rating) === 4) {
+    } else if (review.rating === 4) {
         ratingStars = (
             <>
                 <span><i className="fas fa-star review-star"></i></span>
