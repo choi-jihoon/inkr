@@ -10,8 +10,7 @@ const router = express.Router();
 const validateProfile = [
     check('profilePic')
         .exists({ checkFalsy: true })
-        .isURL()
-        .withMessage('Please provide a valid image url.'),
+        .withMessage('Please provide a image url.'),
     check('fullName')
         .isLength({ max: 50 })
         .withMessage('Full name cannot be longer than 50 characters.'),

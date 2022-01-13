@@ -38,7 +38,7 @@ function ArtistPortfolioProfile({ artistId }) {
                     <div className='artist-profile-content-container'>
                         <div className='artist-profile'>
                             <div id='artist-email'>
-                                <p className='artist-profile-label'>Email: <span className='profile-location-text'>{artistProfile?.User?.email}</span></p>
+                                <p className='artist-profile-label'>Contact: <span className='profile-location-text'>{artistProfile?.User?.email}</span></p>
                             </div>
                             <div className='artist-profile-location'>
                                 <p className='artist-profile-label'>Location: <span className='profile-location-text'>{artistProfile?.location}</span></p>
