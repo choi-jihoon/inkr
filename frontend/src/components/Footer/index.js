@@ -24,12 +24,14 @@ function Footer() {
                         Fiona Choi
                     </li>
                     <li>
-                        <a href='https://github.com/choi-jihoon'>
+                        <a target="_blank" rel="noreferrer noopener"
+                            href='https://github.com/choi-jihoon'>
                             <i className='fab fa-github' />
                         </a>
                     </li>
                     <li>
-                        <a href='https://www.linkedin.com/in/jihoon-choi-a6967a221/'>
+                        <a target="_blank" rel="noreferrer noopener"
+                            href='https://www.linkedin.com/in/jihoon-choi-a6967a221/'>
                             <i className='fab fa-linkedin' />
                         </a>
                     </li>

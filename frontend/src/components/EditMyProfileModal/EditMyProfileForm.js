@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { bindActionCreators } from "redux";
 import { editMyProfile } from "../../store/profiles";
 
 import './EditMyProfileForm.css';
@@ -42,11 +41,11 @@ function EditMyProfileForm({ showModal, myProfile }) {
     useEffect(() => {
         const errors = [];
 
-        if (!profilePic.match(/^https?:\/\/.+\/.+$/)
+        if ((!profilePic.match(/^https?:\/\/.+\/.+$/)
             && profilePic !== '/images/default-pic.jpg'
                 && profilePic !== '/images/fionaprofpic.jpg'
                 && profilePic !== '/images/profpic-grace.PNG'
-                && profilePic !== '/images/banulprof.JPG'
+                && profilePic !== '/images/banulprof.JPG')
             || !profilePic.length) errors.push('Please provide a valid image url for your profile picture.')
 
         if (description.length > 255) errors.push("That's a bit... long. Can you keep it under 255 characters?");
