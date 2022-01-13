@@ -8,8 +8,15 @@ const LOAD_PROFILE = 'artist/LOAD_PROFILE'
 const ADD_REVIEW = 'artist/ADD_REVIEW'
 const DELETE_REVIEW = 'artist/DELETE_REVIEW'
 
+const GET_NEW_IMAGE = 'artist/GET_NEW_IMAGE'
+
 
 export const getAllArtistImages = (state) => Object.values(state.artist);
+
+export const getNewImage = (image) => ({
+    type: GET_NEW_IMAGE,
+    image
+})
 
 const load = (images) => ({
     type: LOAD,
@@ -142,6 +149,23 @@ export const deleteArtistImage = (data) => async (dispatch) => {
     }
 }
 
+// post from artist page
+export const postNewImageOnArtist = (data) => async (dispatch) => {
+    const response = await csrfFetch(`/api/images`, {
+        method: 'POST',
+        body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+        const image = await response.json();
+        dispatch(getNewImage(image));
+        return image;
+    } else {
+        const errors = await response.json();
+        console.log(errors.errors);
+    }
+}
+
 const initialState = {
     reviews: {},
     artistImages: {},
@@ -210,6 +234,12 @@ const artistReducer = (state = initialState, action) => {
         case LOAD_PROFILE: {
             const newState = { ...state };
             newState.artistProfile = {...action.profile};
+            return newState;
+        }
+
+        case GET_NEW_IMAGE: {
+            const newState = { ...state };
+            newState.artistImages[action.image.id] = action.image;
             return newState;
         }
 

@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { postImage } from "../../store/images";
+import { postNewImageOnArtist } from "../../store/artist";
+
 
 import './ImageForm.css';
 
 function ImageForm({ showModal }) {
   const dispatch = useDispatch();
   const history = useHistory();
+  const location = useLocation();
+
 
   const [imageUrl, setImageUrl] = useState('');
   const [tags, setTags] = useState([])
   const [validationErrors, setValidationErrors] = useState([]);
   const sessionUser = useSelector(state => state.session.user);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,10 +34,13 @@ function ImageForm({ showModal }) {
       tags: tagsArr
     }
 
-    dispatch(postImage(payload))
+    if (location.pathname === '/my-portfolio' || location.pathname === `/artists/${sessionUser.id}`) {
+      await dispatch(postNewImageOnArtist(payload))
+    } else {
+      await dispatch(postImage(payload));
+      history.push('/');
+    }
 
-
-    history.push('/');
     showModal(false)
 
 
