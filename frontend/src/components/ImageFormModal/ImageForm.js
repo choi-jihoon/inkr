@@ -41,9 +41,9 @@ function ImageForm({ showModal }) {
 
   useEffect(() => {
     const errors = [];
-    if (!imageUrl.length) errors.push('Please provide an image url.');
-    if (tags.indexOf(' ') >= 0) errors.push('Tags must be separated by commas and have no spaces. e.g. "animal,fox,color"');
-    if (!imageUrl.match(/^https?:\/\/.+\/.+$/) && imageUrl.length > 0) errors.push('Please provide a valid image url address.')
+    if (!imageUrl.length) errors.push("You can't make a post without a url... obviously.");
+    if (tags.indexOf(' ') >= 0) errors.push("I know this sounds crazy, but you can't have spaces in your tags. Separate them by commas.");
+    if (!imageUrl.match(/^https?:\/\/.+\/.+$/) && imageUrl.length > 0) errors.push("My spidey senses tell me that's not a valid url.")
 
     setValidationErrors(errors);
   }, [tags, imageUrl])

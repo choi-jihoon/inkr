@@ -30,9 +30,10 @@ function ReviewForm({ showModal, artistId }) {
 
     useEffect(() => {
         const errors = [];
-        if (!reviewText.length) errors.push('Please provide a description of your experience.');
-        if (reviewText.length > 255) errors.push('Review cannot be longer than 255 characters.')
-        if (rating <= 0 || rating > 5) errors.push('Rating must be a number between 1 and 5');
+        if (!reviewText.length) errors.push("You gotta write the review if you want to post it!");
+        if (reviewText.length > 255) errors.push("You're very prolific, but let's keep it under 255 characters.")
+        if (rating <= 0) errors.push("I'm sorry your experience was so bad, but the lowest rating you can put is 1.")
+        if (rating > 5) errors.push("Woah! That amazing, huh? Unfortunately, ratings max out at 5.")
 
         setValidationErrors(errors);
     }, [rating, reviewText])

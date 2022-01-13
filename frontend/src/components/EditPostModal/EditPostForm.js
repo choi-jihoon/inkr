@@ -33,7 +33,7 @@ function EditPostForm({ showModal, image }) {
 
     useEffect(() => {
         const errors = [];
-        if (tags.indexOf(' ') >= 0) errors.push('Tags must be separated by commas and have no spaces. e.g. "animal,fox,color"');
+        if (tags.indexOf(' ') >= 0) errors.push("I know this sounds crazy, but you can't have spaces in your tags. Separate them by commas.");
 
         setValidationErrors(errors);
     }, [tags])

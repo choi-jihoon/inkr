@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
 import { editMyProfile } from "../../store/profiles";
 
 import './EditMyProfileForm.css';
@@ -48,10 +49,10 @@ function EditMyProfileForm({ showModal, myProfile }) {
                 && profilePic !== '/images/banulprof.JPG'
             || !profilePic.length) errors.push('Please provide a valid image url for your profile picture.')
 
-        if (description.length > 255) errors.push('Description cannot be longer than 255 characters.');
-        if (specialties.length > 255) errors.push('Specialties cannot be longer than 255 characters.');
-        if (location.length > 140) errors.push('Location cannot be longer than 140 characters.');
-        if (fullName.length > 50) errors.push('Name cannot be longer than 50 characters.');
+        if (description.length > 255) errors.push("That's a bit... long. Can you keep it under 255 characters?");
+        if (specialties.length > 255) errors.push("So many specialties! How about narrowing it down to 255 characters?");
+        if (location.length > 140) errors.push("Even the longest place name in the world is only 85 characters. Let's keep it under 140 characters.");
+        if (fullName.length > 50) errors.push("That's a really nice name you got there. Could you abbreviate it to 50 characters or less?");
 
         setValidationErrors(errors);
     }, [description, specialties, location, fullName, profilePic]);
