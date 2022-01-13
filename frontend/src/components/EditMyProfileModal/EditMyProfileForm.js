@@ -40,7 +40,14 @@ function EditMyProfileForm({ showModal, myProfile }) {
 
     useEffect(() => {
         const errors = [];
-        if (!profilePic.match(/^https?:\/\/.+\/.+$/) && profilePic !== '/images/default-pic.jpg' || !profilePic.length) errors.push('Please provide a valid image url for your profile picture.')
+
+        if (!profilePic.match(/^https?:\/\/.+\/.+$/)
+            && (profilePic !== '/images/default-pic.jpg'
+                || profilePic !== '/images/fionaprofpic.jpg'
+                || profilePic !== '/images/profpic-grace.PNG'
+                || profilePic !== '/images/banulprof.JPG')
+            || !profilePic.length) errors.push('Please provide a valid image url for your profile picture.')
+
         if (description.length > 255) errors.push('Description cannot be longer than 255 characters.');
         if (specialties.length > 255) errors.push('Specialties cannot be longer than 255 characters.');
         if (location.length > 140) errors.push('Location cannot be longer than 140 characters.');
