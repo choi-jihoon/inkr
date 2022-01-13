@@ -21,7 +21,6 @@ h2#favorites-header {
 }
 
 #favorites-main-container {
-    /* min-height: fit-content; */
     height: 100vh;
     display: flex;
     justify-content: flex-start;

@@ -25,25 +25,36 @@ h2#my-portfolio-header{
     font-style: italic;
 }
 
-/* .my-portfolio-container {
+.empty-portfolio {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 15em;
 }
 
-.grid-portfolio-container {
-    display: grid;
-    grid-template-areas: 'header header header profile'
-    'image image image profile'
-    'image image image profile'
-    'image image image profile';
-    width: 80%;
+.empty-portfolio > .new-post-button.nav-butt {
+    padding: 30px;
 }
 
-.my-portfolio-header {
-    grid-area: 'header';
+.empty-portfolio > .new-post-button.nav-butt > .fa-cloud-upload-alt {
+    font-size: 200px;
+    color: var(--minty);
+    transition-duration: 0.2s;
 }
 
-.portfolio-all-images-container {
-    grid-area: 'image';
-    /* display: grid; */
-    /* grid-template-columns: auto auto auto auto; */
+.empty-portfolio > .new-post-button.nav-butt > .fa-cloud-upload-alt:hover {
+    transform: scale(1.2);
+    text-shadow:
+        3px 3px 5px white;
+        /* 0 -0.04em white; */
+
+}
+
+#empty-portfolio-text {
+    font-family: proxima-nova, sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}

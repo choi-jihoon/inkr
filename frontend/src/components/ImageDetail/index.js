@@ -1,4 +1,3 @@
-// import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import ImageZoom from '../ImageZoom';
@@ -16,11 +15,6 @@ const ImageDetail = ({ image, tagString }) => {
                     <ImageZoom image={image} tagString={tagString} key={`${image.id}-zoom`} />
                 </Modal>
             )}
-            {/* <div className='artist-username-container'>
-                <NavLink to={`/artists/${image?.userId}`}>
-                    <p className='artist-username'>{image?.User.username}</p>
-                </NavLink>
-            </div> */}
             <FavoriteStar image={image} />
         </div>
     )

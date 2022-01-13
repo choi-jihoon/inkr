@@ -3,10 +3,9 @@ import { useHistory, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import * as sessionActions from '../../store/session';
-import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
-import ImageFormModal from '../PostImageModal';
+import ImageFormModal from '../ImageFormModal';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -26,7 +25,6 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <>
-        {/* <ProfileButton user={sessionUser} /> */}
         <li className='welcome-text'>Welcome, {sessionUser.username}!</li>
         <ImageFormModal />
         <button className='logout' onClick={logout}>Log Out</button>
@@ -72,7 +70,9 @@ function Navigation({ isLoaded }) {
         </div>
 
         <div className='navbar-element' id='center-container'>
-          {isLoaded && centerLink}
+          <ul className='session-links'>
+            {isLoaded && centerLink}
+          </ul>
         </div>
 
         <div className='navbar-element' id='right-container'>

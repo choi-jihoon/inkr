@@ -55,7 +55,6 @@ function ArtistPortfolioProfile({ artistId }) {
                             </div>
                         </div>
                     </div>
-
                 </div>}
         </div>
     )

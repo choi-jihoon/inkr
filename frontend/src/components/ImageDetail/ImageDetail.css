@@ -5,7 +5,7 @@
     margin-bottom: 10px;
     break-inside: avoid;
     position: relative;
-  }
+}
 
 .image-container > img {
     grid-row: 1 / -1;
@@ -15,17 +15,20 @@
 .grid-image {
     max-width: 100%;
     display: block;
-
     border-radius: 7px;
     min-width: 180px;
+    transition-duration: 0.2s;
 }
 
 .grid-image:hover {
     opacity: 70%;
-    cursor:zoom-in;
+    cursor: zoom-in;
+    transform: scale(1.03);
 }
 
+
 /* %%%%%%%%%%%%%%%%%%%%% Favorites Count %%%%%%%%%%%%%%%%%%%%% */
+
 .favorites-count {
     position: absolute;
     right: 60px;
@@ -37,7 +40,6 @@
         0 0.04em white,
         -0.04em 0 white,
         0 -0.04em white;
-    /* visibility: hidden; */
     font-family: var(--font-for-image-display);
 }
 
@@ -99,8 +101,6 @@ button.favorite-star:hover {
 }
 
 
-
-
 /* %%%%%%%%%%%%%%%%%%%%% Favorited Star %%%%%%%%%%%%%%%%%%%%% */
 
 .favorite-star-container.favorited {
@@ -156,11 +156,6 @@ button.favorite-star:hover {
     color: rgba(0, 0, 0, 0.651);
     transform: scale(1.1);
 }
-
-/* .artist-username-container:hover + .please-stay-in-place {
-    visibility: default;
-} */
-
 
 .artist-name {
     color: var(--soft-white);

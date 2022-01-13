@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteArtistReview, getArtistReviews } from '../../store/artist';
 
@@ -22,10 +22,6 @@ function DeleteReviewForm({ showModal, review }) {
         showModal(false);
     }
 
-    // useEffect(() => {
-    //     dispatch(getArtistReviews(review.artistId));
-    // }, [dispatch, review.artistId])
-
 
     return (
         <form onSubmit={handleSubmit}>
@@ -34,13 +30,13 @@ function DeleteReviewForm({ showModal, review }) {
             </label>
             <div className='button-container'>
                 <button
-                    className='delete-post-button'
+                    className='delete-button'
                     type="submit"
                 >
                     Delete
                 </button>
                 <button
-                    className='cancel-delete-button'
+                    className='cancel-button'
                     type='button'
                     onClick={handleCancelClick}
                 >

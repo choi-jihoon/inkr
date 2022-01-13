@@ -14,33 +14,6 @@ function ImageForm({ showModal }) {
   const [validationErrors, setValidationErrors] = useState([]);
   const sessionUser = useSelector(state => state.session.user);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   let tagsArr;
-  //   if (tags.length) {
-  //     tagsArr = (tags.split(','));
-  //     setTags(tagsArr);
-  //   };
-
-  //   const payload = {
-  //     userId: sessionUser.id,
-  //     imageUrl,
-  //     tags: tagsArr
-  //   }
-
-  //   dispatch(postImage(payload)).catch(async (res) => {
-  //     const data = await res.json();
-  //     if (data && data.errors) setValidationErrors(data.errors);
-  //   })
-
-  //   // if (!validationErrors.length) {
-  //   //   showModal(false);
-  //   //   history.push('/');
-  //   // }
-
-  // }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -75,9 +48,6 @@ function ImageForm({ showModal }) {
     setValidationErrors(errors);
   }, [tags, imageUrl])
 
-  // useEffect(() => {
-  //   setValidationErrors([]);
-  // }, [imageUrl])
 
   return (
     <form onSubmit={handleSubmit}>

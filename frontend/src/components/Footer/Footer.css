@@ -51,9 +51,11 @@ footer {
 .fa-github,
 .fa-linkedin {
     font-size: 18px;
+    transition-duration: 0.2s;
 }
 
 .fa-github:hover,
 .fa-linkedin:hover {
     color: rgb(255, 255, 255);
+    transform: scale(1.4);
 }

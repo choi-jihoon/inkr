@@ -5,18 +5,12 @@
 #artist-profile-content {
     height: 300px;
     width: 100%;
-
-    /* background-color: whitesmoke; */
-    /* border-radius: 20px; */
     padding: 20px;
-
     display: grid;
     grid-template-areas: 'pic content';
     grid-template-columns: 50% 50%;
     margin-bottom: 20px;
-
     border-bottom: 1px solid grey;
-
 }
 
 #artist-name-container {
@@ -35,10 +29,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
-
-
 
 .artist-profile-content-container {
     display: flex;
