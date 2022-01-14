@@ -7,6 +7,19 @@ body {
     /* background-color: var(--chocolate); */
 }
 
+#splash-page-header {
+    min-width: 465px;
+}
+
+#splash-page-nav-bar {
+    display: grid;
+    grid-template-columns: 150px 8fr auto;
+    width: 90%;
+    padding: 15px 0;
+    text-align: center;
+}
+
+
 .splash-page-container {
     display: flex;
     justify-content: center;

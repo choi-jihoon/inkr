@@ -36,7 +36,7 @@ function Navigation({ isLoaded }) {
     centerLink = (
       <>
         <li className='nav-butt'><NavLink activeClassName='active-link' exact to='/'>Discover</NavLink></li>
-        <li className='nav-butt'><NavLink activeClassName='active-link' to={`/artists/${sessionUser.id}`}>My Page</NavLink></li>
+        <li className='nav-butt my-page-link'><NavLink activeClassName='active-link' to={`/artists/${sessionUser.id}`}>My Page</NavLink></li>
         <li className='nav-butt'><NavLink activeClassName='active-link' to='/my-profile'>Profile</NavLink></li>
         <li className='nav-butt'><NavLink activeClassName='active-link' to='/my-portfolio'>Portfolio</NavLink></li>
         <li className='favorites-nav nav-butt'><NavLink activeClassName='active-link' to='/my-favorites'>Favorites</NavLink></li>
