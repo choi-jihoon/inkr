@@ -10,14 +10,15 @@ export default function PageNotFound() {
     useEffect(() => {
         setTimeout(() => {
             history.push('/')
-        }, 2000)
+        }, 3000)
     }, [])
 
 
     return (
         <div className='page-not-found'>
             <h2 id='nothing-to-see'>Whoops! Nothing to see here.</h2>
-            <p>Redirecting you. I hope we don't meet again.</p>
+            <p>Redirecting you. You probably need to log in to access this page.</p>
+            <p>That or you put in a random url and by chance, it doesn't exist.</p>
         </div>
     )
 }

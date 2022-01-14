@@ -8,6 +8,8 @@ import MyPortfolioImageDetail from '../MyPortfolioImageDetail';
 import ArtistPortfolioProfile from '../ArtistPortfolioProfile';
 import Reviews from '../Reviews';
 import ReviewFormModal from '../ReviewFormModal';
+import PageNotFound from '../PageNotFound';
+
 
 
 import './ArtistPortfolio.css';
@@ -15,12 +17,13 @@ import './ArtistPortfolio.css';
 const ArtistPortfolio = () => {
     const { artistId } = useParams();
     const dispatch = useDispatch();
+    // const history = useHistory();
 
     const sessionUser = useSelector(state => state.session.user);
-    const history = useHistory();
-    if (!sessionUser) {
-        history.push('/');
-    }
+
+    // if (!sessionUser) {
+    //     history.push('/page-not-found');
+    // }
 
     const artistImagesObject = useSelector((state) => state.artist);
     const artistImages = Object.values(artistImagesObject.artistImages);
@@ -31,50 +34,64 @@ const ArtistPortfolio = () => {
     }, [dispatch, artistId])
 
     return (
-        <div className='artist-portfolio-main-container-container'>
-            <div id='artist-portfolio-main-container'>
-                {artistImagesObject &&
-                    <>
-                        <div className='all-images-container' id='artist-portfolio-images-container'>
-                            {artistImages.length ?
-                                artistImages.map((image) => {
-                                    let tagString;
-                                    if (image.tags) {
-                                        tagString = image.tags;
-                                        tagString = tagString.map((tag) => `#${tag}`)
-                                        tagString = tagString.join(', ')
-                                    }
+        <>
+            {sessionUser ?
+                (
+                    <div className='artist-portfolio-main-container-container'>
+                        <div id='artist-portfolio-main-container'>
+                            {artistImagesObject &&
+                                <>
+                                    <div className='all-images-container' id='artist-portfolio-images-container'>
+                                        {artistImages.length ?
+                                            artistImages.map((image) => {
+                                                let tagString;
+                                                if (image.tags) {
+                                                    tagString = image.tags;
+                                                    tagString = tagString.map((tag) => `#${tag}`)
+                                                    tagString = tagString.join(', ')
+                                                }
 
-                                    if (image.userId === sessionUser.id) {
-                                        return <MyPortfolioImageDetail key={image.id} image={image} tagString={tagString} />
-                                    }
+                                                if (image.userId === sessionUser.id) {
+                                                    return <MyPortfolioImageDetail key={image.id} image={image} tagString={tagString} />
+                                                }
 
-                                    return (
-                                        <ImageDetail key={image?.id} image={image} tagString={tagString} />
-                                    )
-                                })
-                                :
-                                <div className='no-artist-images-container'>
-                                    This artist has no posts to show.
-                                </div>
+                                                return (
+                                                    <ImageDetail key={image?.id} image={image} tagString={tagString} />
+                                                )
+                                            })
+                                            :
+                                            <div className='no-artist-images-container'>
+                                                This artist has no posts to show.
+                                            </div>
+                                        }
+
+                                    </div>
+                                    <div className='portfolio-profile-container'>
+                                        <ArtistPortfolioProfile artistId={artistId} />
+                                    </div>
+                                    <div className='all-reviews-container-container'>
+                                        <div className='all-reviews-and-button-container'>
+                                            <div className='add-review-button-container'>
+                                                <ReviewFormModal artistId={artistId} />
+                                            </div>
+                                            <Reviews artistId={artistId} />
+                                        </div>
+                                    </div>
+                                </>
                             }
+                        </div>
+                    </div>
 
-                        </div>
-                        <div className='portfolio-profile-container'>
-                            <ArtistPortfolioProfile artistId={artistId} />
-                        </div>
-                        <div className='all-reviews-container-container'>
-                            <div className='all-reviews-and-button-container'>
-                                <div className='add-review-button-container'>
-                                    <ReviewFormModal artistId={artistId} />
-                                </div>
-                                <Reviews artistId={artistId} />
-                            </div>
-                        </div>
+                )
+                :
+                (
+                    <>
+                        <PageNotFound />
                     </>
-                }
-            </div>
-        </div>
+                )
+
+            }
+        </>
     );
 };
 
