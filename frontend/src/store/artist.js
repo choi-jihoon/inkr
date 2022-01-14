@@ -10,6 +10,29 @@ const DELETE_REVIEW = 'artist/DELETE_REVIEW'
 
 const GET_NEW_IMAGE = 'artist/GET_NEW_IMAGE'
 
+const EDIT_MY_PROFILE = 'profile/EDIT_MY_PROFILE';
+
+const editProfile = (profile) => ({
+    type: EDIT_MY_PROFILE,
+    profile
+})
+
+export const editMyProfile = (data) => async (dispatch) => {
+    const response = await csrfFetch(`/api/profiles/${data.id}`, {
+        method: 'PUT',
+        body: JSON.stringify(data)
+    })
+
+    if (response.ok) {
+        const editedProfile = await response.json();
+        dispatch(editProfile(editedProfile));
+        return editedProfile;
+    } else {
+        const errors = await response.json();
+        console.log(errors.errors);
+    }
+}
+
 
 export const getAllArtistImages = (state) => Object.values(state.artist);
 
@@ -240,6 +263,12 @@ const artistReducer = (state = initialState, action) => {
         case GET_NEW_IMAGE: {
             const newState = { ...state };
             newState.artistImages[action.image.id] = action.image;
+            return newState;
+        }
+
+        case EDIT_MY_PROFILE: {
+            const newState = { ...state };
+            newState.artistProfile = { ...action.profile };
             return newState;
         }
 

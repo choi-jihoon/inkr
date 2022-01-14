@@ -2,11 +2,13 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getArtistProfile } from '../../store/artist';
+import EditMyProfileModal from '../EditMyProfileModal';
 import './ArtistPortfolioProfile.css';
 
 function ArtistPortfolioProfile({ artistId }) {
     const dispatch = useDispatch();
 
+    const sessionUser = useSelector(state => state.session.user)
     const sessionArtist = useSelector(state => state.artist);
     const artistProfileLoaded = Object.values(sessionArtist.artistProfile);
     const artistProfile = sessionArtist.artistProfile;
@@ -18,6 +20,7 @@ function ArtistPortfolioProfile({ artistId }) {
 
     return (
         <div className='artist-portfolio-profile'>
+
             {artistProfileLoaded &&
                 <div id='artist-profile-content'>
                     <div className='image-name-container'>
@@ -86,6 +89,7 @@ function ArtistPortfolioProfile({ artistId }) {
                             }
                         </div>
                     </div>
+                    {sessionUser.id == artistId && <EditMyProfileModal myProfile={artistProfile} />}
                 </div>}
         </div>
     )
