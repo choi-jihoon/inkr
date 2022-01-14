@@ -8,7 +8,7 @@ module.exports = {
         userId: 4,
         imageUrl: '/images/tat-01.jpg',
         favoritedCount: 89,
-        tags: ['mushroom']
+        tags: ['mushroom', 'dotwork', 'eye']
       },
       {
         userId: 4,
@@ -19,7 +19,8 @@ module.exports = {
       {
         userId: 4,
         imageUrl: '/images/tat-03.jpg',
-        favoritedCount: 72
+        favoritedCount: 72,
+        tags: ['girl']
       },
       {
         userId: 4,
@@ -37,24 +38,25 @@ module.exports = {
         userId: 4,
         imageUrl: '/images/art-01.jpg',
         favoritedCount: 65,
-        tags: ['concept']
+        tags: ['concept', 'art']
       },
       {
         userId: 4,
         imageUrl: '/images/art-02.jpg',
-        favoritedCount: 120
+        favoritedCount: 120,
+        tags: ['concept', 'variety']
       },
       {
         userId: 4,
         imageUrl: '/images/art-03.jpg',
         favoritedCount: 250,
-        tags: ['concept']
+        tags: ['concept', 'art', 'surreal']
       },
       {
         userId: 4,
         imageUrl: '/images/art-04.jpg',
         favoritedCount: 99,
-        tags: ['concept']
+        tags: ['concept', 'girl']
       },
       {
         userId: 3,
@@ -77,66 +79,74 @@ module.exports = {
       {
         userId: 2,
         imageUrl: '/images/01-banul.PNG',
-        favoritedCount: 210
+        favoritedCount: 210,
+        tags: ['flower', 'color']
       },
       {
         userId: 2,
         imageUrl: '/images/02-banul.PNG',
-        favoritedCount: 340
+        favoritedCount: 340,
+        tags: ['flower', 'color']
       },
       {
         userId: 2,
         imageUrl: '/images/03-banul.PNG',
-        favoritedCount: 45
+        favoritedCount: 45,
+        tags: ['color', 'pastel']
       },
       {
         userId: 2,
         imageUrl: '/images/04-banul.PNG',
-        favoritedCount: 907
+        favoritedCount: 907,
+        tags: ['color', 'animal', 'phoenix']
       },
       {
         userId: 2,
         imageUrl: '/images/05-banul.PNG',
-        favoritedCount: 567
+        favoritedCount: 567,
+        tags: ['color', 'ear', 'flower', 'color']
       },
       {
         userId: 2,
         imageUrl: '/images/06-banul.PNG',
-        favoritedCount: 469
+        favoritedCount: 469,
+        tags: ['animal', 'cat', 'color']
       },
       {
         userId: 2,
         imageUrl: '/images/07-banul.PNG',
-        favoritedCount: 212
+        favoritedCount: 212,
+        tags: ['animal', 'whale', 'color']
       },
       {
         userId: 5,
         imageUrl: '/images/daniginzburg-01.JPG',
         favoritedCount: 212,
-        tags: ['wolf', 'geometric']
+        tags: ['wolf', 'geometric', 'animal']
       },
       {
         userId: 5,
         imageUrl: '/images/daniginzburg-02.JPG',
         favoritedCount: 410,
-        tags: ['phoenix', 'color']
+        tags: ['phoenix', 'color', 'animal']
       },
       {
         userId: 5,
         imageUrl: '/images/daniginzburg-03.JPG',
         favoritedCount: 280,
-        tags: ['dinosaur']
+        tags: ['dinosaur', 'animal']
       },
       {
         userId: 1,
         imageUrl: '/images/01-demo.JPG',
-        favoritedCount: 24
+        favoritedCount: 24,
+        tags: ['geometric', 'anatomy']
       },
       {
         userId: 1,
         imageUrl: '/images/02-demo.JPG',
         favoritedCount: 50,
-        tags: ['turtle', 'color']
+        tags: ['turtle', 'color', 'animal']
       },
     ], {});
   },

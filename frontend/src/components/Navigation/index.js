@@ -63,8 +63,8 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <header id={!sessionUser && 'splash-page-header'}>
-      <nav className='nav-bar' id={!sessionUser && 'splash-page-nav-bar'}>
+    <header id={!sessionUser ? 'splash-page-header' : ''}>
+      <nav className='nav-bar' id={!sessionUser ? 'splash-page-nav-bar' : ''}>
         <div className='navbar-element' id='left-container'>
           <NavLink exact to="/">
             <img className='inkr-dots' src='/images/black-and-white.png' alt='inkr dots' />
