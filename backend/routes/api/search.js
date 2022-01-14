@@ -10,7 +10,6 @@ const router = express.Router();
 
 router.get('/:id', asyncHandler(async (req, res, next) => {
     const searchQuery = req.params.id;
-    console.log(searchQuery)
 
     try {
         const results = await Image.findAll({

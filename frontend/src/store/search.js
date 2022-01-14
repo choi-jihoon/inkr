@@ -12,7 +12,6 @@ export const loadSearchResults = (data) => async (dispatch) => {
 
     if (response.ok) {
         const results = await response.json();
-        console.log(results)
         dispatch(load(results));
     } else {
         const errors = await response.json();
