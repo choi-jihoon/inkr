@@ -8,6 +8,7 @@ import MyPortfolioImageDetail from '../MyPortfolioImageDetail';
 import ArtistPortfolioProfile from '../ArtistPortfolioProfile';
 import Reviews from '../Reviews';
 import ReviewFormModal from '../ReviewFormModal';
+import DeveloperProfile from '../DeveloperProfile';
 import PageNotFound from '../PageNotFound';
 
 
@@ -61,11 +62,13 @@ const ArtistPortfolio = () => {
 
                                     </div>
                                     <div className='portfolio-profile-container'>
-                                        <ArtistPortfolioProfile artistId={artistId} />
+                                    {+artistId === 3 ? <DeveloperProfile artistId={artistId} /> :
+                                        <ArtistPortfolioProfile artistId={artistId} />}
                                     </div>
                                     <div className='all-reviews-container-container'>
                                         <div className='all-reviews-and-button-container'>
                                             <div className='add-review-button-container'>
+
                                                 <ReviewFormModal artistId={artistId} />
                                             </div>
                                             <Reviews artistId={artistId} />

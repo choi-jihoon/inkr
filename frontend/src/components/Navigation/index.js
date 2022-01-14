@@ -48,11 +48,6 @@ function Navigation({ isLoaded }) {
           </NavLink>
         </li>
         <li className='nav-butt'>
-          <NavLink activeClassName='active-link' to='/my-profile'>
-            Profile
-          </NavLink>
-        </li>
-        <li className='nav-butt'>
           <NavLink activeClassName='active-link' to='/my-portfolio'>
             Portfolio
           </NavLink>
@@ -60,6 +55,11 @@ function Navigation({ isLoaded }) {
         <li className='favorites-nav nav-butt'>
           <NavLink activeClassName='active-link' to='/my-favorites'>
             Favorites
+          </NavLink>
+        </li>
+        <li className='nav-butt hidden-link'>
+          <NavLink activeClassName='active-link' to='/my-profile'>
+            Profile
           </NavLink>
         </li>
       </>
