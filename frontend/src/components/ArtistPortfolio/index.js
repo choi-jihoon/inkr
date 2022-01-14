@@ -1,4 +1,4 @@
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
@@ -17,17 +17,11 @@ import './ArtistPortfolio.css';
 const ArtistPortfolio = () => {
     const { artistId } = useParams();
     const dispatch = useDispatch();
-    // const history = useHistory();
 
     const sessionUser = useSelector(state => state.session.user);
 
-    // if (!sessionUser) {
-    //     history.push('/page-not-found');
-    // }
-
     const artistImagesObject = useSelector((state) => state.artist);
     const artistImages = Object.values(artistImagesObject.artistImages);
-
 
     useEffect(() => {
         dispatch(getArtistImages(artistId))

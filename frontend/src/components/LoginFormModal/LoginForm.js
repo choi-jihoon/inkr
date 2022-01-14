@@ -4,7 +4,6 @@ import * as sessionActions from "../../store/session";
 
 import Demo from "../Demo";
 
-
 import './LoginForm.css';
 
 function LoginForm() {

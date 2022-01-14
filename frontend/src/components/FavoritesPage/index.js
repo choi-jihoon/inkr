@@ -17,27 +17,30 @@ function FavoritesPage() {
     }, [dispatch, sessionUser.id]);
 
     return (
-        <div className='main-container'>
-            {favImages.length ?
-            <div className='title-container'>
-                <h2 id='favorites-header'>Favorites</h2>
-            </div> : <div className='title-container' id='favorites-title-container'>
-                <h2 id='no-favorites-header'>You haven't favorited any photos!</h2>
-            </div>}
+        <>
+            {!favImages.length &&
+                <div className='title-container' id='favorites-title-container'>
+                    <h2 id='no-favorites-header'>You haven't favorited any photos!</h2>
+                </div>
+            }
+            <div className='main-container'>
+                <div className='title-container'>
+                    <h2 id='favorites-header'>Favorites</h2>
+                </div>
+                <div className='all-images-container' id='favorites-all-images-container'>
+                    {favImages?.map((image) => {
+                        let tagString;
+                        if (image.tags) {
+                            tagString = image.tags;
+                            tagString = tagString.map((tag) => `#${tag}`);
+                            tagString = tagString.join(', ');
+                        }
 
-            <div className='all-images-container' id='favorites-all-images-container'>
-                {favImages?.map((image) => {
-                    let tagString;
-                    if (image.tags) {
-                        tagString = image.tags;
-                        tagString = tagString.map((tag) => `#${tag}`);
-                        tagString = tagString.join(', ');
-                    }
-
-                    return <ImageDetail key={image.id} image={image} tagString={tagString} />
-                })}
+                        return <ImageDetail key={image.id} image={image} tagString={tagString} />
+                    })}
+                </div>
             </div>
-        </div>
+        </>
     )
 
 

@@ -6,7 +6,7 @@ import { loadSearchResults } from '../../store/search';
 
 import './SearchForm.css';
 
-function SearchForm() {
+function SearchForm({ username }) {
     const history = useHistory();
     const dispatch = useDispatch();
     const [searchQuery, setSearchQuery] = useState('');
@@ -27,7 +27,8 @@ function SearchForm() {
 
 
     return (
-        <form className='search-bar right-container-element' onSubmit={handleSearch}>
+        <form className='search-bar right-container-element'
+            onSubmit={handleSearch}>
             <button
                 className='search-button'
                 type="submit"
@@ -38,7 +39,7 @@ function SearchForm() {
                 className='search-input'
                 type="text"
                 value={searchQuery}
-                placeholder="Search for ink by tag"
+                placeholder={`Looking for something specific, ${username}?`}
                 onChange={(e) => setSearchQuery(e.target.value)}
             >
             </input>

@@ -43,9 +43,9 @@ function EditMyProfileForm({ showModal, myProfile }) {
 
         if ((!profilePic.match(/^https?:\/\/.+\/.+$/)
             && profilePic !== '/images/default-pic.jpg'
-                && profilePic !== '/images/fionaprofpic.jpg'
-                && profilePic !== '/images/profpic-grace.PNG'
-                && profilePic !== '/images/banulprof.JPG')
+            && profilePic !== '/images/fionaprofpic.jpg'
+            && profilePic !== '/images/profpic-grace.PNG'
+            && profilePic !== '/images/banulprof.JPG')
             || !profilePic.length) errors.push('Please provide a valid image url for your profile picture.')
 
         if (description.length > 255) errors.push("That's a bit... long. Can you keep it under 255 characters?");

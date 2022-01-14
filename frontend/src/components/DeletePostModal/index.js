@@ -7,7 +7,11 @@ function DeletePostModal({ image }) {
 
   return (
     <>
-      <button className='delete-post-trash' onClick={() => setShowModal(true)}><i className="far fa-trash-alt"></i></button>
+      <button
+        className='delete-post-trash'
+        onClick={() => setShowModal(true)}>
+        <i className="far fa-trash-alt"></i>
+      </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <DeletePostForm showModal={setShowModal} image={image} />

@@ -5,16 +5,15 @@ h2#favorites-header {
     font-size: 10px;
 }
 
-
-
 #favorites-title-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width:fit-content;
-    position: fixed;
-    left: 28%;
-    top: 30%;
+    width: 100vw;
+    position: relative;
+    height: 100vh;
+    justify-content: center;
+
 }
 
 #no-faves-text {

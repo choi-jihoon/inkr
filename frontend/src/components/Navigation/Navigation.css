@@ -7,21 +7,10 @@ header {
     position: fixed;
     width: 100%;
     z-index: 2;
-    max-height: 75.61px;
-    min-width: 1401px;
+    max-height: 67px;
+    /* min-width: 1320px; */
 }
 
-#splash-page-header {
-    min-width: 1074px;
-}
-
-#splash-page-nav-bar {
-    display: grid;
-    grid-template-columns: 150px 8fr auto;
-    width: 90%;
-    padding: 15px 0;
-    text-align: center;
-}
 
 .nav-bar {
     display: grid;
@@ -53,7 +42,8 @@ header {
 
 .inkr-dots,
 .inkr-logo {
-    height: 21.62px;
+    /* height: 21.62px; */
+    height: 25px;
     padding: 0 2px;
     cursor: pointer;
 }
@@ -193,3 +183,86 @@ header {
     color: white;
     transform: scale(1.03);
 }
+
+.nav-butt.my-page-link {
+    min-width: 93.19px;
+}
+
+
+
+@media (max-width: 1350px) {
+    form.search-bar {
+        display: none;
+    }
+
+    .nav-bar {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        width: 80vw;
+
+    }
+
+    #left-container {
+        min-width: 101px;
+    }
+
+    #center-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+
+    #right-container {
+        width: fit-content;
+    }
+
+
+}
+
+/*
+
+@media (max-width: 936px) {
+
+    header {
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-bar {
+        display: grid;
+        grid-template-areas: 'logo buttons';
+        grid-template-columns: 50% 50%;
+        width: 80vw;
+    }
+
+    #left-container {
+        grid-area: logo;
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    #right-container {
+        grid-area: buttons;
+        display: flex;
+        justify-content: center;
+    }
+
+    form.search-bar {
+        display: none;
+    }
+
+    #center-container {
+        display: none;
+    }
+}
+
+
+@media (max-width: 494px) {
+    .nav-bar {
+        width: 100vw;
+        margin: 0 50px;
+    }
+} */

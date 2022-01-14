@@ -4,7 +4,6 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { postImage } from "../../store/images";
 import { postNewImageOnArtist } from "../../store/artist";
 
-
 import './ImageForm.css';
 
 function ImageForm({ showModal }) {
@@ -12,12 +11,10 @@ function ImageForm({ showModal }) {
   const history = useHistory();
   const location = useLocation();
 
-
   const [imageUrl, setImageUrl] = useState('');
   const [tags, setTags] = useState([])
   const [validationErrors, setValidationErrors] = useState([]);
   const sessionUser = useSelector(state => state.session.user);
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,16 +31,15 @@ function ImageForm({ showModal }) {
       tags: tagsArr
     }
 
-    if (location.pathname === '/my-portfolio' || location.pathname === `/artists/${sessionUser.id}`) {
-      await dispatch(postNewImageOnArtist(payload))
+    if (location.pathname === '/my-portfolio'
+      || location.pathname === `/artists/${sessionUser.id}`) {
+      dispatch(postNewImageOnArtist(payload))
     } else {
-      await dispatch(postImage(payload));
+      dispatch(postImage(payload));
       history.push('/');
     }
 
     showModal(false)
-
-
   };
 
 
@@ -91,8 +87,7 @@ function ImageForm({ showModal }) {
       <button
         className='post-button'
         type="submit"
-      disabled={validationErrors.length > 0}
-
+        disabled={validationErrors.length > 0}
       >
         Post
       </button>

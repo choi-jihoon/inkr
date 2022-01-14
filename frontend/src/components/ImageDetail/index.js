@@ -9,7 +9,13 @@ const ImageDetail = ({ image, tagString }) => {
 
     return (
         <div className='image-container'>
-            <img onClick={() => setShowModal(true)} className='grid-image' id={image.id} key={image.id} src={image.imageUrl} alt='hello'></img>
+            <img
+            onClick={() => setShowModal(true)}
+            className='grid-image'
+            id={image.id}
+            key={image.id}
+            src={image.imageUrl}
+            alt={`Tattoo by ${image.User.username}`}></img>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <ImageZoom image={image} tagString={tagString} key={`${image.id}-zoom`} />

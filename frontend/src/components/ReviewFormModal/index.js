@@ -7,7 +7,10 @@ function ReviewFormModal({artistId}) {
 
   return (
     <>
-      <button className='minty-button add-review-modal-button' onClick={() => setShowModal(true)}>Add Review</button>
+      <button className='minty-button add-review-modal-button'
+      onClick={() => setShowModal(true)}>
+        Add Review
+        </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <ReviewForm showModal={setShowModal} artistId={artistId} />

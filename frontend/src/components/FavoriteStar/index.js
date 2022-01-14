@@ -20,7 +20,6 @@ const FavoriteStar = ({ image }) => {
     const [count, setCount] = useState(image.favoritedCount);
 
     const sessionUser = useSelector(state => state.session.user);
-
     const isFavorite = image.Favorites.filter(favorite => favorite.userId === sessionUser.id);
 
 
@@ -42,7 +41,7 @@ const FavoriteStar = ({ image }) => {
             imageId: image.id
         }
 
-        await dispatch(addToFavorites(payload));
+        dispatch(addToFavorites(payload));
 
         // update favoritedCount for image
         const payload2 = {
@@ -53,7 +52,7 @@ const FavoriteStar = ({ image }) => {
             favoritedCount: (image.favoritedCount + 1)
         }
 
-        await dispatch(incrementFavoriteCount(payload2, sessionUser.id));
+        dispatch(incrementFavoriteCount(payload2, sessionUser.id));
 
         // change icon render
         setTimeout(() => {
@@ -63,7 +62,7 @@ const FavoriteStar = ({ image }) => {
             currStar.classList.add('favorited');
             currStar.classList.add(`favorited-${image.id}`);
             currStar.classList.remove(`not-favorited-${image.id}`)
-        }, 1000)
+        }, 2000)
     }
 
     const handleUnfavorite = async (e) => {
@@ -88,7 +87,7 @@ const FavoriteStar = ({ image }) => {
             userId: sessionUser.id
         }
 
-        await dispatch(deleteFromFavorites(payload));
+        dispatch(deleteFromFavorites(payload));
 
         const payload2 = {
             id: image.id,
@@ -98,8 +97,7 @@ const FavoriteStar = ({ image }) => {
             favoritedCount: (image.favoritedCount - 1)
         }
 
-
-        await dispatch(decrementFavoriteCount(payload2, sessionUser.id))
+        dispatch(decrementFavoriteCount(payload2, sessionUser.id))
     }
 
 
@@ -158,7 +156,9 @@ const FavoriteStar = ({ image }) => {
                 <p className='favorites-count'>
                     {count}
                 </p>
-                <div className={isFavorite.length ? `favorite-star-container favorited favorited-${image.id}` : `favorite-star-container not-favorited not-favorited-${image.id}`}>
+                <div className={isFavorite.length ?
+                    `favorite-star-container favorited favorited-${image.id}`
+                    : `favorite-star-container not-favorited not-favorited-${image.id}`}>
                     {icon}
                 </div>
 

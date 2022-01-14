@@ -9,7 +9,12 @@ function DeleteReviewModal({ review }) {
 
   return (
     <>
-      <button className='delete-post-trash' id='delete-review-trash' onClick={() => setShowModal(true)}><i className="far fa-trash-alt"></i></button>
+      <button
+        className='delete-post-trash'
+        id='delete-review-trash'
+        onClick={() => setShowModal(true)}>
+        <i className="far fa-trash-alt"></i>
+      </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <DeleteReviewForm showModal={setShowModal} review={review} />
