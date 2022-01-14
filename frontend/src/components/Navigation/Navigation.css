@@ -161,6 +161,10 @@ header {
 
 /* %%%%%%%%%%%%%%%%%%%%% Navigation Links / Buttons %%%%%%%%%%%%%%%%%%%%% */
 
+.hidden-link {
+    opacity: 0;
+}
+
 .nav-butt {
     border: none;
     background-color: transparent;

@@ -1,0 +1,25 @@
+#fiona-profile-image-div-container {
+    transition-duration: 0.3s;
+}
+
+#fiona-profile-image-div-container:hover {
+    transform: scale(1.1);
+}
+
+.gotta-latte-do-link {
+    font-family: proxima-nova-condensed, sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 15px;
+    padding: 2px 5px;
+    margin-left: 10px;
+    color: #87b9d6;
+    background-color: cornsilk;
+    border-radius: 10px;
+
+    transition-duration: 0.2s;
+}
+
+.gotta-latte-do-link:hover {
+    color: #87b9d6c4;
+}

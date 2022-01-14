@@ -1,6 +1,10 @@
 .portfolio-profile-container {
     margin-top: 10px;
+
 }
+
+
+
 
 #artist-profile-content {
     height: 300px;
@@ -30,6 +34,8 @@
     justify-content: center;
     align-items: center;
 }
+
+
 
 .artist-profile-content-container {
     display: flex;

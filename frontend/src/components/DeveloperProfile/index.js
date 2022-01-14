@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getArtistProfile } from '../../store/artist';
 import EditMyProfileModal from '../EditMyProfileModal';
 
+import './DeveloperProfile.css';
 
 function DeveloperProfile({ artistId }) {
     const dispatch = useDispatch();
