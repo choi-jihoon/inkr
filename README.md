@@ -113,8 +113,16 @@ Clicking on the corresponding link in the footer will direct users to the site's
 ![Fiona Choi](./images/developer.JPG)
 
 
+## Page Not Found
+
+Trying to access a path that does not exist or is not available because the user is not signed in will render a page not found component, and redirects the user to the home page automatically after 3 seconds.
+
+![Page Not Found](./images/pagenotfound.JPG)
+
+
 ## Upcoming Features
 
+- Infinite scroll on user main page
 - User roles with separated features to distinguish from artists and consumers
 - Ability to message and book appointments with artists
 - Notifications for artists when a new review or message has been received

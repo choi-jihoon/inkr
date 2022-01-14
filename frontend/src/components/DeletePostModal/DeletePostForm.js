@@ -18,12 +18,12 @@ function DeletePostForm({ showModal, image }) {
             id: image.id
         }
 
-        if (location.pathname === '/my-portfolio' || location.pathname === `/artists/${sessionUser.id}`) {
+        if (location.pathname === '/my-portfolio'
+            || location.pathname === `/artists/${sessionUser.id}`) {
             dispatch(deleteArtistImage(payload));
         } else {
             dispatch(deleteArtistImageFromHome(payload))
         }
-
 
         showModal(false);
     };
@@ -32,7 +32,6 @@ function DeletePostForm({ showModal, image }) {
         e.preventDefault();
         showModal(false);
     }
-
 
     return (
         <form onSubmit={handleSubmit}>

@@ -75,7 +75,6 @@ function ReviewForm({ showModal, artistId }) {
                 className='post-button'
                 type="submit"
                 disabled={validationErrors.length > 0}
-
             >
                 Post Review
             </button>

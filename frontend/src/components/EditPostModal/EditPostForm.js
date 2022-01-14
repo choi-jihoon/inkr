@@ -14,7 +14,6 @@ function EditPostForm({ showModal, image }) {
     const [tags, setTags] = useState([image.tags]);
     const [validationErrors, setValidationErrors] = useState([]);
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -31,7 +30,8 @@ function EditPostForm({ showModal, image }) {
             tags: tagsArr
         }
 
-        if (location.pathname === '/my-portfolio' || location.pathname === `/artists/${sessionUser.id}`) {
+        if (location.pathname === '/my-portfolio'
+            || location.pathname === `/artists/${sessionUser.id}`) {
             dispatch(editArtistImage(payload));
         } else {
             dispatch(editArtistImageFromHome(payload))

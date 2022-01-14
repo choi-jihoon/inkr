@@ -7,7 +7,11 @@ function EditPostModal({ image }) {
 
   return (
     <>
-      <button className='edit-post-icon' onClick={() => setShowModal(true)}><i className="fas fa-edit"></i></button>
+      <button
+        className='edit-post-icon'
+        onClick={() => setShowModal(true)}>
+        <i className="fas fa-edit"></i>
+      </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <EditPostForm showModal={setShowModal} image={image} />

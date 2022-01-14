@@ -5,8 +5,6 @@ h2#favorites-header {
     font-size: 10px;
 }
 
-
-
 #favorites-title-container {
     display: flex;
     flex-direction: column;

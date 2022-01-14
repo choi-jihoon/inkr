@@ -7,7 +7,11 @@ function EditMyProfileModal({ myProfile }) {
 
   return (
     <>
-      <button className='edit-my-profile-button' onClick={() => setShowModal(true)}><i className="fas fa-edit edit-profile"></i></button>
+      <button
+        className='edit-my-profile-button'
+        onClick={() => setShowModal(true)}>
+        <i className="fas fa-edit edit-profile"></i>
+      </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <EditMyProfileForm showModal={setShowModal} myProfile={myProfile} />

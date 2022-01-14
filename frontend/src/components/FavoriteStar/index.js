@@ -158,7 +158,9 @@ const FavoriteStar = ({ image }) => {
                 <p className='favorites-count'>
                     {count}
                 </p>
-                <div className={isFavorite.length ? `favorite-star-container favorited favorited-${image.id}` : `favorite-star-container not-favorited not-favorited-${image.id}`}>
+                <div className={isFavorite.length ?
+                    `favorite-star-container favorited favorited-${image.id}`
+                    : `favorite-star-container not-favorited not-favorited-${image.id}`}>
                     {icon}
                 </div>
 

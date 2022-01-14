@@ -24,8 +24,10 @@ const MyProfile = () => {
     }, [dispatch])
 
     return (
-        <div className='main-container my-profile-container' id='my-profile-container'>
-            <div className='title-container' id='my-profile-title-container'>
+        <div className='main-container my-profile-container'
+            id='my-profile-container'>
+            <div className='title-container'
+                id='my-profile-title-container'>
                 <h2 className='my-profile-header'>My Profile</h2>
             </div>
             <div className='my-profile-content'>
@@ -33,7 +35,9 @@ const MyProfile = () => {
                 <div className='image-and-name'>
                     <div className='my-profile-image-div-container'>
                         <div className='my-profile-image-div'>
-                            <img className='my-profile-image' src={myProfile?.profilePic} alt={`${myProfile?.User.username}'s profile`}></img>
+                            <img className='my-profile-image'
+                                src={myProfile?.profilePic}
+                                alt={`${myProfile?.User.username}'s profile`}></img>
                         </div>
                     </div>
                     <div className='my-profile-username'>
@@ -46,11 +50,15 @@ const MyProfile = () => {
                     <div className='my-profile'>
                         <div className='my-profile-name-container profile-info'>
                             <div id='artist-profile-username'>
-                                <p className='artist-profile-label'>Full Name: <span className='profile-location-text'>{myProfile?.fullName}</span></p>
+                                <p className='artist-profile-label'>
+                                    Full Name: <span className='profile-location-text'>{myProfile?.fullName}</span>
+                                </p>
                             </div>
                         </div>
                         <div className='my-profile-location profile-info'>
-                            <p className='artist-profile-label'>Location: <span className='profile-location-text'>{myProfile?.location}</span></p>
+                            <p className='artist-profile-label'>
+                                Location: <span className='profile-location-text'>{myProfile?.location}</span>
+                            </p>
                         </div>
                         <div className='my-profile-specialties profile-info'>
                             <p className='artist-profile-label'>Specialties</p>
@@ -64,7 +72,6 @@ const MyProfile = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     )

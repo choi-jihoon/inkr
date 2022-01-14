@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteArtistReview, getArtistReviews } from '../../store/artist';
+import { deleteArtistReview } from '../../store/artist';
 
 function DeleteReviewForm({ showModal, review }) {
     const dispatch = useDispatch();
@@ -13,7 +13,6 @@ function DeleteReviewForm({ showModal, review }) {
         }
 
         dispatch(deleteArtistReview(payload));
-
         showModal(false);
     };
 
@@ -21,7 +20,6 @@ function DeleteReviewForm({ showModal, review }) {
         e.preventDefault();
         showModal(false);
     }
-
 
     return (
         <form onSubmit={handleSubmit}>

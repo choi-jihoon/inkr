@@ -9,7 +9,6 @@ import './Reviews.css';
 function Reviews({ artistId }) {
     const dispatch = useDispatch();
 
-
     useEffect(() => {
         dispatch(getArtistReviews(artistId));
     }, [dispatch, artistId])
@@ -26,7 +25,6 @@ function Reviews({ artistId }) {
                     )
                 })}
             </div> : null}
-
         </>
     )
 

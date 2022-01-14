@@ -1,7 +1,12 @@
 .page-not-found {
-    position: fixed;
-    top: 35%;
-    left: 34%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-not-found-body {
     display: flex;
     flex-direction: column;
     justify-content: center;
