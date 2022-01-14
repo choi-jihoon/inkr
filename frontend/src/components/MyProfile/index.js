@@ -16,7 +16,7 @@ const MyProfile = () => {
     const myProfile = sessionProfile[0];
 
     if (!sessionUser) {
-        history.push('/');
+        history.push('/page-not-found');
     }
 
     useEffect(() => {

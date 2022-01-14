@@ -8,13 +8,25 @@ header {
     width: 100%;
     z-index: 2;
     max-height: 75.61px;
-    min-width: 1242px;
+    min-width: 1401px;
+}
+
+#splash-page-header {
+    min-width: 1074px;
+}
+
+#splash-page-nav-bar {
+    display: grid;
+    grid-template-columns: 150px 8fr auto;
+    width: 90%;
+    padding: 15px 0;
+    text-align: center;
 }
 
 .nav-bar {
     display: grid;
-    grid-template-columns: 150px 8fr auto;
-    width: 90%;
+    grid-template-columns: 150px auto 500px;
+    width: 85%;
     padding: 15px 0;
     text-align: center;
 }
@@ -67,7 +79,7 @@ header {
     justify-self: flex-end;
     flex-direction: column;
     position: relative;
-    width: fit-content;
+    width: 100%;
     height: 100%;
 }
 
@@ -82,11 +94,27 @@ header {
     font-size: 18px;
 }
 
+#right-container > .session-links {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.right-container-element {
+    margin-left: 15px;
+}
+
+.nav-butt.right-container-element.new-post-button {
+    margin-left: 15px;
+}
+
 
 /* %%%%%%%%%%%%%%%%%%%%% New Post Button %%%%%%%%%%%%%%%%%%%%% */
 
 .new-post-button.nav-butt {
     width: fit-content;
+    margin-right: 0;
+    padding: 0;
 }
 
 .fa-cloud-upload-alt {
@@ -103,7 +131,7 @@ header {
 
 /* %%%%%%%%%%%%%%%%%%%%% Logout Button %%%%%%%%%%%%%%%%%%%%% */
 
-.logout {
+/* .logout {
     border: none;
     display: inline-block;
     margin: 0;
@@ -115,14 +143,28 @@ header {
     text-align: center;
     padding: 5px 20px;
     border-radius: 3px;
-    /* margin-left: 15px; */
+
     transition-duration: 0.2s;
 }
 
 .logout:hover {
     color: #0000007a;
-    /* opacity: 80%; */
+
     transform: scale(1.03);
+} */
+
+.logout {
+    border: none;
+    background: none;
+    color: whitesmoke;
+    font-size: 25px;
+    transition-duration: 0.3s;
+}
+
+.logout:hover {
+    transform: scale(1.5);
+    color: white;
+    cursor: pointer;
 }
 
 
@@ -142,8 +184,8 @@ header {
     font-family: proxima-nova, sans-serif;
     font-weight: 400;
     font-style: normal;
-    padding: 0 30px 0 0;
-    margin-right: 20px;
+    padding: 0 25px 0 0;
+    margin-right: 15px;
     transition-duration: 0.2s;
 }
 

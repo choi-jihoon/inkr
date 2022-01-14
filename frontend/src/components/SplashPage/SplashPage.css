@@ -19,6 +19,7 @@ body {
     z-index: 10;
     color: var(--soft-white);
     opacity: 1;
+    min-width: 593px;
 }
 
 .body-text h1 {

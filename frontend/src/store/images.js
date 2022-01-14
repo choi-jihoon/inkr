@@ -8,6 +8,9 @@ const UNFAVORITE = 'images/UNFAVORITE'
 const EDIT_POST = 'images/EDIT_POST';
 const DELETE = 'images/DELETE'
 
+
+
+
 export const getAllImages = (state) => Object.values(state.images);
 
 const load = (images) => ({

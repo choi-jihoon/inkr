@@ -6,6 +6,7 @@ import * as sessionActions from '../../store/session';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import ImageFormModal from '../ImageFormModal';
+import SearchForm from '../Search/SearchForm.js';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -25,9 +26,10 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <li className='welcome-text'>Welcome, {sessionUser.username}!</li>
+        <SearchForm />
+        {/* <li className='welcome-text'>Welcome, {sessionUser.username}!</li> */}
         <ImageFormModal />
-        <button className='logout' onClick={logout}>Log Out</button>
+        <button className='logout right-container-element' onClick={logout}><i className="fas fa-sign-out-alt"></i></button>
       </>
     );
 
@@ -61,8 +63,8 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <header>
-      <nav className='nav-bar'>
+    <header id={!sessionUser && 'splash-page-header'}>
+      <nav className='nav-bar' id={!sessionUser && 'splash-page-nav-bar'}>
         <div className='navbar-element' id='left-container'>
           <NavLink exact to="/">
             <img className='inkr-dots' src='/images/black-and-white.png' alt='inkr dots' />
