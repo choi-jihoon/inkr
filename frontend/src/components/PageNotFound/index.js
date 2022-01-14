@@ -6,13 +6,11 @@ import './PageNotFound.css';
 export default function PageNotFound() {
     const history = useHistory();
 
-
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         history.push('/')
-    //     }, 3000)
-    // }, [])
-
+    useEffect(() => {
+        setTimeout(() => {
+            history.push('/')
+        }, 3000)
+    }, [])
 
     return (
         <div className='page-not-found'>
