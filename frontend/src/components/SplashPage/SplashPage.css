@@ -7,19 +7,25 @@ body {
     /* background-color: var(--chocolate); */
 }
 
+.splash-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .body-text {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    top: 33%;
-    margin: 0 25% 25%;
-    position: absolute;
+    margin: 0 auto;
+    position: relative;
     text-align: center;
     z-index: 10;
     color: var(--soft-white);
     opacity: 1;
-    min-width: 593px;
+    min-width: 675px;
 }
 
 .body-text h1 {
