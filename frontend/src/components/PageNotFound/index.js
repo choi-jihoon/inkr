@@ -10,7 +10,7 @@ export default function PageNotFound() {
         setTimeout(() => {
             history.push('/')
         }, 3000)
-    }, [])
+    }, [history])
 
     return (
         <div className='page-not-found'>

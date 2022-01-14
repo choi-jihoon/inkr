@@ -21,7 +21,7 @@ const MyProfile = () => {
 
     useEffect(() => {
         dispatch(getMyProfile(sessionUser.id))
-    }, [dispatch])
+    }, [dispatch, sessionUser.id])
 
     return (
         <div className='main-container my-profile-container'
