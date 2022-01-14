@@ -14,7 +14,7 @@ body {
 #splash-page-nav-bar {
     display: grid;
     grid-template-columns: 150px 8fr auto;
-    width: 90%;
+    width: 85%;
     padding: 15px 0;
     text-align: center;
 }
