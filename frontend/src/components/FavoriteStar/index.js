@@ -30,7 +30,6 @@ const FavoriteStar = ({ image }) => {
         setFavorite(!favorite);
         anim.current?.play();
 
-        setCount(prevState => prevState + 1);
 
         const makeVisible = document.querySelector(`.not-favorited-${image.id}`);
         makeVisible.style.visibility = 'visible';
@@ -62,7 +61,9 @@ const FavoriteStar = ({ image }) => {
             currStar.classList.add('favorited');
             currStar.classList.add(`favorited-${image.id}`);
             currStar.classList.remove(`not-favorited-${image.id}`)
+            setCount(prevState => prevState + 1);
         }, 2000)
+
     }
 
     const handleUnfavorite = async (e) => {
@@ -71,7 +72,6 @@ const FavoriteStar = ({ image }) => {
         // for lottie animation
         setFavorite(!favorite);
 
-        setCount(prevState => prevState - 1);
 
         // changes icon to not favorited
         setIcon(notFavoritedIcon);
@@ -98,6 +98,7 @@ const FavoriteStar = ({ image }) => {
         }
 
         dispatch(decrementFavoriteCount(payload2, sessionUser.id))
+        setCount(prevState => prevState - 1);
     }
 
 
