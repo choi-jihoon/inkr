@@ -65,6 +65,10 @@ function DeveloperProfile({ artistId }) {
                                         href='https://gotta-latte-do.herokuapp.com/'>
                                         <span className='gotta-latte-do-link'>Gotta Latte Do</span>
                                     </a>
+                                    <a target="_blank" rel="noreferrer noopener"
+                                        href='https://split-a-bill.herokuapp.com/'>
+                                            <span className='split-a-bill-link'>Split a Bill</span>
+                                        </a>
                                 </p>
                             </div>
 
