@@ -11,7 +11,8 @@ function ImageForm({ showModal }) {
   const history = useHistory();
   const location = useLocation();
 
-  const [imageUrl, setImageUrl] = useState('');
+  // const [imageUrl, setImageUrl] = useState('');
+  const [image, setImage] = useState(null);
   const [tags, setTags] = useState([])
   const [validationErrors, setValidationErrors] = useState([]);
   const sessionUser = useSelector(state => state.session.user);
@@ -27,7 +28,7 @@ function ImageForm({ showModal }) {
 
     const payload = {
       userId: sessionUser.id,
-      imageUrl,
+      image,
       tags: tagsArr
     }
 
@@ -42,15 +43,20 @@ function ImageForm({ showModal }) {
     showModal(false)
   };
 
+  const updateFile = (e) => {
+    const file = e.target.files[0];
+    if (file) setImage(file);
+  };
+
 
   useEffect(() => {
     const errors = [];
-    if (!imageUrl.length) errors.push("You can't make a post without a url... obviously.");
+    // if (!imageUrl.length) errors.push("You can't make a post without a url... obviously.");
     if (tags.indexOf(' ') >= 0) errors.push("I know this sounds crazy, but you can't have spaces in your tags. Separate them by commas.");
-    if (!imageUrl.match(/^https?:\/\/.+\/.+$/) && imageUrl.length > 0) errors.push("My spidey senses tell me that's not a valid url.")
+    // if (!imageUrl.match(/^https?:\/\/.+\/.+$/) && imageUrl.length > 0) errors.push("My spidey senses tell me that's not a valid url.")
 
     setValidationErrors(errors);
-  }, [tags, imageUrl])
+  }, [tags])
 
 
   return (
@@ -67,13 +73,16 @@ function ImageForm({ showModal }) {
         ))}
       </ul>
       <div className='form-element'>
-        <input
+        <label>
+          <input type="file" onChange={updateFile} />
+        </label>
+        {/* <input
           type="text"
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
           placeholder='Image URL'
           required
-        />
+        /> */}
       </div>
       <div className='form-element'>
         <label className='form-label'>Tags (Optional)</label>

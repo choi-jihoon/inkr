@@ -1,19 +1,10 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { check } = require('express-validator');
 
-const { handleValidationErrors } = require('../../utils/validation');
 const { Image, User, Favorite } = require('../../db/models');
+const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3');
 
 const router = express.Router();
-
-const validateImage = [
-    check('imageUrl')
-        .exists({ checkFalsy: true })
-        .isURL()
-        .withMessage('Please provide a valid image url.'),
-    handleValidationErrors,
-];
 
 router.get('/', asyncHandler(async function (_req, res) {
     const images = await Image.findAll({
@@ -29,9 +20,16 @@ router.get('/', asyncHandler(async function (_req, res) {
 
 router.post(
     '/',
-    validateImage,
+    singleMulterUpload('image'),
     asyncHandler(async function (req, res) {
-        const newImage = await Image.create(req.body);
+        const { userId, tags } = req.body;
+        const imageUrl = await singlePublicFileUpload(req.file);
+        const newImage = await Image.create({
+            userId,
+            imageUrl,
+            tags
+        });
+
         const image = await Image.findByPk(newImage.id, {
             include: [
                 { model: User },

@@ -7,7 +7,8 @@ import './EditMyProfileForm.css';
 function EditMyProfileForm({ showModal, myProfile }) {
     const dispatch = useDispatch();
 
-    const [profilePic, setProfilePic] = useState(myProfile.profilePic ? myProfile.profilePic : '');
+    const [image, setImage] = useState(null);
+    // const [profilePic, setProfilePic] = useState(myProfile.profilePic ? myProfile.profilePic : '');
     const [fullName, setFullName] = useState(myProfile.fullName ? myProfile.fullName : '');
     const [location, setLocation] = useState(myProfile.location ? myProfile.location : '');
     const [specialties, setSpecialties] = useState(myProfile.specialties ? myProfile.specialties.join(', ') : []);
@@ -24,9 +25,13 @@ function EditMyProfileForm({ showModal, myProfile }) {
             setSpecialties(specialtiesArr);
         };
 
+        let profilePic;
+        if (!image) profilePic = myProfile.profilePic;
+
         const payload = {
             id: myProfile.id,
             userId: myProfile.userId,
+            image,
             profilePic,
             fullName,
             location,
@@ -38,15 +43,20 @@ function EditMyProfileForm({ showModal, myProfile }) {
         showModal(false)
     };
 
+    const updateFile = (e) => {
+        const file = e.target.files[0];
+        if (file) setImage(file);
+    };
+
     useEffect(() => {
         const errors = [];
 
-        if ((!profilePic.match(/^https?:\/\/.+\/.+$/)
-            && profilePic !== '/images/default-pic.jpg'
-            && profilePic !== '/images/fionaprofpic.jpg'
-            && profilePic !== '/images/profpic-grace.PNG'
-            && profilePic !== '/images/banulprof.JPG')
-            || !profilePic.length) errors.push('Please provide a valid image url for your profile picture.')
+        // if ((!profilePic.match(/^https?:\/\/.+\/.+$/)
+        //     && profilePic !== '/images/default-pic.jpg'
+        //     && profilePic !== '/images/fionaprofpic.jpg'
+        //     && profilePic !== '/images/profpic-grace.PNG'
+        //     && profilePic !== '/images/banulprof.JPG')
+        //     || !profilePic.length) errors.push('Please provide a valid image url for your profile picture.')
 
         if (description.length > 255) errors.push("That's a bit... long. Can you keep it under 255 characters?");
         if (specialties.length > 255) errors.push("So many specialties! How about narrowing it down to 255 characters?");
@@ -54,7 +64,7 @@ function EditMyProfileForm({ showModal, myProfile }) {
         if (fullName.length > 50) errors.push("That's a really nice name you got there. Could you abbreviate it to 50 characters or less?");
 
         setValidationErrors(errors);
-    }, [description, specialties, location, fullName, profilePic]);
+    }, [description, specialties, location, fullName]);
 
 
     return (
@@ -72,12 +82,13 @@ function EditMyProfileForm({ showModal, myProfile }) {
             </ul>
             <div className='form-element'>
                 <label className='form-label'>Profile Pic</label>
-                <input
+                {/* <input
                     type="text"
                     value={profilePic}
                     onChange={(e) => setProfilePic((e.target.value))}
                     placeholder='Profile Pic URL'
-                />
+                /> */}
+                <input type="file" onChange={updateFile} />
             </div>
             <div className='form-element'>
                 <label className='form-label'>Full Name</label>
