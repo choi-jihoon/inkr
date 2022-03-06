@@ -26,9 +26,20 @@ export const getMyProfile = (id) => async (dispatch) => {
 }
 
 export const editMyProfile = (data) => async (dispatch) => {
+    const { fullName, location, description, specialties, image, profilePic } = data;
+    const formData = new FormData();
+    if (fullName) formData.append('fullName', fullName);
+    if (location) formData.append('location', location);
+    if (description) formData.append('description', description);
+    if (specialties) formData.append('specialties', specialties);
+    if (profilePic) formData.append('profilePic', profilePic);
+    if (image) formData.append('image', image);
     const response = await csrfFetch(`/api/profiles/${data.id}`, {
         method: 'PUT',
-        body: JSON.stringify(data)
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+        body: formData,
     })
 
     if (response.ok) {

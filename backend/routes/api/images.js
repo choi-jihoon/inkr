@@ -1,20 +1,10 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { check } = require('express-validator');
 
-const { handleValidationErrors } = require('../../utils/validation');
 const { Image, User, Favorite } = require('../../db/models');
 const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3');
 
 const router = express.Router();
-
-const validateImage = [
-    check('imageUrl')
-        .exists({ checkFalsy: true })
-        .isURL()
-        .withMessage('Please provide a valid image url.'),
-    handleValidationErrors,
-];
 
 router.get('/', asyncHandler(async function (_req, res) {
     const images = await Image.findAll({
@@ -30,7 +20,6 @@ router.get('/', asyncHandler(async function (_req, res) {
 
 router.post(
     '/',
-    // validateImage,
     singleMulterUpload('image'),
     asyncHandler(async function (req, res) {
         const { userId, tags } = req.body;
