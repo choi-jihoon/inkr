@@ -4,6 +4,7 @@ const { check } = require('express-validator');
 
 const { handleValidationErrors } = require('../../utils/validation');
 const { Image, User, Favorite } = require('../../db/models');
+const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3');
 
 const router = express.Router();
 
@@ -29,9 +30,17 @@ router.get('/', asyncHandler(async function (_req, res) {
 
 router.post(
     '/',
-    validateImage,
+    // validateImage,
+    singleMulterUpload('image'),
     asyncHandler(async function (req, res) {
-        const newImage = await Image.create(req.body);
+        const { userId, tags } = req.body;
+        const imageUrl = await singlePublicFileUpload(req.file);
+        const newImage = await Image.create({
+            userId,
+            imageUrl,
+            tags
+        });
+
         const image = await Image.findByPk(newImage.id, {
             include: [
                 { model: User },
